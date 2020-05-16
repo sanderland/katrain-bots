@@ -1,7 +1,8 @@
 import json
 import os
 import sys
-from bots.settings import bot_strategy_names, greetings
+from settings import bot_strategy_names, greetings
+from katrain.core.common import find_package_resource
 
 if len(sys.argv) < 2:
     exit(0)
@@ -22,13 +23,13 @@ else:
 
 username = f"katrain-{bot}"
 
-with open("katrain/config.json") as f:
+with open(find_package_resource("katrain/config.json")) as f:
     settings = json.load(f)
     all_ai_settings = settings["ai"]
 
 ai_settings = all_ai_settings[bot_strategy_names[bot]]
 
-with open("my/apikey.json") as f:
+with open("secret/apikey.json") as f:
     apikeys = json.load(f)
 
 if bot not in greetings or username not in apikeys:
@@ -43,6 +44,6 @@ if settings:
     GREETING += f" Settings: {settings_dump}."
 BYEMSG = "Thank you for playing. If you have any feedback, please message my admin! "
 
-cmd = f'{GTP2OGS} --debug --apikey {APIKEY} --rejectnewfile ~/shutdown_bots --username {username} --greeting "{GREETING}" --farewell "{BYEMSG}"  {BOT_SETTINGS} --farewellscore --aichat --noclock --nopause --speeds blitz,live  --persist --minrank 25k  -- python bots/ai2gtp.py {bot} {port}'
+cmd = f'{GTP2OGS} --debug --apikey {APIKEY} --rejectnewfile ~/shutdown_bots --username {username} --greeting "{GREETING}" --farewell "{BYEMSG}"  {BOT_SETTINGS} --farewellscore --aichat --noclock --nopause --speeds blitz,live  --persist --minrank 25k  -- python ai2gtp.py {bot} {port}'
 print(f"starting bot {username} using server port {port} --> {cmd}")
 os.system(cmd)

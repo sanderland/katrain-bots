@@ -12,7 +12,7 @@ from katrain.core.engine import KataGoEngine
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8587
 
 ENGINE_SETTINGS = {
-    "katago": "katago25",
+    "katago": "katago/katago25",
     "model": "katrain/models/g170e-b15c192-s1672170752-d466197061.bin.gz",
     "config": "katrain/KataGo/analysis_config.cfg",
     "max_visits": 50,

@@ -14,7 +14,7 @@ from katrain.core.engine import KataGoEngine
 from katrain.core.game import Game
 import json
 
-DB_FILENAME = "bots/ai_performance.pickle"
+DB_FILENAME = "ai_performance.pickle"
 
 
 class Logger:
@@ -34,9 +34,9 @@ with open("config.json") as f:
 
 class AI:
     DEFAULT_ENGINE_SETTINGS = {
-        "katago": "KataGo/katago",
-        "model": "KataGo/models/b15-1.3.2.txt.gz",
-        "config": "bots/lowmem.cfg",
+        "katago": "katrain/KataGo/katago",
+        "model": "katrain/models/g170e-b15c192-s1672170752-d466197061.bin.gz",
+        "config": "lowmem.cfg",
         "max_visits": 1,
         "max_time": 300.0,
         "_enable_ownership": False,
