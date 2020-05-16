@@ -2,7 +2,6 @@ import json
 import os
 import sys
 from settings import bot_strategy_names, greetings
-from katrain.core.common import find_package_resource
 
 if len(sys.argv) < 2:
     exit(0)
@@ -23,7 +22,7 @@ else:
 
 username = f"katrain-{bot}"
 
-with open(find_package_resource("katrain/config.json")) as f:
+with open("config.json") as f:
     settings = json.load(f)
     all_ai_settings = settings["ai"]
 
