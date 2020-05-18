@@ -16,16 +16,18 @@ KEYWORDS = ["error", STARTING, ENDING, "game over"]
 LOGFILE = "logs/log"
 
 active_bots = {bot: 0 for bot in bots}
+active_bots["all_started"] = 0
+started_count = 0
 
 with open(LOGFILE, "a") as logf:
 
     def print_stats():
         total = 0
         for bot, num in active_bots.items():
-            total += num
-            if num > 0:
+            if num > 0 and not bot.startswith("all"):
+                total += num
                 print(f"\t{bot}: {num} active games")
-        print(f"\ttotal: {total} active games")
+        print(f"\ttotal: {total} active games, {active_bots['all_started']} started in this session")
 
     def read(io, tag):
         while not shutting_down:
@@ -38,6 +40,7 @@ with open(LOGFILE, "a") as logf:
                 print(tagline)
             if STARTING in line.lower():
                 active_bots[tag] += 1
+                active_bots["all_started"] += 1
                 print_stats()
             if ENDING in line.lower():
                 active_bots[tag] -= 1
