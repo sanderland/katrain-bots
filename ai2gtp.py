@@ -173,7 +173,7 @@ while True:
         score = game.current_node.format_score()
         game.game_id += f"_{score}"
         sgf = game.write_sgf(
-            "sgf_ogs/", trainer_config={"eval_show_ai": True, "save_feedback": {}, "eval_thresholds": {}}
+            "sgf_ogs/", trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
         )
         logger.log(f"Game ended. Score was {score} -> saved sgf to {sgf}", OUTPUT_ERROR)
         print(f"= {score}\n")

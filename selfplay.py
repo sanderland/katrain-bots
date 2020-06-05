@@ -157,7 +157,7 @@ def play_games(black: AI, white: AI):
             time.sleep(0.001)
         game.game_id += f"_{game.current_node.format_score()}"
         sgf_out_msg = game.write_sgf(
-            "sgf_selfplay/", trainer_config={"eval_show_ai": True, "save_feedback": {}, "eval_thresholds": {}}
+            "sgf_selfplay/", trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": [0]}
         )
         print(
             f"{tag}\tGame finished in {time.time()-start_time:.1f}s @ move {game.current_node.depth} {game.current_node.format_score()} -> {sgf_out_msg}",
