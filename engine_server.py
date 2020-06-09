@@ -6,7 +6,7 @@ import sys
 import threading
 import traceback
 
-from katrain.core.common import OUTPUT_INFO
+from katrain.core.constants import OUTPUT_INFO
 from katrain.core.engine import KataGoEngine
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8587

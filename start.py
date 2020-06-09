@@ -12,8 +12,9 @@ bots = sys.argv[2:]
 shutting_down = False
 
 STARTING, ENDING = "starting new bot", "bot exited"
-KEYWORDS = ["error", STARTING, ENDING, "game over"]
-LOGFILE = "logs/log"
+KEYWORDS = ["error", STARTING, ENDING, "game over", "rejecting challenge"]
+IGNORE = ["[Kivy", "[Python", "[GCC", "[Logger"]
+LOGFILE = f"logs/log{port}"
 
 active_bots = {bot: 0 for bot in bots}
 active_bots["all_started"] = 0
@@ -35,7 +36,10 @@ with open(LOGFILE, "a") as logf:
             if not line.strip():
                 continue
             tagline = f"[{tag}] {line}"
-            logf.write(tagline + "\n")
+            if not any(kw in line for kw in IGNORE):
+                logf.write(tagline + "\n")
+                logf.flush()
+
             if any(kw in line.lower() for kw in KEYWORDS):
                 print(tagline)
             if STARTING in line.lower():
