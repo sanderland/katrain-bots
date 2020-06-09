@@ -11,11 +11,13 @@ port = int(sys.argv[2]) if len(sys.argv) > 2 else 8587
 
 MAXGAMES = 10
 GTP2OGS = "node ../gtp2ogs"
+GTP2OGS = "node ../mygtp2ogs"
+
 BOT_SETTINGS = f" --maxconnectedgames {MAXGAMES} --maxhandicapunranked 25 --maxhandicapranked 1 --boardsizesranked 19 --boardsizesunranked all --komisranked automatic,5.5,6.5,7.5 --komisunranked all "
 if "beta" in bot:
     BOT_SETTINGS += " --beta"
 else:
-    BOT_SETTINGS += "--rankedonly "  # --rankedonly"
+    BOT_SETTINGS += "" # "--rankedonly "
 
 username = f"katrain-{bot}"
 

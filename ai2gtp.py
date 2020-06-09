@@ -3,6 +3,12 @@ import json
 import random
 import sys
 import time
+import os
+import json
+import traceback
+import math
+os.environ["KCFG_KIVY_LOG_LEVEL"] = os.environ.get("KCFG_KIVY_LOG_LEVEL", "warning")
+
 
 from katrain.core.ai import generate_ai_move
 from katrain.core.base_katrain import KaTrainBase
@@ -39,6 +45,7 @@ with open("config.json") as f:
     settings = json.load(f)
     all_ai_settings = settings["ai"]
 
+sgf_dir = "sgf_ogs/"
 
 ai_strategy, x_ai_settings, x_engine_settings = bot_strategies[bot]
 ai_settings = {**all_ai_settings[ai_strategy], **x_ai_settings}
@@ -50,7 +57,14 @@ print("setup: ", ai_strategy, ai_settings, engine.override_settings, file=sys.st
 print(ENGINE_SETTINGS, file=sys.stderr)
 print(ai_strategy, ai_settings, file=sys.stderr)
 
-game = Game(Logger(), engine)
+game = Game(Logger(), engine, game_properties={"SZ": 19, "PW": "OGS", "PB": "OGS"})
+
+def rank_to_string(r):
+    r = math.floor(r)
+    if r >= 30:
+        return f"{r - 30 + 1}d"
+    else:
+        return f"{30 - r}k"
 
 
 def malkovich_analysis(cn):
@@ -88,9 +102,9 @@ def malkovich_analysis(cn):
 
 
 while True:
-    line = input()
+    line = input().strip()
     logger.log(f"GOT INPUT {line}", OUTPUT_ERROR)
-    if "boardsize" in line:
+    if line.startswith("boardsize"):
         _, *size = line.strip().split(" ")
         if len(size) > 1:
             size = f"{size[0]}:{size[1]}"
@@ -98,12 +112,12 @@ while True:
             size = int(size[0])
         game = Game(Logger(), engine, game_properties={"SZ": size, "PW": "OGS", "PB": "OGS"})
         logger.log(f"Init game {game.root.properties}", OUTPUT_ERROR)
-    elif "komi" in line:
+    elif line.startswith("komi"):
         _, komi = line.split(" ")
         game.root.set_property("KM", komi.strip())
         game.root.set_property("RU", "chinese")
         logger.log(f"Setting komi {game.root.properties}", OUTPUT_ERROR)
-    elif "place_free_handicap" in line:
+    elif line.startswith("place_free_handicap"):
         _, n = line.split(" ")
         n = int(n)
         game.place_handicap_stones(n)
@@ -123,7 +137,7 @@ while True:
         while engine.queries:  # and make sure this gets processed
             time.sleep(0.001)
         continue
-    elif "set_free_handicap" in line:
+    elif line.startswith("set_free_handicap"):
         _, *stones = line.split(" ")
         game.root.set_property("AB", [Move.from_gtp(move.upper()).sgf(game.board_size) for move in stones])
         game._calculate_groups()
@@ -131,7 +145,7 @@ while True:
         while engine.queries:  # and make sure this gets processed
             time.sleep(0.001)
         logger.log(f"Set handicap placements to {game.root.get_list_property('AB')}", OUTPUT_ERROR)
-    elif "genmove" in line:
+    elif line.startswith("genmove"):
         _, player = line.strip().split(" ")
         if player[0].upper() != game.current_node.next_player:
             logger.log(
@@ -165,22 +179,43 @@ while True:
         sys.stdout.flush()
         malkovich_analysis(game.current_node)
         continue
-    elif "play" in line:
+    elif line.startswith("play"):
         _, player, move = line.split(" ")
         node = game.play(Move.from_gtp(move.upper(), player=player[0].upper()), analyze=False)
         logger.log(f"played {player} {move}", OUTPUT_ERROR)
-    elif "final_score" in line:
+    elif line.startswith("final_score"):
+        logger.log("line=" + line, OUTPUT_ERROR)
+        if "{" in line:
+            gamedata_str = line[12:]
+            game.root.set_property("C", f"AI {ai_strategy} {ai_settings}\nOGS Gamedata: {gamedata_str}")
+            try:
+                gamedata = json.loads(gamedata_str)
+                game.root.set_property(
+                    "PW", f"{gamedata['players']['white']['username']} ({rank_to_string(gamedata['players']['white']['rank'])})"
+                )
+                game.root.set_property(
+                    "PB", f"{gamedata['players']['black']['username']} ({rank_to_string(gamedata['players']['black']['rank'])})"
+                )
+                if any(gamedata["players"][p]["username"] == "katrain-dev-beta" for p in ["white", "black"]):
+                    sgf_dir = "sgf_ogs_beta/"
+            except Exception as e:
+                _, _, tb = sys.exc_info()
+                logger.log(f"error while processing gamedata: {e}\n{traceback.format_tb(tb)}", OUTPUT_ERROR)
         score = game.current_node.format_score()
         game.game_id += f"_{score}"
         sgf = game.write_sgf(
-            "sgf_ogs/", trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
+            sgf_dir, trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
         )
         logger.log(f"Game ended. Score was {score} -> saved sgf to {sgf}", OUTPUT_ERROR)
+        sys.stderr.flush()
+        sys.stdout.flush()
+        time.sleep(0.1)  # ensure our logging gets handled
         print(f"= {score}\n")
         sys.stdout.flush()
         continue
-    elif "quit" in line:
+    elif line.startswith("quit"):
         print(f"= \n")
         break
     print(f"= \n")
     sys.stdout.flush()
+    sys.stderr.flush()
