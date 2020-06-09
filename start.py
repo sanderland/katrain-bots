@@ -12,8 +12,8 @@ bots = sys.argv[2:]
 shutting_down = False
 
 STARTING, ENDING = "starting new bot", "bot exited"
-KEYWORDS = ["error", STARTING, ENDING, "game over","rejecting challenge"]
-IGNORE = ["[Kivy","[Python","[GCC","[Logger"]
+KEYWORDS = ["error", STARTING, ENDING, "game over", "rejecting challenge"]
+IGNORE = ["[Kivy", "[Python", "[GCC", "[Logger"]
 LOGFILE = f"logs/log{port}"
 
 active_bots = {bot: 0 for bot in bots}

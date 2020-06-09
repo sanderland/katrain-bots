@@ -17,7 +17,7 @@ BOT_SETTINGS = f" --maxconnectedgames {MAXGAMES} --maxhandicapunranked 25 --maxh
 if "beta" in bot:
     BOT_SETTINGS += " --beta"
 else:
-    BOT_SETTINGS += "" # "--rankedonly "
+    BOT_SETTINGS += ""  # "--rankedonly "
 
 username = f"katrain-{bot}"
 
@@ -27,7 +27,7 @@ with open("config.json") as f:
 
 ai_strategy, x_ai_settings, x_engine_settings = bot_strategies[bot]
 
-ai_settings = {**all_ai_settings[ai_strategy],**x_ai_settings}
+ai_settings = {**all_ai_settings[ai_strategy], **x_ai_settings}
 
 with open("secret/apikey.json") as f:
     apikeys = json.load(f)

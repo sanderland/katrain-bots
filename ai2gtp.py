@@ -7,6 +7,7 @@ import os
 import json
 import traceback
 import math
+
 os.environ["KCFG_KIVY_LOG_LEVEL"] = os.environ.get("KCFG_KIVY_LOG_LEVEL", "warning")
 
 
@@ -58,6 +59,7 @@ print(ENGINE_SETTINGS, file=sys.stderr)
 print(ai_strategy, ai_settings, file=sys.stderr)
 
 game = Game(Logger(), engine, game_properties={"SZ": 19, "PW": "OGS", "PB": "OGS"})
+
 
 def rank_to_string(r):
     r = math.floor(r)
@@ -191,10 +193,12 @@ while True:
             try:
                 gamedata = json.loads(gamedata_str)
                 game.root.set_property(
-                    "PW", f"{gamedata['players']['white']['username']} ({rank_to_string(gamedata['players']['white']['rank'])})"
+                    "PW",
+                    f"{gamedata['players']['white']['username']} ({rank_to_string(gamedata['players']['white']['rank'])})",
                 )
                 game.root.set_property(
-                    "PB", f"{gamedata['players']['black']['username']} ({rank_to_string(gamedata['players']['black']['rank'])})"
+                    "PB",
+                    f"{gamedata['players']['black']['username']} ({rank_to_string(gamedata['players']['black']['rank'])})",
                 )
                 if any(gamedata["players"][p]["username"] == "katrain-dev-beta" for p in ["white", "black"]):
                     sgf_dir = "sgf_ogs_beta/"

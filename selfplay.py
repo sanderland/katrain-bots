@@ -20,7 +20,8 @@ from katrain.core.constants import (
     OUTPUT_INFO,
     AI_PICK,
     AI_TERRITORY,
-    PLAYER_AI, AI_POLICY,
+    PLAYER_AI,
+    AI_POLICY,
 )
 from katrain.core.engine import KataGoEngine
 from katrain.core.game import Game

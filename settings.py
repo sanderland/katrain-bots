@@ -21,10 +21,9 @@ class Logger:
         return self.CONFIG.get(key, default)
 
 
-
 bot_strategies = {
     "dev": (AI_SCORELOSS, {}, {"maxVisits": 500}),
-#    "dev": (AI_POLICY, {}, {}),
+    #    "dev": (AI_POLICY, {}, {}),
     "dev-beta": (AI_WEIGHTED, {}, {}),
     "strong": (AI_POLICY, {}, {}),
     "influence": (AI_INFLUENCE, {}, {}),
