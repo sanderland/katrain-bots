@@ -20,7 +20,7 @@ def calculate_rank_for_player(segment_stats, num_intersec, player):
     num_legal, rank, value = zip(*non_obvious_moves)
     averagemod_rank = averagemod(rank)
     averagemod_len_legal = averagemod(num_legal)
-    n_moves =  math.floor(0.40220696+averagemod_len_legal/(1.313341*averagemod_rank-0.088646986)) # the averagemod_rank is the outlier free average of the best move from a selection of n_moves with averagemod_len_legal of total legal moves
+    n_moves =  math.floor(0.40220696+averagemod_len_legal/(1.313341*(averagemod_rank+1)-0.088646986)) # the averagemod_rank is the outlier free average of the best move from a selection of n_moves with averagemod_len_legal of total legal moves
     rank_kyu = (math.log10(n_moves*361/num_intersec)-1.9482)/-0.05737 # using the calibration curve of p:pick:rank
     return rank_kyu
 
