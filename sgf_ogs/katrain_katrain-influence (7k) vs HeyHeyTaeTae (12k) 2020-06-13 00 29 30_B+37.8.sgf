@@ -1,0 +1,1729 @@
+(;GM[1]FF[4]AP[KaTrain:https://github.com/sanderland/katrain]CA[UTF-8]SZ[19]KM[7.5]DT[2020-06-13 00 29 30]PW[HeyHeyTaeTae (12k)]PB[katrain-influence (7k)]RU[chinese]C[Moves marked 'X' indicate the top move according to KataGo, those with a square are moves that lose less than 0.5 points
+AI ai:p:influence {'pick_override': 0.95, 'pick_n': 5, 'pick_frac': 0.4, 'threshold': 3.5, 'line_weight': 10, 'endgame': 0.4}
+OGS Gamedata: {"white_player_id":642681,"black_player_id":768718,"game_id":24654982,"game_name":"Friendly Match","private":false,"pause_on_weekends":false,"players":{"black":{"username":"katrain-influence","rank":23.337080754315338,"professional":false,"id":768718,"accepted_stones":"ccnenfql","accepted_strict_seki_mode":false},"white":{"username":"HeyHeyTaeTae","rank":18.89931956153075,"professional":false,"id":642681,"accepted_stones":"ccnenfql","accepted_strict_seki_mode":false}},"ranked":true,"disable_analysis":false,"handicap":0,"komi":7.5,"width":19,"height":19,"rules":"chinese","time_control":{"system":"fischer","time_control":"fischer","speed":"live","pause_on_weekends":false,"time_increment":30,"initial_time":120,"max_time":300},"meta_groups":[3211,5460\],"phase":"finished","initial_player":"black","moves":[[3,15,985\],[15,3,1634\],[3,3,176\],[15,15,1329\],[13,2,237\],[12,3,2833\],[13,3,212\],[13,4,1089\],[12,4,206\],[11,3,2969\],[11,4,253\],[10,3,1287\],[14,4,353\],[13,5,1178\],[14,3,285\],[15,2,1229\],[15,4,247\],[16,4,1350\],[16,5,210\],[17,4,1116\],[10,4,280\],[9,3,1284\],[9,4,241\],[8,3,998\],[13,6,233\],[5,3,2913\],[8,4,212\],[2,5,2856\],[6,2,269\],[5,2,1672\],[7,3,301\],[6,1,2197\],[3,5,210\],[7,2,1189\],[6,3,205\],[8,1,1575\],[2,6,226\],[2,4,1251\],[3,4,234\],[2,3,630\],[3,7,212\],[3,2,987\],[5,4,262\],[5,16,4908\],[5,15,297\],[6,15,908\],[5,14,254\],[6,14,678\],[6,13,206\],[4,16,961\],[7,13,202\],[9,9,1549\],[4,2,212\],[4,1,1505\],[4,3,299\],[5,1,1077\],[2,15,266\],[8,16,2768\],[6,10,215\],[12,9,1607\],[2,2,216\],[3,1,1653\],[9,15,296\],[9,12,4295\],[8,15,366\],[7,16,1538\],[9,16,255\],[6,17,1078\],[11,11,212\],[10,10,1669\],[8,10,316\],[10,11,1231\],[11,12,309\],[14,9,1827\],[10,8,246\],[11,10,1537\],[13,8,254\],[13,9,1079\],[13,15,282\],[15,13,1508\],[14,12,240\],[15,11,1094\],[15,12,221\],[16,12,897\],[14,13,194\],[16,13,785\],[15,16,208\],[16,16,1222\],[14,15,222\],[16,15,905\],[8,8,330\],[16,8,3617\],[15,8,324\],[15,9,1225\],[3,16,304\],[4,17,1589\],[16,7,261\],[17,8,2469\],[17,5,296\],[14,1,2265\],[8,9,209\],[2,17,9396\],[3,17,217\],[3,18,815\],[4,15,194\],[7,15,1400\],[10,12,219\],[9,11,1157\],[13,1,310\],[16,1,1539\],[1,5,218\],[1,2,1532\],[12,8,279\],[14,8,1670\],[14,7,259\],[15,7,829\],[15,6,253\],[15,8,1182\],[11,9,208\],[12,11,1486\],[12,12,274\],[13,11,729\],[9,13,328\],[8,12,1644\],[8,13,244\],[7,12,938\],[6,12,316\],[7,11,816\],[6,11,208\],[7,10,808\],[6,9,315\],[7,9,1641\],[7,8,217\],[9,8,924\],[10,9,220\],[9,10,1170\],[9,7,224\],[17,7,2820\],[12,10,259\],[13,10,1326\],[8,11,218\],[12,10,1151\],[10,7,224\],[1,4,2300\],[8,2,207\],[9,2,2300\],[0,4,244\],[1,3,1329\],[15,17,245\],[16,17,1506\],[1,6,236\],[0,3,2286\],[18,4,229\],[17,3,1857\],[1,16,350\],[1,17,1241\],[18,3,227\],[18,2,1915\],[18,5,271\],[17,2,468\],[16,18,228\],[17,18,1549\],[15,18,207\],[17,17,541\],[10,17,294\],[8,17,1582\],[11,1,252\],[10,1,1451\],[0,17,318\],[1,18,1525\],[13,0,301\],[0,5,2237\],[0,6,216\],[16,6,3499\],[11,0,253\],[10,0,1335\],[9,17,207\],[14,0,5678\],[17,6,282\],[16,7,1968\],[14,14,228\],[15,14,1724\],[14,11,218\],[14,10,1089\],[16,11,306\],[15,10,1058\],[13,12,268\],[18,7,2429\],[8,18,217\],[7,18,1338\],[9,18,207\],[0,18,2561\],[2,16,226\],[0,16,1357\],[1,15,195\],[2,18,2039\],[0,4,301\],[6,4,2765\],[4,18,277\],[5,18,1855\],[7,4,264\],[0,5,2459\],[11,2,254\],[4,18,4959\],[12,2,230\],[0,15,1948\],[1,14,212\],[0,14,1027\],[0,13,229\],[0,17,1344\],[1,13,276\],[0,4,2541\],[7,14,220\],[18,6,3610\],[15,5,225\],[10,2,1799\],[14,2,209\],[-1,-1,3481\],[6,5,321\],[-1,-1,853\],[14,5,274\],[-1,-1,1069\],[-1,-1,267\]\],"allow_self_capture":false,"automatic_stone_removal":false,"free_handicap_placement":true,"aga_handicap_scoring":false,"allow_ko":false,"allow_superko":false,"superko_algorithm":"ssk","score_territory":true,"score_territory_in_seki":true,"score_stones":true,"score_handicap":true,"score_prisoners":false,"score_passes":true,"white_must_pass_last":false,"opponent_plays_first_after_resume":false,"strict_seki_mode":false,"initial_state":{"black":"","white":""},"start_time":1592000970,"original_disable_analysis":false,"clock":{"game_id":24654982,"current_player":642681,"black_player_id":768718,"white_player_id":642681,"title":"Friendly Match","last_move":1592001196611,"expiration":1592001496611,"black_time":{"thinking_time":300,"skip_bonus":false},"white_time":{"thinking_time":300,"skip_bonus":false},"pause_delta":0,"expiration_delta":300000,"paused_since":1592001196611,"stone_removal_mode":true,"stone_removal_expiration":1592001497401},"pause_control":{"stone-removal":true},"paused_since":1592001196611,"removed":"ccnenfql","auto_scoring_done":true,"score":{"white":{"total":165.5,"stones":104,"territory":54,"prisoners":0,"scoring_positions":"aabacadaeafagahaiajaabbbcbhbjbacccpaqarasapbrbsbicqcqdsiqjrjsjqkrkskqlrlslrmsmrnsnqorosorpsprqsqsrssgqfrhrgskaoadbebfbgbibkbobqbbcdcfchcjckcpcrcscadbdcdfdidjdkdldmdpdrdaebeceqereafcfqgsgphqhrhshjioipiqirihjjjmjnjojpjhkjkkklkmknkokpkhljlklmlnlplhmimjmqmpnqnaogopoapgphpppqpaqeqfqhqiqqqarbrcrergrirqrrrasbscsdsesfshsrs","handicap":0,"komi":7.5},"black":{"total":203,"stones":101,"territory":102,"prisoners":0,"scoring_positions":"mambeeneefffhfifjfkflfmfnfdgegfggghgigjgkglgmgahbhchehfhghhhihlhmhnhaibicidieifigiliajbjcjdjejfjakbkckdkekfkalblcldlelflambmcmdmemfmcndnenfncodoeogeogknlnmnnniojokolomonokplpmpkqlqmqnqoqlrmrnrorkslsmsnsoslanalbnbecgclcmcncocddedgdhdndodsddefeheiejekelemeoepesebfdfgfofpfqfrfsfagbgcgngpgrgdhjhkhohhiiikiminigjijkjljgkikglilllolgmkmlmmmnmompmanbngnhninjnonbofohooobpcpdpepfpipjpnpopbqcqdqjqpqdrjrkrprisjspsqs","handicap":0,"komi":0}},"winner":768718,"outcome":"37.5 points","end_time":1592001200,"active_game":{"id":24654982,"phase":"play","name":"Friendly Match","player_to_move":768718,"width":19,"height":19,"move_number":0,"paused":0,"private":false,"black":{"username":"katrain-influence","id":768718,"rank":23.337080754315338,"professional":false,"accepted":false,"ratings":{"overall":{"rating":1772.939788017334,"deviation":68.86736847080924,"volatility":0.06251812177813008,"games_played":597}}},"white":{"username":"HeyHeyTaeTae","id":642681,"rank":18.89931956153075,"professional":false,"accepted":false,"ratings":{"overall":{"rating":1591.5590048531208,"deviation":78.09927554111674,"volatility":0.060139720689675824,"games_played":50}}},"time_per_move":31}}
+SGF with review generated by KaTrain.];B[dp]SQ[cp][pq][qd][pc][cd][dp]MA[dc]C[Move 1: B D4
+Score: W+0.7
+Win rate: W 56.7%
+Predicted top move was D17 (W+0.3).
+PV: BD17 D4
+Move was #11 according to policy  (6.00%).
+Top policy move was C4 (8.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D17 (9.14%), Q3 (8.53%), R16 (8.48%), C4 (7.95%), Q17 (7.84%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 149 random moves according to weights. Top 5 among these were D4 (5.87%), D16 (5.61%), Q3 (2.70%), R16 (2.68%), E4 (0.46%) and picked top D4. ];W[pd]SQ[dd][pp]MA[pd]C[Move 2: W Q16
+Score: W+0.7
+Win rate: W 57.0%
+Move was predicted best move
+PV: WQ16 D16 Q4 R3
+Move was #2 according to policy  (25.43%).
+Top policy move was D16 (25.5%).
+];B[dd]SQ[pp][dc][qp]MA[dd]C[Move 3: B D16
+Score: W+0.7
+Win rate: W 56.2%
+Move was predicted best move
+PV: BD16 Q4 R3 Q3
+Move was #1 according to policy  (20.78%).
+Top policy move was D16 (20.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D16 (20.78%), Q4 (19.34%), D17 (14.00%), R4 (9.35%), C16 (8.66%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 148 random moves according to weights. Top 5 among these were D16 (20.78%), Q4 (19.34%), C16 (2.74%), E16 (1.15%), Q5 (1.06%) and picked top D16. ];W[pp]SQ[pq][qp][qq][oq]MA[pp]C[Move 4: W Q4
+Score: W+0.8
+Win rate: W 57.5%
+Move was predicted best move
+PV: WQ4 R3 Q3
+Move was #1 according to policy  (71.24%).
+Top policy move was Q4 (71.2%).
+];B[nc]SQ[qc][nq][nc]MA[qq]C[Move 5: B O17
+Score: W+0.8
+Win rate: W 57.1%
+Predicted top move was R3 (W+0.7).
+PV: BR3 Q3
+Move was #4 according to policy  (10.18%).
+Top policy move was R3 (27.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are R3 (27.41%), R17 (21.85%), O3 (15.55%), O17 (10.18%), R6 (3.70%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 147 random moves according to weights. Top 5 among these were O17 (3.22%), R14 (0.92%), F16 (0.39%), D14 (0.28%), D6 (0.23%) and picked top O17. ];W[md]SQ[cc][qf][lc][fq][oc][md]MA[cq]C[Move 6: W N16
+Score: W+0.6
+Win rate: W 56.3%
+Predicted top move was C3 (W+0.9).
+PV: WC3 D3
+Move was #75 according to policy  (0.03%).
+Top policy move was C3 (20.1%).
+];B[nd]SQ[qc][nq][qq][qn][mc]MA[nd]C[Move 7: B O16
+Score: B+0.0
+Win rate: W 52.0%
+Move was predicted best move
+PV: BO16 O15 N15
+Move was #1 according to policy  (76.66%).
+Top policy move was O16 (76.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are O16 (76.66%), R17 (7.29%), O3 (3.64%), R3 (3.28%), R6 (1.95%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 147 random moves according to weights. Top 5 among these were O16 (76.66%), O3 (1.15%), N17 (0.50%), O4 (0.06%), N4 (0.05%) and picked top O16. ];W[ne]SQ[cq][cc][qf][pf][qg]MA[ne]C[Move 8: W O15
+Score: W+0.0
+Win rate: W 52.7%
+Move was predicted best move
+PV: WO15 N15 N17 N18
+Move was #1 according to policy  (54.56%).
+Top policy move was O15 (54.6%).
+];B[me]SQ[mc][ob][oe]MA[me]C[Move 9: B N15
+Score: B+0.7
+Win rate: B 53.0%
+Move was predicted best move
+PV: BN15 N17 N18 M18
+Move was #1 according to policy  (79.02%).
+Top policy move was N15 (79.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are N15 (79.02%), P18 (8.84%), N17 (6.43%), P15 (2.52%), R17 (0.50%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 146 random moves according to weights. Top 5 among these were N15 (79.02%), P15 (2.52%), N17 (2.03%), Q17 (0.08%), P4 (0.03%) and picked top N15. ];W[ld]SQ[ld][nf][le][lc][mf]MA[mc]C[Move 10: W M16
+Score: B+0.5
+Win rate: B 51.1%
+Predicted top move was N17 (B+0.9).
+PV: WN17 N18 M18
+Move was #2 according to policy  (15.02%).
+Top policy move was N17 (48.5%).
+];B[le]SQ[pc][le][qd]MA[oe]C[Move 11: B M15
+Score: B+0.7
+Win rate: B 52.3%
+Predicted top move was P15 (B+1.0).
+PV: BP15 O14 P16
+Move was #3 according to policy  (5.72%).
+Top policy move was P15 (86.3%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P15 (86.29%), Q17 (5.88%), M15 (5.72%), R16 (0.81%), R17 (0.35%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 145 random moves according to weights. Top 5 among these were M15 (5.72%), R16 (0.26%), K16 (0.05%), R17 (0.04%), L15 (0.02%) and picked top M15. ];W[kd]SQ[ke][mb][nf]MA[kd]C[Move 12: W L16
+Score: B+0.1
+Win rate: W 51.8%
+Move was predicted best move
+PV: WL16 P15 O14 P16
+Move was #1 according to policy  (55.04%).
+Top policy move was L16 (55.0%).
+];B[oe]SQ[ke][pc][qd][qc]MA[oe]C[Move 13: B P15
+Score: B+4.1
+Win rate: B 64.9%
+Move was predicted best move
+PV: BP15 O14 P16 L15
+Move was #1 according to policy  (74.69%).
+Top policy move was P15 (74.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P15 (74.69%), L15 (20.25%), Q17 (4.35%), R16 (0.20%), R17 (0.15%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 144 random moves according to weights. Top 5 among these were P15 (74.69%), L15 (20.25%), P16 (0.01%), J16 (0.01%), Q5 (0.00%) and picked top P15. ];W[nf]MA[nf]C[Move 14: W O14
+Score: B+0.2
+Win rate: W 50.7%
+Move was predicted best move
+PV: WO14 P16 L15 Q15
+Move was #1 according to policy  (99.86%).
+Top policy move was O14 (99.9%).
+];B[od]SQ[pe][of][pc]MA[od]C[Move 15: B P16
+Score: B+0.9
+Win rate: B 53.9%
+Move was predicted best move
+PV: BP16 L15 Q15 M13
+Move was #1 according to policy  (62.17%).
+Top policy move was P16 (62.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P16 (62.17%), Q15 (13.22%), L15 (8.82%), P14 (7.68%), Q17 (6.67%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 143 random moves according to weights. Top 5 among these were P16 (62.17%), Q15 (13.22%), L15 (8.82%), P14 (7.68%), O13 (0.24%) and picked top P16. ];W[pc]SQ[qf][qe][pc][kf][og]MA[ke]C[Move 16: W Q17
+Score: B+0.5
+Win rate: B 51.0%
+Predicted top move was L15 (B+0.7).
+PV: WL15 Q15 M13
+Move was #4 according to policy  (18.97%).
+Top policy move was L15 (24.2%).
+];B[pe]SQ[ke][of][qe][qf][ng]MA[pe]C[Move 17: B Q15
+Score: B+0.7
+Win rate: B 53.0%
+Move was predicted best move
+PV: BQ15 R15 R14 S15
+Move was #1 according to policy  (43.63%).
+Top policy move was Q15 (43.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q15 (43.63%), L15 (17.76%), P14 (13.41%), R14 (11.88%), R15 (7.11%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 143 random moves according to weights. Top 5 among these were Q15 (43.63%), L15 (17.76%), O13 (3.12%), P13 (0.88%), M13 (0.10%) and picked top Q15. ];W[qe]SQ[re][ke][rd][kf]MA[qe]C[Move 18: W R15
+Score: W+0.1
+Win rate: W 53.0%
+Move was predicted best move
+PV: WR15 R14 S15 L15
+Move was #1 according to policy  (50.60%).
+Top policy move was R15 (50.6%).
+];B[qf]SQ[ke]MA[qf]C[Move 19: B R14
+Score: B+1.8
+Win rate: B 58.6%
+Move was predicted best move
+PV: BR14 S15 L15
+Move was #1 according to policy  (78.36%).
+Top policy move was R14 (78.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are R14 (78.36%), O13 (10.94%), L15 (8.68%), R16 (0.69%), R18 (0.46%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 142 random moves according to weights. Top 5 among these were R14 (24.78%), O13 (10.94%), N13 (0.26%), Q13 (0.14%), L13 (0.01%) and picked top R14. ];W[re]SQ[rf][rd][qd]MA[re]C[Move 20: W S15
+Score: B+1.2
+Win rate: B 54.8%
+Move was predicted best move
+PV: WS15 L15 K16
+Move was #1 according to policy  (85.92%).
+Top policy move was S15 (85.9%).
+];B[ke]SQ[rf]MA[ke]C[Move 21: B L15
+Score: B+2.0
+Win rate: B 59.5%
+Move was predicted best move
+PV: BL15 K15 M13 J16
+Move was #1 according to policy  (33.89%).
+Top policy move was L15 (33.9%).
+
+AI thought process: Using policy based strategy, base top 5 moves are L15 (33.89%), S14 (31.20%), O13 (20.85%), N13 (6.78%), Q13 (3.24%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 141 random moves according to weights. Top 5 among these were L15 (33.89%), O13 (20.85%), N13 (6.78%), Q13 (3.24%), P13 (0.49%) and picked top L15. ];W[jd]SQ[jd][mb]MA[je]C[Move 22: W K16
+Score: B+1.9
+Win rate: B 58.6%
+Predicted top move was K15 (B+1.2).
+PV: WK15 M13 J16
+Move was #1 according to policy  (48.77%).
+Top policy move was K16 (48.8%).
+];B[je]SQ[rf][ng]MA[je]C[Move 23: B K15
+Score: B+2.7
+Win rate: B 62.8%
+Move was predicted best move
+PV: BK15 J16 S14 S17
+Move was #1 according to policy  (36.44%).
+Top policy move was K15 (36.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are K15 (36.44%), S14 (35.07%), O13 (16.14%), P13 (4.03%), Q13 (2.60%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 140 random moves according to weights. Top 5 among these were K15 (36.44%), O13 (16.14%), P13 (4.03%), Q13 (2.60%), N13 (1.22%) and picked top K15. ];W[id]SQ[ie][rf][gc][nh][hd]MA[id]C[Move 24: W J16
+Score: B+2.5
+Win rate: B 62.1%
+Move was predicted best move
+PV: WJ16 S14 S17 O13
+Move was #1 according to policy  (33.29%).
+Top policy move was J16 (33.3%).
+];B[ng]SQ[ng][ie]MA[rf]C[Move 25: B O13
+Score: B+3.0
+Win rate: B 64.9%
+Predicted top move was S14 (B+3.5).
+PV: BS14 S17 O13
+Move was #2 according to policy  (27.17%).
+Top policy move was S14 (43.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (43.60%), O13 (27.17%), J15 (8.52%), Q13 (6.46%), P13 (4.28%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 139 random moves according to weights. Top 5 among these were O13 (27.17%), J15 (8.52%), Q13 (6.46%), P13 (4.28%), H14 (0.48%) and picked top O13. ];W[fd]SQ[of][qg][pg][fd]MA[rf]C[Move 26: W F16
+Score: B+2.9
+Win rate: B 64.3%
+Predicted top move was S14 (B+1.7).
+PV: WS14 R13
+Move was #7 according to policy  (0.74%).
+Top policy move was S14 (37.9%).
+];B[ie]SQ[fc][ie]MA[rf]C[Move 27: B J15
+Score: B+2.8
+Win rate: B 64.3%
+Predicted top move was S14 (B+5.0).
+PV: BS14 S17
+Move was #3 according to policy  (4.17%).
+Top policy move was S14 (67.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (67.75%), F17 (10.52%), J15 (4.17%), R6 (2.33%), E18 (2.01%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 139 random moves according to weights. Top 5 among these were J15 (4.17%), P14 (1.59%), E17 (0.32%), F15 (0.27%), Q13 (0.20%) and picked top J15. ];W[cf]SQ[he][pg][qg][mg]MA[rf]C[Move 28: W C14
+Score: B+3.3
+Win rate: B 66.1%
+Estimated point loss: 0.6
+Predicted top move was S14 (B+2.0).
+PV: WS14 R13
+Move was #9 according to policy  (2.02%).
+Top policy move was S14 (29.8%).
+];B[gc]SQ[gc]MA[rf]C[Move 29: B G17
+Score: B+4.9
+Win rate: B 71.2%
+Predicted top move was S14 (B+5.8).
+PV: BS14 S17
+Move was #3 according to policy  (10.17%).
+Top policy move was S14 (60.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (60.08%), E18 (10.18%), G17 (10.17%), F17 (6.56%), H16 (2.99%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 138 random moves according to weights. Top 5 among these were G17 (3.22%), H16 (2.99%), D14 (2.43%), H15 (1.12%), E18 (0.32%) and picked top G17. ];W[fc]SQ[fc][of]MA[gd]C[Move 30: W F17
+Score: B+3.1
+Win rate: B 65.0%
+Predicted top move was G16 (B+2.3).
+PV: WG16 F17
+Move was #2 according to policy  (28.10%).
+Top policy move was G16 (58.0%).
+];B[hd]SQ[gd][rf]MA[hd]C[Move 31: B H16
+Score: B+4.6
+Win rate: B 71.4%
+Move was predicted best move
+PV: BH16 G16 H17 H15
+Move was #1 according to policy  (47.24%).
+Top policy move was H16 (47.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are H16 (47.24%), G16 (29.22%), S14 (8.92%), F18 (7.93%), H15 (3.35%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 137 random moves according to weights. Top 5 among these were H16 (47.24%), G16 (29.22%), H15 (3.35%), D14 (1.57%), G15 (0.04%) and picked top H16. ];W[gb]SQ[he][gb]MA[gd]C[Move 32: W G18
+Score: B+4.7
+Win rate: B 70.0%
+Predicted top move was G16 (B+2.8).
+PV: WG16 H17 H15
+Move was #17 according to policy  (0.16%).
+Top policy move was G16 (40.7%).
+];B[df]MA[hb]C[Move 33: B D14
+Score: B+3.2
+Win rate: B 65.7%
+Estimated point loss: 1.5
+Predicted top move was H18 (B+9.5).
+PV: BH18 H15
+Move was #5 according to policy  (2.44%).
+Top policy move was H18 (70.3%).
+
+AI thought process: Using policy based strategy, base top 5 moves are H18 (70.32%), S14 (16.27%), H17 (5.19%), J17 (3.18%), D14 (2.44%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 136 random moves according to weights. Top 5 among these were D14 (2.44%), H17 (1.64%), S14 (0.51%), G15 (0.50%), H15 (0.15%) and picked top D14. ];W[hc]SQ[dg][hc][gd]MA[he]C[Move 34: W H17
+Score: B+2.1
+Win rate: B 60.9%
+Predicted top move was H15 (B+2.9).
+PV: WH15 G15
+Move was #3 according to policy  (12.23%).
+Top policy move was H15 (40.6%).
+];B[gd]SQ[gd][ce][dg]MA[rf]C[Move 35: B G16
+Score: B+3.0
+Win rate: B 65.0%
+Predicted top move was S14 (B+3.5).
+PV: BS14 D13 E14
+Move was #2 according to policy  (23.46%).
+Top policy move was S14 (36.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (36.03%), G16 (23.46%), C13 (21.43%), C15 (17.07%), D13 (0.29%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 135 random moves according to weights. Top 5 among these were G16 (23.46%), C13 (6.78%), C15 (5.40%), D13 (0.29%), H15 (0.19%) and picked top G16. ];W[ib]SQ[ib][fe][gf]MA[eb]C[Move 36: W J18
+Score: B+2.5
+Win rate: B 62.7%
+Predicted top move was E18 (B+1.9).
+PV: WE18 S14
+Move was #2 according to policy  (40.50%).
+Top policy move was E18 (53.9%).
+];B[cg]SQ[cg][ce]MA[rf]C[Move 37: B C13
+Score: B+2.7
+Win rate: B 64.5%
+Predicted top move was S14 (B+3.4).
+PV: BS14 D13 E14
+Move was #2 according to policy  (25.38%).
+Top policy move was S14 (56.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (55.99%), C13 (25.38%), E18 (9.58%), C15 (6.66%), R6 (0.43%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 135 random moves according to weights. Top 5 among these were C13 (8.03%), D13 (0.21%), G14 (0.03%), D12 (0.02%), O3 (0.02%) and picked top C13. ];W[ce]SQ[dg][pg][mg][ce]MA[rf]C[Move 38: W C15
+Score: B+2.6
+Win rate: B 63.6%
+Predicted top move was S14 (B+2.1).
+PV: WS14 R13 C3
+Move was #9 according to policy  (2.28%).
+Top policy move was S14 (40.7%).
+];B[de]SQ[dg][rf][hb]MA[de]C[Move 39: B D15
+Score: B+3.8
+Win rate: B 69.7%
+Move was predicted best move
+PV: BD15 B13 S14 C12
+Move was #1 according to policy  (60.95%).
+Top policy move was D15 (61.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D15 (60.95%), D13 (28.10%), S14 (5.44%), F15 (2.50%), C16 (1.69%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 134 random moves according to weights. Top 5 among these were D15 (60.95%), F15 (2.50%), D12 (0.01%), G14 (0.01%), E14 (0.01%) and picked top D15. ];W[cd]SQ[rf][pg][mg][nh][og]MA[bg]C[Move 40: W C16
+Score: B+5.1
+Win rate: B 74.7%
+Estimated point loss: 1.2
+Predicted top move was B13 (B+4.5).
+PV: WB13 S14 C12
+Move was #14 according to policy  (0.08%).
+Top policy move was B13 (75.2%).
+];B[dh]SQ[rf][dh]MA[cc]C[Move 41: B D12
+Score: B+5.8
+Win rate: B 77.0%
+Predicted top move was C17 (B+6.2).
+PV: BC17 B13
+Move was #3 according to policy  (9.88%).
+Top policy move was C17 (63.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are C17 (63.44%), S14 (16.90%), D12 (9.88%), E18 (3.59%), D13 (1.54%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 133 random moves according to weights. Top 5 among these were D12 (9.88%), D13 (1.54%), C12 (0.15%), J17 (0.04%), Q5 (0.03%) and picked top D12. ];W[dc]SQ[rf][eg][ci][pg]MA[cc]C[Move 42: W D17
+Score: B+6.7
+Win rate: B 80.4%
+Estimated point loss: 0.9
+Predicted top move was C17 (B+7.1).
+PV: WC17 S14
+Move was #2 according to policy  (25.02%).
+Top policy move was C17 (36.1%).
+];B[fe]SQ[cc][fe]MA[rf]C[Move 43: B F15
+Score: B+8.0
+Win rate: B 85.1%
+Predicted top move was S14 (B+8.6).
+PV: BS14 S17
+Move was #3 according to policy  (13.76%).
+Top policy move was S14 (42.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (42.01%), C17 (38.84%), F15 (13.76%), E17 (2.51%), R6 (0.64%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 132 random moves according to weights. Top 5 among these were F15 (13.76%), E17 (0.80%), C6 (0.15%), O3 (0.15%), D6 (0.10%) and picked top F15. ];W[fq]SQ[ci][eg][pg]MA[rf]C[Move 44: W F3
+Score: B+9.1
+Win rate: B 87.7%
+Estimated point loss: 1.1
+Predicted top move was S14 (B+7.2).
+PV: WS14 R13
+Move was #25 according to policy  (0.10%).
+Top policy move was S14 (32.5%).
+];B[fp]SQ[fp][ec]MA[rf]C[Move 45: B F4
+Score: B+8.8
+Win rate: B 86.9%
+Predicted top move was S14 (B+11.3).
+PV: BS14 Q13
+Move was #3 according to policy  (17.40%).
+Top policy move was S14 (38.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (38.04%), C17 (26.62%), F4 (17.40%), E17 (10.00%), D6 (3.74%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 131 random moves according to weights. Top 5 among these were F4 (17.40%), D6 (3.74%), C6 (0.49%), R6 (0.10%), E6 (0.05%) and picked top F4. ];W[gp]SQ[rf][ci][eg][pg]MA[gp]C[Move 46: W G4
+Score: B+7.4
+Win rate: B 82.2%
+Move was predicted best move
+PV: WG4 F5 D3 C3
+Move was #1 according to policy  (47.75%).
+Top policy move was G4 (47.8%).
+];B[fo]SQ[go][rf]MA[fo]C[Move 47: B F5
+Score: B+8.6
+Win rate: B 85.9%
+Move was predicted best move
+PV: BF5 D3 C3 E2
+Move was #1 according to policy  (78.52%).
+Top policy move was F5 (78.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are F5 (78.52%), G5 (9.09%), C17 (4.83%), S14 (3.43%), E17 (2.92%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 131 random moves according to weights. Top 5 among these were F5 (78.52%), G5 (9.09%), E17 (0.92%), E4 (0.01%), G6 (0.01%) and picked top F5. ];W[go]SQ[cq][ci][eq][rf]MA[dq]C[Move 48: W G5
+Score: B+9.7
+Win rate: B 89.5%
+Estimated point loss: 1.1
+Predicted top move was D3 (B+9.7).
+PV: WD3 C3 E2
+Move was #23 according to policy  (0.13%).
+Top policy move was D3 (16.1%).
+];B[gn]SQ[eq][rf][gq][fn][cc]MA[gn]C[Move 49: B G6
+Score: B+10.0
+Win rate: B 89.2%
+Move was predicted best move
+PV: BG6 E3 D3 H6
+Move was #1 according to policy  (44.77%).
+Top policy move was G6 (44.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are G6 (44.77%), E3 (24.46%), S14 (13.08%), G3 (8.04%), F6 (3.93%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 130 random moves according to weights. Top 5 among these were G6 (44.77%), E3 (7.74%), F6 (3.93%), S14 (0.41%), C17 (0.30%) and picked top G6. ];W[eq]SQ[fn][er][eg][ci]MA[eq]C[Move 50: W E3
+Score: B+8.6
+Win rate: B 85.8%
+Move was predicted best move
+PV: WE3 D3 H6 H7
+Move was #1 according to policy  (39.58%).
+Top policy move was E3 (39.6%).
+];B[hn]SQ[hn][rf]MA[dq]C[Move 51: B H6
+Score: B+8.5
+Win rate: B 84.8%
+Predicted top move was D3 (B+9.4).
+PV: BD3 H6 H7
+Move was #2 according to policy  (10.93%).
+Top policy move was D3 (68.9%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D3 (68.86%), H6 (10.93%), S14 (5.13%), C5 (3.81%), D6 (3.17%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 129 random moves according to weights. Top 5 among these were H6 (10.93%), D6 (3.17%), D5 (2.58%), C5 (1.21%), F6 (0.86%) and picked top H6. ];W[jj]MA[ep]C[Move 52: W K10
+Score: B+11.9
+Win rate: B 91.6%
+Estimated point loss: 3.4
+Predicted top move was E4 (B+6.9).
+PV: WE4 E5 D5
+Move was #57 according to policy  (0.01%).
+Top policy move was E4 (61.5%).
+];B[ec]SQ[rf][gq][ec][cq]MA[dq]C[Move 53: B E17
+Score: B+11.7
+Win rate: B 91.8%
+Predicted top move was D3 (B+12.7).
+PV: BD3 J3
+Move was #4 according to policy  (2.87%).
+Top policy move was D3 (67.3%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D3 (67.32%), S14 (14.11%), G3 (11.30%), E17 (2.87%), C17 (2.67%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 128 random moves according to weights. Top 5 among these were E17 (0.91%), H10 (0.10%), H9 (0.05%), C4 (0.05%), J4 (0.04%) and picked top E17. ];W[eb]SQ[eb][ep][ci]MA[ed]C[Move 54: W E18
+Score: B+11.1
+Win rate: B 90.0%
+Predicted top move was E16 (B+10.5).
+PV: WE16 D3
+Move was #2 according to policy  (32.41%).
+Top policy move was E16 (33.1%).
+];B[ed]SQ[dq][rf][gq]MA[ed]C[Move 55: B E16
+Score: B+11.7
+Win rate: B 91.4%
+Move was predicted best move
+PV: BE16 E4 E5 D5
+Move was #1 according to policy  (61.82%).
+Top policy move was E16 (61.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are E16 (61.82%), D3 (22.31%), C17 (4.76%), G3 (4.58%), S14 (4.26%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 127 random moves according to weights. Top 5 among these were E16 (61.82%), D3 (7.06%), H9 (0.10%), C4 (0.09%), D5 (0.08%) and picked top E16. ];W[fb]SQ[nh]MA[ep]C[Move 56: W F18
+Score: B+15.3
+Win rate: B 95.9%
+Estimated point loss: 3.6
+Predicted top move was E4 (B+9.4).
+PV: WE4 E5 D5
+Move was #2 according to policy  (9.01%).
+Top policy move was E4 (58.5%).
+];B[cp]SQ[gq][rf]MA[dq]C[Move 57: B C4
+Score: B+13.2
+Win rate: B 94.3%
+Estimated point loss: 2.1
+Predicted top move was D3 (B+16.5).
+PV: BD3 J3
+Move was #7 according to policy  (0.55%).
+Top policy move was D3 (43.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D3 (43.55%), C17 (26.95%), S14 (13.15%), G3 (11.71%), C3 (1.15%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 127 random moves according to weights. Top 5 among these were C4 (0.17%), H9 (0.17%), D6 (0.10%), M10 (0.09%), G9 (0.09%) and picked top C4. ];W[iq]SQ[ci][ip][gk]MA[iq]C[Move 58: W J3
+Score: B+12.0
+Win rate: B 92.1%
+Move was predicted best move
+PV: WJ3 C17 C11 B12
+Move was #1 according to policy  (21.31%).
+Top policy move was J3 (21.3%).
+];B[gk]SQ[rf][gk][hk][hj][ip]MA[cc]C[Move 59: B G9
+Score: B+12.2
+Win rate: B 92.9%
+Predicted top move was C17 (B+11.4).
+PV: BC17 C11 B12
+Move was #3 according to policy  (13.93%).
+Top policy move was C17 (34.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are C17 (34.53%), S14 (20.19%), G9 (13.93%), H9 (7.71%), H10 (6.50%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 126 random moves according to weights. Top 5 among these were G9 (13.93%), F9 (3.49%), K4 (1.92%), H4 (0.72%), G3 (0.46%) and picked top G9. ];W[mj]SQ[cm][rf][ci][mg]MA[cn]C[Move 60: W N10
+Score: B+13.3
+Win rate: B 93.8%
+Estimated point loss: 1.0
+Predicted top move was C6 (B+12.9).
+PV: WC6 C8
+Move was #46 according to policy  (0.11%).
+Top policy move was C6 (24.9%).
+];B[cc]SQ[cc][qq][hp]MA[rf]C[Move 61: B C17
+Score: B+14.0
+Win rate: B 94.0%
+Predicted top move was S14 (B+14.0).
+PV: BS14 C6
+Move was #2 according to policy  (37.81%).
+Top policy move was S14 (44.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (44.05%), C17 (37.81%), D2 (4.96%), R6 (1.34%), R3 (1.31%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 125 random moves according to weights. Top 5 among these were C17 (3.78%), H4 (1.29%), H10 (1.29%), K4 (1.19%), N12 (0.57%) and picked top C17. ];W[db]SQ[ci][cm][db]MA[cn]C[Move 62: W D18
+Score: B+14.5
+Win rate: B 95.0%
+Predicted top move was C6 (B+13.1).
+PV: WC6 C8
+Move was #3 according to policy  (13.89%).
+Top policy move was C6 (22.9%).
+];B[jp]SQ[jp][dr][qn]MA[rf]C[Move 63: B K4
+Score: B+14.3
+Win rate: B 94.9%
+Predicted top move was S14 (B+16.0).
+PV: BS14 C6
+Move was #4 according to policy  (8.51%).
+Top policy move was S14 (36.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (36.44%), B17 (16.59%), D2 (8.76%), K4 (8.51%), R6 (3.87%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 124 random moves according to weights. Top 5 among these were K4 (8.51%), J4 (2.62%), H4 (1.75%), L7 (1.50%), S14 (1.15%) and picked top K4. ];W[jm]SQ[cr][ci][io][rf]MA[cn]C[Move 64: W K7
+Score: B+15.5
+Win rate: B 95.5%
+Estimated point loss: 1.3
+Predicted top move was C6 (B+13.5).
+PV: WC6 C8
+Move was #45 according to policy  (0.06%).
+Top policy move was C6 (28.0%).
+];B[ip]SQ[ip][rf]MA[jq]C[Move 65: B J4
+Score: B+16.7
+Win rate: B 96.5%
+Predicted top move was K3 (B+15.2).
+PV: BK3 C2
+Move was #2 according to policy  (23.03%).
+Top policy move was K3 (29.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are K3 (29.82%), J4 (23.03%), S14 (18.33%), D2 (9.93%), M8 (3.15%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 123 random moves according to weights. Top 5 among these were J4 (23.03%), K3 (9.43%), M8 (3.15%), H5 (0.54%), M7 (0.47%) and picked top J4. ];W[hq]SQ[hq][cr][ci]MA[jq]C[Move 66: W H3
+Score: B+15.3
+Win rate: B 95.6%
+Predicted top move was K3 (B+16.6).
+PV: WK3 S14
+Move was #2 according to policy  (22.05%).
+Top policy move was K3 (36.1%).
+];B[jq]SQ[dr][jq]MA[rf]C[Move 67: B K3
+Score: B+15.1
+Win rate: B 95.9%
+Predicted top move was S14 (B+17.5).
+PV: BS14 C6
+Move was #3 according to policy  (6.54%).
+Top policy move was S14 (45.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (45.60%), D2 (35.22%), K3 (6.54%), B17 (1.39%), C2 (1.15%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 123 random moves according to weights. Top 5 among these were K3 (2.07%), M8 (1.11%), J9 (0.68%), J8 (0.55%), L8 (0.52%) and picked top K3. ];W[gr]SQ[eg][ci]MA[cr]C[Move 68: W G2
+Score: B+25.2
+Win rate: B 99.1%
+Estimated point loss: 10.1
+Predicted top move was C2 (B+15.1).
+PV: WC2 B2
+Move was #262 according to policy  (0.00%).
+Top policy move was C2 (78.9%).
+];B[ll]SQ[rf][cr][dq]MA[dr]C[Move 69: B M8
+Score: B+23.7
+Win rate: B 98.7%
+Estimated point loss: 1.5
+Predicted top move was D2 (B+25.3).
+PV: BD2 E2
+Move was #5 according to policy  (0.83%).
+Top policy move was D2 (42.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (42.64%), S14 (21.24%), C2 (18.91%), D3 (6.40%), M8 (0.83%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 121 random moves according to weights. Top 5 among these were M8 (0.83%), L8 (0.68%), J9 (0.32%), M9 (0.31%), O3 (0.22%) and picked top M8. ];W[kk]SQ[fn][mf][cn][of]MA[cr]C[Move 70: W L9
+Score: B+25.6
+Win rate: B 99.2%
+Estimated point loss: 2.0
+Predicted top move was C2 (B+23.5).
+PV: WC2 B2
+Move was #16 according to policy  (1.20%).
+Top policy move was C6 (13.3%).
+];B[ik]SQ[rf][ki][cr]MA[dr]C[Move 71: B J9
+Score: B+25.0
+Win rate: B 98.9%
+Estimated point loss: 0.6
+Predicted top move was D2 (B+26.3).
+PV: BD2 E2
+Move was #4 according to policy  (9.00%).
+Top policy move was D2 (19.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (19.49%), S14 (17.42%), C2 (11.23%), J9 (9.00%), L11 (7.30%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 121 random moves according to weights. Top 5 among these were J9 (9.00%), M6 (3.43%), O8 (2.89%), O4 (2.34%), O3 (1.15%) and picked top J9. ];W[kl]SQ[hj][cr][ci][rf][ij]MA[cn]C[Move 72: W L8
+Score: B+27.2
+Win rate: B 99.2%
+Estimated point loss: 2.2
+Predicted top move was C6 (B+26.5).
+PV: WC6 D2
+Move was #8 according to policy  (4.13%).
+Top policy move was C6 (18.3%).
+];B[lm]SQ[rf][cr]MA[dr]C[Move 73: B M7
+Score: B+26.0
+Win rate: B 99.0%
+Estimated point loss: 1.2
+Predicted top move was D2 (B+28.5).
+PV: BD2 E2
+Move was #3 according to policy  (9.49%).
+Top policy move was D2 (24.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (24.08%), S14 (20.07%), M7 (9.49%), C2 (5.69%), O3 (4.44%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 120 random moves according to weights. Top 5 among these were M7 (9.49%), M6 (3.61%), O4 (1.75%), O8 (1.56%), P4 (1.15%) and picked top M7. ];W[oj]SQ[in][mg][rf][pg][oj]MA[cr]C[Move 74: W P10
+Score: B+26.0
+Win rate: B 99.1%
+Predicted top move was C2 (B+25.7).
+PV: WC2 B2
+Move was #7 according to policy  (3.84%).
+Top policy move was C2 (8.4%).
+];B[ki]SQ[dr][ki]MA[rf]C[Move 75: B L11
+Score: B+26.1
+Win rate: B 99.2%
+Predicted top move was S14 (B+27.5).
+PV: BS14 S17
+Move was #3 according to policy  (6.16%).
+Top policy move was S14 (25.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (25.72%), D2 (13.20%), L11 (6.16%), B17 (5.48%), R6 (4.86%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 119 random moves according to weights. Top 5 among these were L11 (6.16%), P13 (3.56%), O11 (3.43%), P8 (3.32%), Q8 (1.87%) and picked top L11. ];W[lk]SQ[ji][lh][pg]MA[lk]C[Move 76: W M9
+Score: B+25.2
+Win rate: B 99.2%
+Move was predicted best move
+PV: WM9 S14 Q13 S17
+Move was #1 according to policy  (41.59%).
+Top policy move was M9 (41.6%).
+];B[ni]SQ[dr][ni]MA[rf]C[Move 77: B O11
+Score: B+25.6
+Win rate: B 99.1%
+Predicted top move was S14 (B+25.8).
+PV: BS14 Q13 S17
+Move was #4 according to policy  (5.93%).
+Top policy move was S14 (30.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (30.65%), D2 (18.42%), C2 (6.03%), O11 (5.93%), R6 (5.82%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 118 random moves according to weights. Top 5 among these were O11 (5.93%), O4 (4.23%), O9 (2.45%), O8 (1.89%), P8 (1.65%) and picked top O11. ];W[nj]SQ[pg][rf][ol]MA[cn]C[Move 78: W O10
+Score: B+26.3
+Win rate: B 99.3%
+Estimated point loss: 0.7
+Predicted top move was C6 (B+27.6).
+PV: WC6 D2
+Move was #5 according to policy  (6.75%).
+Top policy move was C6 (11.1%).
+];B[np]SQ[dr][nq][np]MA[rf]C[Move 79: B O4
+Score: B+26.2
+Win rate: B 99.2%
+Predicted top move was S14 (B+27.0).
+PV: BS14 C6
+Move was #5 according to policy  (7.96%).
+Top policy move was S14 (21.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S14 (21.64%), D2 (11.40%), R6 (11.10%), O3 (7.99%), O4 (7.96%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 117 random moves according to weights. Top 5 among these were O4 (7.96%), R6 (3.51%), Q6 (1.42%), N4 (1.25%), Q7 (1.07%) and picked top O4. ];W[pn]SQ[cr][pg][rf][pn]MA[cn]C[Move 80: W Q6
+Score: B+24.9
+Win rate: B 99.3%
+Predicted top move was C6 (B+26.4).
+PV: WC6 D2
+Move was #7 according to policy  (3.23%).
+Top policy move was C6 (23.8%).
+];B[om]SQ[rf][bc][om]MA[dr]C[Move 81: B P7
+Score: B+25.2
+Win rate: B 99.2%
+Predicted top move was D2 (B+26.3).
+PV: BD2 E2
+Move was #6 according to policy  (3.09%).
+Top policy move was D2 (24.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (24.83%), S14 (22.06%), B17 (11.87%), C2 (6.28%), R8 (4.24%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 117 random moves according to weights. Top 5 among these were P7 (3.09%), P8 (2.69%), O8 (2.50%), Q7 (1.53%), R8 (1.34%) and picked top P7. ];W[pl]SQ[pg][no]MA[pm]C[Move 82: W Q8
+Score: B+26.9
+Win rate: B 99.5%
+Estimated point loss: 1.7
+Predicted top move was Q7 (B+24.3).
+PV: WQ7 D2 E2
+Move was #25 according to policy  (0.48%).
+Top policy move was Q7 (30.2%).
+];B[pm]SQ[rf][pm][cr]MA[dr]C[Move 83: B Q7
+Score: B+26.4
+Win rate: B 99.1%
+Predicted top move was D2 (B+27.2).
+PV: BD2 E2
+Move was #4 according to policy  (12.72%).
+Top policy move was D2 (23.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (23.78%), S14 (20.53%), B17 (13.79%), Q7 (12.72%), C2 (10.22%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 116 random moves according to weights. Top 5 among these were Q7 (12.72%), Q3 (1.12%), P8 (0.72%), P6 (0.69%), Q11 (0.55%) and picked top Q7. ];W[qm]SQ[mg][og][eg]MA[qm]C[Move 84: W R7
+Score: B+25.7
+Win rate: B 99.3%
+Move was predicted best move
+PV: WR7 R8 R9 S8
+Move was #1 according to policy  (55.89%).
+Top policy move was R7 (55.9%).
+];B[on]SQ[on][dr][rf]MA[ql]C[Move 85: B P6
+Score: B+25.5
+Win rate: B 99.3%
+Predicted top move was R8 (B+26.0).
+PV: BR8 R9 S8
+Move was #3 according to policy  (13.67%).
+Top policy move was R8 (25.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are R8 (25.79%), R6 (13.97%), P6 (13.67%), D2 (13.03%), S14 (11.30%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 115 random moves according to weights. Top 5 among these were P6 (13.67%), R8 (8.16%), R6 (4.42%), P8 (0.79%), Q3 (0.50%) and picked top P6. ];W[qn]SQ[qo][pg][mg]MA[qn]C[Move 86: W R6
+Score: B+25.4
+Win rate: B 99.5%
+Move was predicted best move
+PV: WR6 B17 C6
+Move was #1 according to policy  (29.87%).
+Top policy move was R6 (29.9%).
+];B[pq]SQ[rf][dr]MA[bc]C[Move 87: B Q3
+Score: B+24.8
+Win rate: B 99.2%
+Estimated point loss: 0.6
+Predicted top move was B17 (B+25.7).
+PV: BB17 C6
+Move was #3 according to policy  (16.20%).
+Top policy move was B17 (19.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B17 (19.63%), S14 (19.51%), Q3 (16.20%), C2 (13.52%), D2 (13.51%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 114 random moves according to weights. Top 5 among these were Q3 (5.12%), J11 (0.76%), H11 (0.40%), Q5 (0.21%), Q11 (0.21%) and picked top Q3. ];W[qq]SQ[cr][ci][pg]MA[qq]C[Move 88: W R3
+Score: B+24.1
+Win rate: B 99.4%
+Move was predicted best move
+PV: WR3 P3 C6 D2
+Move was #1 according to policy  (30.66%).
+Top policy move was R3 (30.7%).
+];B[op]SQ[op][dr][rf][bc]MA[oq]C[Move 89: B P4
+Score: B+24.5
+Win rate: B 99.2%
+Predicted top move was P3 (B+24.0).
+PV: BP3 C6 D2
+Move was #2 according to policy  (15.79%).
+Top policy move was P3 (26.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P3 (26.14%), P4 (15.79%), D2 (15.72%), S14 (10.92%), R4 (8.72%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 113 random moves according to weights. Top 5 among these were P4 (15.79%), P3 (8.27%), Q5 (0.27%), H11 (0.18%), D3 (0.18%) and picked top P4. ];W[qp]SQ[ci]MA[pr]C[Move 90: W R4
+Score: B+29.7
+Win rate: B 99.7%
+Estimated point loss: 5.1
+Predicted top move was Q2 (B+24.3).
+PV: WQ2 P3 C6
+Move was #76 according to policy  (0.03%).
+Top policy move was Q2 (30.5%).
+];B[ii]SQ[bc][rf]MA[dr]C[Move 91: B J11
+Score: B+26.7
+Win rate: B 99.5%
+Estimated point loss: 3.0
+Predicted top move was D2 (B+30.9).
+PV: BD2 E2
+Move was #8 according to policy  (0.87%).
+Top policy move was D2 (30.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (30.53%), B17 (25.14%), S14 (21.29%), C2 (10.14%), D3 (2.29%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 113 random moves according to weights. Top 5 among these were J11 (0.87%), H11 (0.27%), Q9 (0.19%), J12 (0.18%), J10 (0.16%) and picked top J11. ];W[qi]SQ[cn][hl][ij]MA[cr]C[Move 92: W R11
+Score: B+30.3
+Win rate: B 99.7%
+Estimated point loss: 3.7
+Predicted top move was C2 (B+25.7).
+PV: WC2 B2
+Move was #87 according to policy  (0.03%).
+Top policy move was C2 (25.6%).
+];B[pi]SQ[rf][cr][bc][pi]MA[dr]C[Move 93: B Q11
+Score: B+30.0
+Win rate: B 99.6%
+Predicted top move was D2 (B+31.0).
+PV: BD2 E2
+Move was #5 according to policy  (3.80%).
+Top policy move was D2 (23.9%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (23.86%), S14 (21.38%), B17 (19.66%), C2 (14.04%), Q11 (3.80%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 112 random moves according to weights. Top 5 among these were Q11 (3.80%), Q12 (1.24%), R12 (1.17%), Q13 (0.72%), M12 (0.14%) and picked top Q11. ];W[pj]SQ[oi]MA[ph]C[Move 94: W Q10
+Score: B+31.3
+Win rate: B 99.7%
+Estimated point loss: 1.4
+Predicted top move was Q12 (B+27.8).
+PV: WQ12 P11
+Move was #2 according to policy  (13.48%).
+Top policy move was Q12 (25.6%).
+];B[dq]SQ[bc][rf][cr][dq]MA[dr]C[Move 95: B D3
+Score: B+32.1
+Win rate: B 99.7%
+Predicted top move was D2 (B+31.6).
+PV: BD2 E2
+Move was #7 according to policy  (3.06%).
+Top policy move was D2 (28.9%).
+
+AI thought process: Using policy based strategy, base top 5 moves are D2 (28.89%), B17 (18.90%), S14 (14.87%), C2 (11.24%), R12 (8.19%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 111 random moves according to weights. Top 5 among these were D3 (0.97%), J17 (0.14%), Q13 (0.12%), K11 (0.07%), P11 (0.06%) and picked top D3. ];W[er]SQ[pg][jr][dr]MA[er]C[Move 96: W E2
+Score: B+30.8
+Win rate: B 99.7%
+Move was predicted best move
+PV: WE2 B17 C6 B5
+Move was #1 according to policy  (28.65%).
+Top policy move was E2 (28.7%).
+];B[qh]MA[bc]C[Move 97: B R12
+Score: B+29.1
+Win rate: B 99.6%
+Estimated point loss: 1.6
+Predicted top move was B17 (B+34.2).
+PV: BB17 C6 B5
+Move was #5 according to policy  (8.98%).
+Top policy move was B17 (27.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B17 (27.82%), S14 (20.73%), D2 (11.20%), J2 (10.07%), R12 (8.98%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 110 random moves according to weights. Top 5 among these were R12 (2.84%), J2 (0.32%), Q12 (0.23%), M12 (0.17%), Q13 (0.17%) and picked top R12. ];W[ri]SQ[ph][bf][bg]MA[cn]C[Move 98: W S11
+Score: B+31.5
+Win rate: B 99.7%
+Estimated point loss: 2.4
+Predicted top move was C6 (B+29.7).
+PV: WC6 B5
+Move was #40 according to policy  (0.19%).
+Top policy move was C6 (20.5%).
+];B[rf]SQ[bf][rf]MA[bc]C[Move 99: B S14
+Score: B+31.9
+Win rate: B 99.7%
+Predicted top move was B17 (B+35.9).
+PV: BB17 C6
+Move was #5 according to policy  (6.41%).
+Top policy move was B17 (46.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B17 (45.97%), J2 (11.29%), B14 (10.81%), D2 (8.54%), S14 (6.41%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 109 random moves according to weights. Top 5 among these were S14 (0.20%), K11 (0.12%), J10 (0.07%), R16 (0.06%), H4 (0.04%) and picked top S14. ];W[ob]SQ[ep][ob]MA[cn]C[Move 100: W P18
+Score: B+31.4
+Win rate: B 99.8%
+Predicted top move was C6 (B+30.8).
+PV: WC6 B5
+Move was #5 according to policy  (4.54%).
+Top policy move was C6 (30.9%).
+];B[ij]MA[bc]C[Move 101: B J10
+Score: B+29.5
+Win rate: B 99.7%
+Estimated point loss: 2.0
+Predicted top move was B17 (B+37.1).
+PV: BB17 C6
+Move was #24 according to policy  (0.08%).
+Top policy move was B17 (40.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B17 (40.13%), B14 (15.66%), O18 (10.26%), S17 (10.18%), J2 (9.02%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 109 random moves according to weights. Top 5 among these were J10 (0.08%), K11 (0.07%), M11 (0.04%), K9 (0.04%), H4 (0.04%) and picked top J10. ];W[cr]SQ[cr][ep]MA[bf]C[Move 102: W C2
+Score: B+29.3
+Win rate: B 99.7%
+Predicted top move was B14 (B+27.0).
+PV: WB14 B13
+Move was #2 according to policy  (15.30%).
+Top policy move was B14 (18.1%).
+];B[dr]SQ[bc][dr]MA[bq]C[Move 103: B D2
+Score: B+30.2
+Win rate: B 99.7%
+Predicted top move was B3 (B+28.6).
+PV: BB3 C6
+Move was #3 according to policy  (23.17%).
+Top policy move was B3 (28.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B3 (28.25%), B17 (26.38%), D2 (23.17%), B2 (5.05%), S17 (4.22%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 108 random moves according to weights. Top 5 among these were D2 (0.73%), E4 (0.11%), L7 (0.08%), C6 (0.03%), D6 (0.02%) and picked top D2. ];W[ds]SQ[ep][bf]MA[ds]C[Move 104: W D1
+Score: B+28.3
+Win rate: B 99.7%
+Move was predicted best move
+PV: WD1 B2 C6 B5
+Move was #1 according to policy  (43.68%).
+Top policy move was D1 (43.7%).
+];B[ep]SQ[bq][bc]MA[br]C[Move 105: B E4
+Score: B+22.5
+Win rate: B 99.6%
+Estimated point loss: 5.8
+Predicted top move was B2 (B+28.3).
+PV: BB2 C6 B5
+Move was #23 according to policy  (0.10%).
+Top policy move was B2 (38.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B2 (38.22%), B3 (34.08%), B17 (15.52%), B14 (1.99%), S17 (1.47%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 107 random moves according to weights. Top 5 among these were E4 (0.10%), L7 (0.06%), D5 (0.02%), D6 (0.02%), F6 (0.01%) and picked top E4. ];W[hp]SQ[bf][bg]MA[bq]C[Move 106: W H4
+Score: B+31.1
+Win rate: B 99.8%
+Estimated point loss: 8.6
+Predicted top move was B3 (B+20.6).
+PV: WB3 B4
+Move was #140 according to policy  (0.02%).
+Top policy move was B3 (42.5%).
+];B[km]SQ[ir]MA[bc]C[Move 107: B L7
+Score: B+28.5
+Win rate: B 99.7%
+Estimated point loss: 2.6
+Predicted top move was B17 (B+34.7).
+PV: BB17 B13
+Move was #19 according to policy  (0.20%).
+Top policy move was B17 (48.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B17 (48.19%), B2 (8.25%), Q2 (8.23%), B14 (7.89%), J2 (7.51%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 106 random moves according to weights. Top 5 among these were L7 (0.20%), P11 (0.04%), K6 (0.02%), Q12 (0.02%), M10 (0.02%) and picked top L7. ];W[jl]SQ[bf][bc][bg]MA[bq]C[Move 108: W K8
+Score: B+30.4
+Win rate: B 99.8%
+Estimated point loss: 1.9
+Predicted top move was B3 (B+26.2).
+PV: WB3 B4
+Move was #7 according to policy  (2.47%).
+Top policy move was B3 (21.5%).
+];B[nb]SQ[nb]MA[bc]C[Move 109: B O18
+Score: B+30.1
+Win rate: B 99.7%
+Predicted top move was B17 (B+35.1).
+PV: BB17 B3
+Move was #6 according to policy  (5.85%).
+Top policy move was B17 (42.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B17 (41.98%), B14 (14.85%), B2 (9.40%), Q2 (6.67%), S17 (5.97%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 105 random moves according to weights. Top 5 among these were O18 (0.18%), K6 (0.15%), R16 (0.08%), P11 (0.03%), N9 (0.03%) and picked top O18. ];W[qb]SQ[bq][bg][bf]MA[rc]C[Move 110: W R18
+Score: B+31.1
+Win rate: B 99.8%
+Estimated point loss: 1.0
+Predicted top move was S17 (B+32.0).
+PV: WS17 B17
+Move was #26 according to policy  (0.36%).
+Top policy move was S17 (43.2%).
+];B[bf]SQ[bf][rc]MA[bc]C[Move 111: B B14
+Score: B+30.9
+Win rate: B 99.8%
+Predicted top move was B17 (B+36.3).
+PV: BB17 B13
+Move was #3 according to policy  (9.98%).
+Top policy move was B17 (51.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B17 (51.21%), Q2 (10.22%), B14 (9.98%), J2 (6.26%), B2 (4.76%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 105 random moves according to weights. Top 5 among these were B14 (0.32%), K6 (0.19%), P11 (0.11%), N11 (0.08%), J6 (0.04%) and picked top B14. ];W[bc]SQ[bq]MA[bc]C[Move 112: W B17
+Score: B+28.9
+Win rate: B 99.8%
+Move was predicted best move
+PV: WB17 Q2 B3 B4
+Move was #1 according to policy  (35.18%).
+Top policy move was B17 (35.2%).
+];B[mi]SQ[bd][rc]MA[pr]C[Move 113: B N11
+Score: B+27.3
+Win rate: B 99.8%
+Estimated point loss: 1.6
+Predicted top move was Q2 (B+29.3).
+PV: BQ2 B3 B4
+Move was #20 according to policy  (0.23%).
+Top policy move was Q2 (32.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (32.14%), B16 (15.05%), J2 (11.11%), B2 (8.63%), S17 (7.55%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 104 random moves according to weights. Top 5 among these were N11 (0.23%), P11 (0.21%), J17 (0.20%), M12 (0.06%), J6 (0.05%) and picked top N11. ];W[oi]SQ[pr][oi]MA[bq]C[Move 114: W P11
+Score: B+26.9
+Win rate: B 99.8%
+Predicted top move was B3 (B+24.9).
+PV: WB3 B4
+Move was #3 according to policy  (12.48%).
+Top policy move was B3 (27.9%).
+];B[oh]SQ[oh]MA[pr]C[Move 115: B P12
+Score: B+26.6
+Win rate: B 99.8%
+Predicted top move was Q2 (B+28.0).
+PV: BQ2 P13
+Move was #2 according to policy  (24.12%).
+Top policy move was Q2 (25.9%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (25.88%), P12 (24.12%), B2 (8.48%), Q12 (7.97%), S17 (6.16%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 103 random moves according to weights. Top 5 among these were P12 (24.12%), Q12 (7.97%), P13 (1.71%), Q13 (1.09%), O12 (0.83%) and picked top P12. ];W[ph]SQ[pr][ph][li]MA[bq]C[Move 116: W Q12
+Score: B+24.3
+Win rate: B 99.4%
+Predicted top move was B3 (B+25.7).
+PV: WB3 B4 Q2
+Move was #3 according to policy  (11.39%).
+Top policy move was B3 (23.4%).
+];B[pg]SQ[rc]MA[pg]C[Move 117: B Q13
+Score: B+27.2
+Win rate: B 99.8%
+Move was predicted best move
+PV: BQ13 B3 B4
+Move was #1 according to policy  (68.31%).
+Top policy move was Q13 (68.3%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q13 (68.31%), S17 (6.89%), Q2 (5.98%), B2 (2.57%), T15 (2.50%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 102 random moves according to weights. Top 5 among these were Q13 (68.31%), P13 (1.64%), M10 (0.44%), Q14 (0.42%), M11 (0.29%) and picked top Q13. ];W[pi]SQ[pr][ji][li]MA[bq]C[Move 118: W Q11
+Score: B+34.1
+Win rate: B 99.9%
+Estimated point loss: 7.0
+Predicted top move was B3 (B+25.3).
+PV: WB3 B4
+Move was #240 according to policy  (0.01%).
+Top policy move was B3 (31.1%).
+];B[lj]SQ[bd]MA[pr]C[Move 119: B M10
+Score: B+31.3
+Win rate: B 99.8%
+Estimated point loss: 2.8
+Predicted top move was Q2 (B+35.9).
+PV: BQ2 B3
+Move was #10 according to policy  (0.87%).
+Top policy move was Q2 (25.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (25.00%), B16 (16.30%), B2 (14.91%), S17 (13.88%), J2 (5.77%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 102 random moves according to weights. Top 5 among these were M10 (0.87%), K6 (0.32%), J17 (0.19%), J6 (0.04%), N9 (0.04%) and picked top M10. ];W[ml]SQ[pr][ml]MA[bq]C[Move 120: W N8
+Score: B+31.3
+Win rate: B 99.9%
+Predicted top move was B3 (B+29.1).
+PV: WB3 B4
+Move was #13 according to policy  (1.11%).
+Top policy move was B3 (32.0%).
+];B[mm]SQ[bd][mm]MA[pr]C[Move 121: B N7
+Score: B+31.2
+Win rate: B 99.9%
+Predicted top move was Q2 (B+33.0).
+PV: BQ2 B3
+Move was #5 according to policy  (4.65%).
+Top policy move was Q2 (40.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (40.03%), J2 (14.46%), B2 (8.54%), B16 (5.42%), N7 (4.65%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 101 random moves according to weights. Top 5 among these were N7 (4.65%), L5 (0.26%), L6 (0.19%), O8 (0.18%), J17 (0.15%) and picked top N7. ];W[nl]SQ[pr]MA[bq]C[Move 122: W O8
+Score: B+34.9
+Win rate: B 99.9%
+Estimated point loss: 3.7
+Predicted top move was B3 (B+28.9).
+PV: WB3 B4
+Move was #44 according to policy  (0.13%).
+Top policy move was B3 (37.6%).
+];B[jn]SQ[rc]MA[pr]C[Move 123: B K6
+Score: B+32.7
+Win rate: B 99.9%
+Estimated point loss: 2.1
+Predicted top move was Q2 (B+36.3).
+PV: BQ2 B3
+Move was #13 according to policy  (0.87%).
+Top policy move was Q2 (44.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (44.23%), S17 (10.51%), B2 (8.58%), B16 (5.50%), J2 (4.47%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 100 random moves according to weights. Top 5 among these were K6 (0.87%), R16 (0.20%), J17 (0.19%), L6 (0.11%), J6 (0.10%) and picked top K6. ];W[im]SQ[pr]MA[bq]C[Move 124: W J7
+Score: B+36.3
+Win rate: B 99.9%
+Estimated point loss: 3.6
+Predicted top move was B3 (B+30.8).
+PV: WB3 B4
+Move was #55 according to policy  (0.04%).
+Top policy move was B3 (35.0%).
+];B[in]SQ[bd][rc]MA[pr]C[Move 125: B J6
+Score: B+32.5
+Win rate: B 99.8%
+Estimated point loss: 3.9
+Predicted top move was Q2 (B+37.4).
+PV: BQ2 B3
+Move was #13 according to policy  (0.87%).
+Top policy move was Q2 (36.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (36.07%), B2 (12.16%), B16 (11.47%), S17 (6.97%), B3 (5.98%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 99 random moves according to weights. Top 5 among these were J6 (0.87%), H7 (0.31%), H8 (0.15%), R16 (0.11%), P8 (0.07%) and picked top J6. ];W[hm]SQ[pr][oq]MA[bq]C[Move 126: W H7
+Score: B+37.8
+Win rate: B 99.9%
+Estimated point loss: 5.3
+Predicted top move was B3 (B+30.5).
+PV: WB3 B4
+Move was #26 according to policy  (0.44%).
+Top policy move was B3 (26.0%).
+];B[gm]SQ[bd][rc]MA[pr]C[Move 127: B G7
+Score: B+33.0
+Win rate: B 99.9%
+Estimated point loss: 4.7
+Predicted top move was Q2 (B+38.7).
+PV: BQ2 B3
+Move was #8 according to policy  (1.87%).
+Top policy move was Q2 (35.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (34.96%), B2 (15.96%), B3 (11.40%), B16 (8.19%), J2 (5.68%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 99 random moves according to weights. Top 5 among these were G7 (1.87%), R16 (0.05%), H8 (0.05%), F8 (0.04%), P8 (0.04%) and picked top G7. ];W[hl]SQ[oq][pr]MA[bq]C[Move 128: W H8
+Score: B+37.6
+Win rate: B 99.9%
+Estimated point loss: 4.5
+Predicted top move was B3 (B+31.8).
+PV: WB3 B4
+Move was #28 according to policy  (0.23%).
+Top policy move was B3 (35.8%).
+];B[gl]SQ[rc]MA[pr]C[Move 129: B G8
+Score: B+32.2
+Win rate: B 99.9%
+Estimated point loss: 5.4
+Predicted top move was Q2 (B+38.2).
+PV: BQ2 H9
+Move was #15 according to policy  (0.44%).
+Top policy move was Q2 (35.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (35.61%), B16 (13.25%), B2 (11.50%), S17 (10.56%), B3 (5.15%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 98 random moves according to weights. Top 5 among these were G8 (0.44%), H9 (0.19%), R16 (0.10%), P3 (0.08%), P8 (0.06%) and picked top G8. ];W[hk]SQ[oq][pr][hk]MA[bq]C[Move 130: W H9
+Score: B+30.9
+Win rate: B 99.9%
+Predicted top move was B3 (B+29.4).
+PV: WB3 B4
+Move was #9 according to policy  (1.91%).
+Top policy move was B3 (34.8%).
+];B[gj]SQ[rc][gj]MA[hj]C[Move 131: B G10
+Score: B+30.9
+Win rate: B 99.9%
+Predicted top move was H10 (B+31.8).
+PV: BH10 B3
+Move was #10 according to policy  (1.58%).
+Top policy move was H10 (50.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are H10 (50.36%), Q2 (12.10%), S17 (5.36%), J2 (5.34%), B16 (4.81%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 97 random moves according to weights. Top 5 among these were G10 (1.58%), G11 (0.42%), J17 (0.25%), R16 (0.18%), L10 (0.06%) and picked top G10. ];W[hj]SQ[oq][pr][hj]MA[bq]C[Move 132: W H10
+Score: B+27.9
+Win rate: B 99.9%
+Predicted top move was B3 (B+28.4).
+PV: WB3 B4
+Move was #6 according to policy  (3.26%).
+Top policy move was B3 (33.8%).
+];B[hi]SQ[rc]MA[hi]C[Move 133: B H11
+Score: B+30.5
+Win rate: B 99.8%
+Move was predicted best move
+PV: BH11 B3 B4
+Move was #1 according to policy  (71.43%).
+Top policy move was H11 (71.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are H11 (71.43%), J2 (5.43%), S17 (4.85%), Q2 (2.32%), E1 (2.29%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 96 random moves according to weights. Top 5 among these were H11 (71.43%), J17 (0.34%), H12 (0.23%), G11 (0.18%), N9 (0.09%) and picked top H11. ];W[ji]SQ[pr][oq][kj][ji]MA[bq]C[Move 134: W K11
+Score: B+29.8
+Win rate: B 99.9%
+Predicted top move was B3 (B+29.3).
+PV: WB3 B4
+Move was #7 according to policy  (2.98%).
+Top policy move was B3 (25.4%).
+];B[kj]SQ[es][rc][kj]MA[jh]C[Move 135: B L10
+Score: B+29.9
+Win rate: B 99.7%
+Predicted top move was K12 (B+29.9).
+PV: BK12 B3
+Move was #9 according to policy  (1.31%).
+Top policy move was K12 (54.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are K12 (54.01%), S17 (12.65%), Q2 (6.39%), T15 (3.68%), E1 (2.76%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 95 random moves according to weights. Top 5 among these were L10 (1.31%), J17 (0.31%), L12 (0.19%), N9 (0.18%), K9 (0.14%) and picked top L10. ];W[jk]SQ[jk][bq][mh]MA[kh]C[Move 136: W K9
+Score: B+25.2
+Win rate: B 99.8%
+Predicted top move was L12 (B+29.1).
+PV: WL12 M11
+Move was #2 according to policy  (19.71%).
+Top policy move was L12 (25.4%).
+];B[jh]SQ[pr]MA[jh]C[Move 137: B K12
+Score: B+30.3
+Win rate: B 99.9%
+Move was predicted best move
+PV: BK12 B3 B4 B15
+Move was #1 according to policy  (66.22%).
+Top policy move was K12 (66.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are K12 (66.22%), S17 (5.42%), Q2 (4.70%), J2 (3.94%), B16 (2.82%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 95 random moves according to weights. Top 5 among these were K12 (66.22%), L12 (2.41%), J17 (0.25%), N9 (0.14%), J12 (0.14%) and picked top K12. ];W[rh]MA[bq]C[Move 138: W S12
+Score: B+34.7
+Win rate: B 99.9%
+Estimated point loss: 4.5
+Predicted top move was B3 (B+28.6).
+PV: WB3 B4 B15
+Move was #70 according to policy  (0.02%).
+Top policy move was B3 (30.2%).
+];B[mk]SQ[rc][se][mk]MA[pr]C[Move 139: B N9
+Score: B+38.2
+Win rate: B 99.8%
+Predicted top move was Q2 (B+34.8).
+PV: BQ2 B3
+Move was #9 according to policy  (2.19%).
+Top policy move was Q2 (39.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (39.65%), S17 (10.31%), B16 (9.90%), B2 (9.82%), J2 (4.31%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 94 random moves according to weights. Top 5 among these were N9 (2.19%), J8 (1.31%), J17 (0.18%), L12 (0.15%), O9 (0.03%) and picked top N9. ];W[nk]SQ[bg]MA[nk]C[Move 140: W O9
+Score: B+33.2
+Win rate: B 99.9%
+Move was predicted best move
+PV: WO9 Q2 B3 B4
+Move was #1 according to policy  (65.45%).
+Top policy move was O9 (65.5%).
+];B[il]SQ[il][bd][rc]MA[pr]C[Move 141: B J8
+Score: B+33.2
+Win rate: B 99.7%
+Predicted top move was Q2 (B+33.8).
+PV: BQ2 B3 B4
+Move was #2 according to policy  (16.05%).
+Top policy move was Q2 (30.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (30.56%), J8 (16.05%), B2 (11.86%), B16 (7.50%), J2 (6.48%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 93 random moves according to weights. Top 5 among these were J8 (16.05%), L12 (0.36%), J17 (0.33%), P8 (0.14%), M11 (0.07%) and picked top J8. ];W[mk]SQ[og]MA[mk]C[Move 142: W N9
+Score: B+31.4
+Win rate: B 99.8%
+Move was predicted best move
+PV: WN9 Q2 B3 B4
+Move was #1 according to policy  (71.89%).
+Top policy move was N9 (71.9%).
+];B[kh]SQ[bd]MA[pr]C[Move 143: B L12
+Score: B+26.9
+Win rate: B 99.8%
+Estimated point loss: 4.5
+Predicted top move was Q2 (B+33.6).
+PV: BQ2 B3 B4
+Move was #3 according to policy  (11.20%).
+Top policy move was Q2 (28.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (28.63%), B16 (11.64%), L12 (11.20%), B2 (9.99%), S17 (7.83%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 93 random moves according to weights. Top 5 among these were L12 (11.20%), M11 (1.25%), M12 (0.70%), L13 (0.66%), H15 (0.61%) and picked top L12. ];W[be]SQ[be][pr][oq]MA[bq]C[Move 144: W B15
+Score: B+26.4
+Win rate: B 99.9%
+Predicted top move was B3 (B+23.5).
+PV: WB3 B4
+Move was #2 according to policy  (15.01%).
+Top policy move was B3 (33.1%).
+];B[ic]SQ[ae][rc][ic]MA[pr]C[Move 145: B J17
+Score: B+27.1
+Win rate: B 99.8%
+Predicted top move was Q2 (B+26.9).
+PV: BQ2 B3 B4
+Move was #13 according to policy  (0.40%).
+Top policy move was Q2 (32.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (32.54%), A15 (25.93%), B2 (11.70%), S17 (4.85%), J2 (4.78%). Generated weights for ai:p:influence according to weight factor 10 and distance from 3.5th line. Picked 92 random moves according to weights. Top 5 among these were J17 (0.13%), P8 (0.02%), C3 (0.02%), O7 (0.02%), Q5 (0.02%) and picked top J17. ];W[jc]SQ[bg]MA[jc]C[Move 146: W K17
+Score: B+24.8
+Win rate: B 99.9%
+Move was predicted best move
+PV: WK17 Q2 B3
+Move was #1 according to policy  (53.28%).
+Top policy move was K17 (53.3%).
+];B[ae]SQ[ae]MA[pr]C[Move 147: B A15
+Score: B+27.2
+Win rate: B 99.7%
+Predicted top move was Q2 (B+25.9).
+PV: BQ2 B3
+Move was #2 according to policy  (27.38%).
+Top policy move was Q2 (33.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (33.05%), A15 (27.38%), B2 (10.39%), S17 (6.72%), J2 (4.44%). Generated equal weights as move number >= 144.4. Picked 108 random moves according to weights. Top 5 among these were A15 (27.38%), J2 (4.44%), F1 (0.26%), R16 (0.22%), B16 (0.18%) and picked top A15. ];W[bd]SQ[bd][nh][og]MA[cb]C[Move 148: W B16
+Score: B+25.2
+Win rate: B 99.9%
+Predicted top move was C18 (B+26.5).
+PV: WC18 Q2 B3
+Move was #2 according to policy  (27.96%).
+Top policy move was C18 (50.8%).
+];B[pr]SQ[rc]MA[pr]C[Move 149: B Q2
+Score: B+26.5
+Win rate: B 99.8%
+Move was predicted best move
+PV: BQ2 B3 B4 B13
+Move was #1 according to policy  (40.67%).
+Top policy move was Q2 (40.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q2 (40.67%), B2 (20.43%), T15 (6.94%), B13 (6.05%), B3 (4.47%). Generated equal weights as move number >= 144.4. Picked 107 random moves according to weights. Top 5 among these were Q2 (40.67%), T15 (6.94%), S17 (3.77%), J2 (2.78%), P2 (2.30%) and picked top Q2. ];W[qr]MA[bq]C[Move 150: W R2
+Score: B+28.2
+Win rate: B 99.9%
+Estimated point loss: 1.8
+Predicted top move was B3 (B+25.5).
+PV: WB3 B4 B13
+Move was #6 according to policy  (2.44%).
+Top policy move was B3 (43.9%).
+];B[bg]SQ[bq][rc]MA[br]C[Move 151: B B13
+Score: B+27.5
+Win rate: B 99.9%
+Estimated point loss: 0.7
+Predicted top move was B2 (B+29.2).
+PV: BB2 B13
+Move was #5 according to policy  (7.63%).
+Top policy move was B2 (28.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B2 (28.46%), B3 (20.96%), J2 (8.08%), S17 (7.74%), B13 (7.63%). Generated equal weights as move number >= 144.4. Picked 106 random moves according to weights. Top 5 among these were B13 (7.63%), R1 (6.29%), T15 (4.42%), A13 (0.85%), B1 (0.79%) and picked top B13. ];W[ad]SQ[ps]MA[bq]C[Move 152: W A16
+Score: B+32.2
+Win rate: B 99.9%
+Estimated point loss: 4.7
+Predicted top move was B3 (B+25.6).
+PV: WB3 B4
+Move was #39 according to policy  (0.08%).
+Top policy move was B3 (48.4%).
+];B[se]SQ[bq][rc][se]MA[br]C[Move 153: B T15
+Score: B+33.5
+Win rate: B 99.9%
+Predicted top move was B2 (B+32.8).
+PV: BB2 Q1
+Move was #5 according to policy  (7.28%).
+Top policy move was B2 (36.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B2 (36.62%), B3 (17.03%), S17 (11.47%), J2 (8.80%), T15 (7.28%). Generated equal weights as move number >= 144.4. Picked 105 random moves according to weights. Top 5 among these were T15 (7.28%), R1 (4.53%), B18 (1.83%), E1 (1.41%), C18 (0.89%) and picked top T15. ];W[rd]SQ[rc][bq][rd]MA[sd]C[Move 154: W S16
+Score: B+32.7
+Win rate: B 99.9%
+Predicted top move was T16 (B+32.2).
+PV: WT16 S16
+Move was #4 according to policy  (7.11%).
+Top policy move was T16 (37.6%).
+];B[bq]SQ[br][sd][rc]MA[bq]C[Move 155: B B3
+Score: B+33.3
+Win rate: B 99.9%
+Move was predicted best move
+PV: BB3 Q1 O2
+Move was #1 according to policy  (33.02%).
+Top policy move was B3 (33.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B3 (33.02%), B2 (27.67%), T16 (12.37%), J2 (9.34%), R1 (3.87%). Generated equal weights as move number >= 144.4. Picked 104 random moves according to weights. Top 5 among these were B3 (33.02%), B2 (27.67%), S17 (2.03%), C3 (0.35%), B4 (0.31%) and picked top B3. ];W[br]SQ[ir][nm][oo]MA[ps]C[Move 156: W B2
+Score: B+34.6
+Win rate: B 100.0%
+Estimated point loss: 1.3
+Predicted top move was Q1 (B+32.8).
+PV: WQ1 O2
+Move was #22 according to policy  (1.01%).
+Top policy move was Q1 (24.0%).
+];B[sd]SQ[ir][sd]MA[qs]C[Move 157: B T16
+Score: B+38.5
+Win rate: B 99.9%
+Predicted top move was R1 (B+35.4).
+PV: BR1 S1
+Move was #3 according to policy  (13.10%).
+Top policy move was R1 (32.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are R1 (32.02%), J2 (20.67%), T16 (13.10%), Q1 (5.60%), O2 (4.25%). Generated equal weights as move number >= 144.4. Picked 103 random moves according to weights. Top 5 among these were T16 (13.10%), K2 (2.70%), T14 (1.57%), P3 (0.99%), C18 (0.96%) and picked top T16. ];W[sc]SQ[sc]MA[rc]C[Move 158: W T17
+Score: B+34.7
+Win rate: B 100.0%
+Predicted top move was S17 (B+34.9).
+PV: WS17 J2
+Move was #2 according to policy  (28.22%).
+Top policy move was S17 (41.2%).
+];B[sf]SQ[ir][qs]MA[sf]C[Move 159: B T14
+Score: B+36.1
+Win rate: B 100.0%
+Move was predicted best move
+PV: BT14 S17 R1 S1
+Move was #1 according to policy  (58.78%).
+Top policy move was T14 (58.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are T14 (58.78%), J2 (18.35%), R1 (6.22%), B18 (2.82%), E1 (2.21%). Generated equal weights as move number >= 144.4. Picked 102 random moves according to weights. Top 5 among these were T14 (58.78%), E1 (2.21%), C1 (1.20%), C18 (1.12%), K2 (0.79%) and picked top T14. ];W[rc]SQ[rb]MA[rc]C[Move 160: W S17
+Score: B+34.5
+Win rate: B 99.9%
+Move was predicted best move
+PV: WS17 R1 S1 Q1
+Move was #1 according to policy  (48.37%).
+Top policy move was S17 (48.4%).
+];B[qs]SQ[ir][jr]MA[qs]C[Move 161: B R1
+Score: B+36.4
+Win rate: B 99.9%
+Move was predicted best move
+PV: BR1 S1 Q1 P3 P2
+Move was #1 according to policy  (31.43%).
+Top policy move was R1 (31.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are R1 (31.43%), J2 (24.15%), K2 (8.60%), O2 (8.10%), A2 (5.56%). Generated equal weights as move number >= 144.4. Picked 101 random moves according to weights. Top 5 among these were R1 (31.43%), J2 (24.15%), P3 (2.06%), B18 (1.30%), P1 (1.18%) and picked top R1. ];W[rs]SQ[jr][nm]MA[rs]C[Move 162: W S1
+Score: B+34.6
+Win rate: B 99.9%
+Move was predicted best move
+PV: WS1 Q1 P3 P2
+Move was #1 according to policy  (19.41%).
+Top policy move was S1 (19.4%).
+];B[ps]SQ[bb]MA[ps]C[Move 163: B Q1
+Score: B+36.7
+Win rate: B 99.8%
+Move was predicted best move
+PV: BQ1 P3 P2 M2
+Move was #1 according to policy  (53.71%).
+Top policy move was Q1 (53.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q1 (53.71%), J2 (23.90%), O2 (6.57%), B18 (2.49%), E1 (2.31%). Generated equal weights as move number >= 144.4. Picked 100 random moves according to weights. Top 5 among these were Q1 (53.71%), O2 (6.57%), E1 (2.31%), C18 (1.30%), K2 (0.76%) and picked top Q1. ];W[rr]SQ[ir][oo][rr]MA[oq]C[Move 164: W S2
+Score: B+36.8
+Win rate: B 99.9%
+Predicted top move was P3 (B+35.4).
+PV: WP3 P2 M2
+Move was #31 according to policy  (0.54%).
+Top policy move was P3 (14.3%).
+];B[kr]SQ[jr][kr][ar]MA[ir]C[Move 165: B L2
+Score: B+36.9
+Win rate: B 99.9%
+Predicted top move was J2 (B+38.3).
+PV: BJ2 H2
+Move was #3 according to policy  (4.38%).
+Top policy move was J2 (40.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are J2 (40.45%), K2 (24.69%), L2 (4.38%), A2 (4.21%), O2 (2.90%). Generated equal weights as move number >= 144.4. Picked 99 random moves according to weights. Top 5 among these were L2 (4.38%), P3 (2.32%), B18 (1.29%), M2 (1.05%), O7 (0.96%) and picked top L2. ];W[ir]SQ[ar][ir][oo][nm][is]MA[oq]C[Move 166: W J2
+Score: B+36.4
+Win rate: B 99.9%
+Predicted top move was P3 (B+37.2).
+PV: WP3 P2 O3
+Move was #3 according to policy  (11.04%).
+Top policy move was P3 (16.2%).
+];B[lb]SQ[lb][es]MA[ar]C[Move 167: B M18
+Score: B+36.6
+Win rate: B 99.9%
+Predicted top move was A2 (B+36.7).
+PV: BA2 K2
+Move was #2 according to policy  (20.93%).
+Top policy move was A2 (34.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A2 (34.17%), M18 (20.93%), L18 (12.04%), E1 (2.31%), K2 (2.19%). Generated equal weights as move number >= 144.4. Picked 98 random moves according to weights. Top 5 among these were M18 (20.93%), L18 (12.04%), E1 (2.31%), P19 (1.54%), O7 (1.27%) and picked top M18. ];W[kb]SQ[ar][lr][kb]MA[jr]C[Move 168: W L18
+Score: B+36.8
+Win rate: B 99.9%
+Predicted top move was K2 (B+37.0).
+PV: WK2 L1
+Move was #12 according to policy  (1.69%).
+Top policy move was K2 (13.6%).
+];B[ar]SQ[es]MA[ar]C[Move 169: B A2
+Score: B+38.0
+Win rate: B 99.9%
+Move was predicted best move
+PV: BA2 A14 A13 K2
+Move was #1 according to policy  (54.00%).
+Top policy move was A2 (54.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A2 (54.00%), P8 (5.70%), K2 (4.08%), P19 (3.50%), O7 (2.72%). Generated equal weights as move number >= 144.4. Picked 97 random moves according to weights. Top 5 among these were A2 (54.00%), K2 (4.08%), E1 (2.37%), B18 (1.85%), P5 (1.51%) and picked top A2. ];W[bs]SQ[jr][lc][nm][oo]MA[af]C[Move 170: W B1
+Score: B+39.1
+Win rate: B 99.9%
+Estimated point loss: 1.1
+Predicted top move was A14 (B+37.7).
+PV: WA14 A13 K2
+Move was #65 according to policy  (0.06%).
+Top policy move was A14 (12.2%).
+];B[na]SQ[nm][ol][af][qg][oa][na]MA[jr]C[Move 171: B O19
+Score: B+39.3
+Win rate: B 99.9%
+Predicted top move was K2 (B+39.2).
+PV: BK2 A14
+Move was #8 according to policy  (3.13%).
+Top policy move was K2 (20.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are K2 (20.74%), O7 (9.42%), P8 (8.21%), A14 (8.04%), P19 (6.09%). Generated equal weights as move number >= 144.4. Picked 95 random moves according to weights. Top 5 among these were O19 (3.13%), L19 (2.23%), Q5 (1.91%), C3 (1.65%), E1 (1.29%) and picked top O19. ];W[af]SQ[af][nm][la]MA[jr]C[Move 172: W A14
+Score: B+38.4
+Win rate: B 99.9%
+Predicted top move was K2 (B+39.2).
+PV: WK2 L1
+Move was #2 according to policy  (9.17%).
+Top policy move was K2 (12.0%).
+];B[ag]SQ[oa][ol]MA[ag]C[Move 173: B A13
+Score: B+39.1
+Win rate: B 99.8%
+Move was predicted best move
+PV: BA13 K2 L1 P3
+Move was #1 according to policy  (27.24%).
+Top policy move was A13 (27.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A13 (27.24%), P19 (9.08%), K2 (8.30%), P8 (7.55%), M19 (6.66%). Generated equal weights as move number >= 144.4. Picked 94 random moves according to weights. Top 5 among these were A13 (27.24%), M19 (6.66%), O7 (3.67%), M17 (2.39%), P5 (2.08%) and picked top A13. ];W[qg]SQ[nm][qg][oq]MA[jr]C[Move 174: W R13
+Score: B+38.9
+Win rate: B 99.9%
+Predicted top move was K2 (B+39.0).
+PV: WK2 L1 P3
+Move was #3 according to policy  (8.57%).
+Top policy move was K2 (13.2%).
+];B[la]SQ[oa][jr][ol][ka][nm]MA[la]C[Move 175: B M19
+Score: B+39.0
+Win rate: B 99.9%
+Move was predicted best move
+PV: BM19 K2 L1
+Move was #1 according to policy  (14.38%).
+Top policy move was M19 (14.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are M19 (14.38%), P19 (12.50%), K2 (11.38%), P8 (10.05%), L19 (8.66%). Generated equal weights as move number >= 144.4. Picked 94 random moves according to weights. Top 5 among these were M19 (14.38%), P19 (12.50%), P8 (10.05%), S13 (4.99%), Q5 (1.65%) and picked top M19. ];W[ka]SQ[nm][mc][oq][oo][oa][ka]MA[jr]C[Move 176: W L19
+Score: B+39.3
+Win rate: B 99.9%
+Predicted top move was K2 (B+39.5).
+PV: WK2 L1
+Move was #11 according to policy  (2.68%).
+Top policy move was K2 (12.2%).
+];B[jr]SQ[jr][nm][ol][rg]MA[oa]C[Move 177: B K2
+Score: B+39.4
+Win rate: B 99.9%
+Predicted top move was P19 (B+39.3).
+PV: BP19 K2
+Move was #2 according to policy  (15.37%).
+Top policy move was P19 (21.3%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P19 (21.29%), K2 (15.37%), P8 (10.99%), O7 (9.17%), S13 (7.14%). Generated equal weights as move number >= 144.4. Picked 93 random moves according to weights. Top 5 among these were K2 (15.37%), P8 (10.99%), O7 (9.17%), P5 (2.98%), Q5 (2.48%) and picked top K2. ];W[oa]SQ[rg][oa][mc][lc]MA[nm]C[Move 178: W P19
+Score: B+39.1
+Win rate: B 99.9%
+Predicted top move was O7 (B+39.6).
+PV: WO7 O6 P3
+Move was #2 according to policy  (7.22%).
+Top policy move was O7 (8.0%).
+];B[rg]SQ[nm][ol][oo][po]MA[rg]C[Move 179: B S13
+Score: B+39.5
+Win rate: B 99.9%
+Move was predicted best move
+PV: BS13 O7 O6 P8
+Move was #1 according to policy  (17.91%).
+Top policy move was S13 (17.9%).
+
+AI thought process: Using policy based strategy, base top 5 moves are S13 (17.91%), O7 (17.23%), P8 (14.46%), P5 (6.06%), Q5 (4.95%). Generated equal weights as move number >= 144.4. Picked 92 random moves according to weights. Top 5 among these were S13 (17.91%), Q5 (4.95%), Q14 (3.66%), M17 (2.18%), A3 (1.60%) and picked top S13. ];W[qh]SQ[ol][oo][mc]MA[nm]C[Move 180: W R12
+Score: B+40.2
+Win rate: B 99.9%
+Estimated point loss: 0.6
+Predicted top move was O7 (B+39.1).
+PV: WO7 O6 P8
+Move was #26 according to policy  (0.93%).
+Top policy move was O7 (10.3%).
+];B[oo]SQ[oo][po][nm]MA[ol]C[Move 181: B P5
+Score: B+40.7
+Win rate: B 99.9%
+Predicted top move was P8 (B+40.9).
+PV: BP8 P9
+Move was #2 according to policy  (12.58%).
+Top policy move was P8 (16.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P8 (16.23%), P5 (12.58%), O7 (11.64%), Q5 (10.38%), N17 (6.16%). Generated equal weights as move number >= 144.4. Picked 91 random moves according to weights. Top 5 among these were P5 (12.58%), O7 (11.64%), Q14 (2.30%), A3 (1.75%), A15 (1.28%) and picked top P5. ];W[po]SQ[mc][po]MA[nm]C[Move 182: W Q5
+Score: B+40.4
+Win rate: B 99.9%
+Predicted top move was O7 (B+40.3).
+PV: WO7 O6 P8
+Move was #6 according to policy  (4.82%).
+Top policy move was O7 (13.6%).
+];B[ol]SQ[nm][is][js]MA[ol]C[Move 183: B P8
+Score: B+41.2
+Win rate: B 99.9%
+Move was predicted best move
+PV: BP8 O7 O6 P9
+Move was #1 according to policy  (31.96%).
+Top policy move was P8 (32.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P8 (31.96%), O7 (12.74%), J1 (7.25%), M17 (5.22%), K1 (4.60%). Generated equal weights as move number >= 144.4. Picked 90 random moves according to weights. Top 5 among these were P8 (31.96%), J1 (7.25%), K1 (4.60%), C3 (3.77%), H5 (2.70%) and picked top P8. ];W[ok]SQ[pk][ok][oq][cq]MA[nm]C[Move 184: W P9
+Score: B+40.7
+Win rate: B 99.9%
+Predicted top move was O7 (B+41.0).
+PV: WO7 O6 P9
+Move was #3 according to policy  (10.99%).
+Top policy move was O7 (13.9%).
+];B[ql]SQ[ql][is][js][mc]MA[nm]C[Move 185: B R8
+Score: B+41.3
+Win rate: B 99.8%
+Predicted top move was O7 (B+41.4).
+PV: BO7 K1
+Move was #2 according to policy  (10.52%).
+Top policy move was O7 (23.9%).
+
+AI thought process: Using policy based strategy, base top 5 moves are O7 (23.88%), R8 (10.52%), J1 (9.90%), N17 (8.20%), M17 (6.76%). Generated equal weights as move number >= 144.4. Picked 89 random moves according to weights. Top 5 among these were R8 (10.52%), J1 (9.90%), N17 (8.20%), K1 (5.31%), C3 (4.68%) and picked top R8. ];W[pk]SQ[nh][pf][og]MA[pk]C[Move 186: W Q9
+Score: B+41.0
+Win rate: B 99.9%
+Move was predicted best move
+PV: WQ9 O7 K1 L1
+Move was #1 according to policy  (41.95%).
+Top policy move was Q9 (41.9%).
+];B[nm]SQ[qk][rl][rk][js]MA[nm]C[Move 187: B O7
+Score: B+41.0
+Win rate: B 99.9%
+Move was predicted best move
+PV: BO7 K1 L1 J1
+Move was #1 according to policy  (26.10%).
+Top policy move was O7 (26.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are O7 (26.10%), J1 (8.89%), R9 (7.54%), S8 (6.31%), S9 (5.47%). Generated equal weights as move number >= 144.4. Picked 88 random moves according to weights. Top 5 among these were O7 (26.10%), R9 (7.54%), S9 (5.47%), T12 (3.68%), M17 (3.21%) and picked top O7. ];W[sh]SQ[ho][is][lc][mc][sh]MA[js]C[Move 188: W T12
+Score: B+41.4
+Win rate: B 100.0%
+Predicted top move was K1 (B+40.9).
+PV: WK1 L1 J1
+Move was #7 according to policy  (4.90%).
+Top policy move was K1 (11.7%).
+];B[is]SQ[mc][js][qk][ho]MA[is]C[Move 189: B J1
+Score: B+42.8
+Win rate: B 99.8%
+Move was predicted best move
+PV: BJ1 H1 K1 H5
+Move was #1 according to policy  (13.60%).
+Top policy move was J1 (13.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are J1 (13.60%), N17 (10.43%), K1 (10.00%), R9 (8.96%), M17 (8.40%). Generated equal weights as move number >= 144.4. Picked 87 random moves according to weights. Top 5 among these were J1 (13.60%), N17 (10.43%), R9 (8.96%), M17 (8.40%), H5 (7.09%) and picked top J1. ];W[hs]SQ[sg][cq]MA[hs]C[Move 190: W H1
+Score: B+40.9
+Win rate: B 100.0%
+Move was predicted best move
+PV: WH1 K1 H5 J5
+Move was #1 according to policy  (27.63%).
+Top policy move was H1 (27.6%).
+];B[js]SQ[qk][rk]MA[js]C[Move 191: B K1
+Score: B+41.9
+Win rate: B 99.9%
+Move was predicted best move
+PV: BK1 H5 J5 N17
+Move was #1 according to policy  (38.05%).
+Top policy move was K1 (38.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are K1 (38.05%), R9 (7.40%), N17 (5.48%), C3 (3.93%), S9 (3.73%). Generated equal weights as move number >= 144.4. Picked 86 random moves according to weights. Top 5 among these were K1 (38.05%), N17 (5.48%), S9 (3.73%), M17 (3.34%), H18 (2.87%) and picked top K1. ];W[as]SQ[mc][lc][sg][as]MA[ho]C[Move 192: W A1
+Score: B+41.7
+Win rate: B 99.9%
+Predicted top move was H5 (B+41.7).
+PV: WH5 J5 N17
+Move was #30 according to policy  (0.81%).
+Top policy move was H5 (14.3%).
+];B[cq]SQ[rl][es]MA[aq]C[Move 193: B C3
+Score: B+41.0
+Win rate: B 99.8%
+Estimated point loss: 0.7
+Predicted top move was A3 (B+42.7).
+PV: BA3 E1
+Move was #2 according to policy  (20.38%).
+Top policy move was A3 (43.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A3 (43.50%), C3 (20.38%), R9 (5.23%), E1 (3.85%), S8 (2.64%). Generated equal weights as move number >= 144.4. Picked 85 random moves according to weights. Top 5 among these were C3 (20.38%), R9 (5.23%), S8 (2.64%), S9 (2.55%), C18 (2.15%) and picked top C3. ];W[aq]MA[aq]C[Move 194: W A3
+Score: B+39.3
+Win rate: B 99.9%
+Move was predicted best move
+PV: WA3 A4 E1 A2
+Move was #1 according to policy  (51.87%).
+Top policy move was A3 (51.9%).
+];B[bp]SQ[bp]MA[ap]C[Move 195: B B4
+Score: B+39.1
+Win rate: B 99.9%
+Predicted top move was A4 (B+41.2).
+PV: BA4 E1 A2
+Move was #2 according to policy  (13.50%).
+Top policy move was A4 (55.6%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A4 (55.65%), B4 (13.50%), E1 (3.82%), S8 (3.55%), R9 (3.23%). Generated equal weights as move number >= 144.4. Picked 84 random moves according to weights. Top 5 among these were B4 (13.50%), E1 (3.82%), S9 (2.09%), B18 (1.72%), G1 (1.64%) and picked top B4. ];W[cs]SQ[lc][mc][es][cs][sg]MA[ho]C[Move 196: W C1
+Score: B+39.3
+Win rate: B 100.0%
+Predicted top move was H5 (B+38.6).
+PV: WH5 J5 N17
+Move was #5 according to policy  (5.76%).
+Top policy move was H5 (14.6%).
+];B[ae]SQ[ho][lc][ap][ae][pf]MA[mc]C[Move 197: B A15
+Score: B+39.4
+Win rate: B 99.9%
+Predicted top move was N17 (B+39.4).
+PV: BN17 H5
+Move was #5 according to policy  (5.58%).
+Top policy move was N17 (20.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are N17 (20.48%), H5 (18.89%), M17 (10.86%), A4 (9.81%), A15 (5.58%). Generated equal weights as move number >= 144.4. Picked 83 random moves according to weights. Top 5 among these were A15 (5.58%), E1 (2.00%), G1 (1.36%), H18 (1.28%), B18 (1.02%) and picked top A15. ];W[ge]SQ[lc][mc][es][sg][ge]MA[ho]C[Move 198: W G15
+Score: B+34.4
+Win rate: B 99.8%
+Predicted top move was H5 (B+38.9).
+PV: WH5 J5
+Move was #7 according to policy  (3.30%).
+Top policy move was H5 (11.6%).
+];B[es]SQ[bb][cb]MA[he]C[Move 199: B E1
+Score: B+31.0
+Win rate: B 99.7%
+Estimated point loss: 3.4
+Predicted top move was H15 (B+39.8).
+PV: BH15 A14
+Move was #4 according to policy  (1.08%).
+Top policy move was H15 (90.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are H15 (90.05%), B18 (1.86%), R9 (1.56%), E1 (1.08%), S9 (0.97%). Generated equal weights as move number >= 144.4. Picked 83 random moves according to weights. Top 5 among these were E1 (1.08%), S10 (0.62%), S8 (0.39%), T9 (0.08%), R10 (0.07%) and picked top E1. ];W[fs]SQ[fs][nh][pf][og]MA[he]C[Move 200: W F1
+Score: B+30.7
+Win rate: B 99.5%
+Predicted top move was H15 (B+29.0).
+PV: WH15 F1
+Move was #2 according to policy  (11.09%).
+Top policy move was H15 (49.8%).
+];B[he]SQ[cb][ac][he]MA[bb]C[Move 201: B H15
+Score: B+39.8
+Win rate: B 99.9%
+Predicted top move was B18 (B+32.2).
+PV: BB18 C18
+Move was #1 according to policy  (89.47%).
+Top policy move was H15 (89.5%).
+
+AI thought process: Using policy based strategy, base top 5 moves are H15 (89.47%), B18 (2.45%), C18 (1.75%), R9 (1.59%), A17 (1.06%). Generated equal weights as move number >= 144.4. Picked 81 random moves according to weights. Top 5 among these were H15 (89.47%), B18 (2.45%), R9 (1.59%), R10 (0.07%), H5 (0.05%) and picked top H15. ];W[af]SQ[es][lc][mc][af][ef]MA[ho]C[Move 202: W A14
+Score: B+39.8
+Win rate: B 100.0%
+Predicted top move was H5 (B+39.5).
+PV: WH5 J5
+Move was #5 according to policy  (8.80%).
+Top policy move was H5 (11.1%).
+];B[lc]SQ[ap][qk][lc][ho]MA[mc]C[Move 203: B M17
+Score: B+40.0
+Win rate: B 99.8%
+Predicted top move was N17 (B+39.9).
+PV: BN17 H5
+Move was #2 according to policy  (13.60%).
+Top policy move was N17 (14.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are N17 (14.66%), M17 (13.60%), H5 (12.95%), A4 (9.46%), R9 (8.36%). Generated equal weights as move number >= 144.4. Picked 80 random moves according to weights. Top 5 among these were M17 (13.60%), H5 (12.95%), A4 (9.46%), R9 (8.36%), Q14 (6.08%) and picked top M17. ];W[es]SQ[ho][es][sg]MA[mc]C[Move 204: W E1
+Score: B+38.9
+Win rate: B 99.9%
+Predicted top move was N17 (B+39.7).
+PV: WN17 N18
+Move was #3 according to policy  (6.66%).
+Top policy move was N17 (17.1%).
+];B[mc]SQ[mc][qk][rl]MA[ap]C[Move 205: B N17
+Score: B+39.6
+Win rate: B 99.7%
+Predicted top move was A4 (B+39.7).
+PV: BA4 H5
+Move was #2 according to policy  (12.72%).
+Top policy move was A4 (41.2%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A4 (41.20%), N17 (12.72%), H5 (7.81%), A15 (4.84%), R9 (4.07%). Generated equal weights as move number >= 144.4. Picked 80 random moves according to weights. Top 5 among these were N17 (12.72%), A15 (4.84%), S8 (2.75%), H18 (2.52%), S9 (1.92%) and picked top N17. ];W[ap]SQ[ho]MA[ap]C[Move 206: W A4
+Score: B+34.4
+Win rate: B 99.9%
+Move was predicted best move
+PV: WA4 A5 A2 B5
+Move was #1 according to policy  (27.67%).
+Top policy move was A4 (27.7%).
+];B[bo]SQ[bo][bn]MA[ao]C[Move 207: B B5
+Score: B+36.7
+Win rate: B 99.7%
+Predicted top move was A5 (B+38.1).
+PV: BA5 A2 B5
+Move was #2 according to policy  (5.47%).
+Top policy move was A5 (75.8%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A5 (75.76%), B5 (5.47%), R9 (2.78%), S8 (2.41%), B6 (2.02%). Generated equal weights as move number >= 144.4. Picked 79 random moves according to weights. Top 5 among these were B5 (5.47%), S8 (2.41%), B6 (2.02%), B18 (1.74%), S10 (1.70%) and picked top B5. ];W[ao]SQ[oq]MA[ao]C[Move 208: W A5
+Score: B+32.0
+Win rate: B 99.9%
+Move was predicted best move
+PV: WA5 A6 A2 B6
+Move was #1 according to policy  (33.05%).
+Top policy move was A5 (33.0%).
+];B[an]SQ[bn][bm]MA[an]C[Move 209: B A6
+Score: B+36.5
+Win rate: B 99.7%
+Move was predicted best move
+PV: BA6 A2 B6 H5 J5
+Move was #1 according to policy  (79.66%).
+Top policy move was A6 (79.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A6 (79.66%), B6 (8.53%), R9 (2.59%), B7 (2.33%), S9 (1.08%). Generated equal weights as move number >= 144.4. Picked 78 random moves according to weights. Top 5 among these were A6 (79.66%), B6 (8.53%), R9 (2.59%), H18 (1.02%), S10 (0.92%) and picked top A6. ];W[ar]SQ[oq]MA[ar]C[Move 210: W A2
+Score: B+35.3
+Win rate: B 99.3%
+Move was predicted best move
+PV: WA2 B6 H5 J5 L17
+Move was #1 according to policy  (27.33%).
+Top policy move was A2 (27.3%).
+];B[bn]SQ[bm][cn][am]MA[bn]C[Move 211: B B6
+Score: B+36.5
+Win rate: B 99.8%
+Move was predicted best move
+PV: BB6 H5 J5 L17 Q14
+Move was #1 according to policy  (60.97%).
+Top policy move was B6 (61.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are B6 (60.97%), B7 (17.94%), C6 (4.77%), A7 (3.20%), R9 (2.37%). Generated equal weights as move number >= 144.4. Picked 77 random moves according to weights. Top 5 among these were B6 (60.97%), B7 (17.94%), C6 (4.77%), A7 (3.20%), S10 (0.97%) and picked top B6. ];W[ae]SQ[sg][ef][ae]MA[ho]C[Move 212: W A15
+Score: B+36.7
+Win rate: B 100.0%
+Predicted top move was H5 (B+36.2).
+PV: WH5 J5 L17 Q14
+Move was #9 according to policy  (3.01%).
+Top policy move was H5 (23.5%).
+];B[ho]SQ[oc][qk][io]MA[ho]C[Move 213: B H5
+Score: B+38.2
+Win rate: B 99.8%
+Move was predicted best move
+PV: BH5 L17 P17
+Move was #1 according to policy  (40.43%).
+Top policy move was H5 (40.4%).
+
+AI thought process: Using policy based strategy, base top 5 moves are H5 (40.43%), Q14 (13.81%), P17 (5.34%), L17 (4.28%), R9 (3.35%). Generated equal weights as move number >= 144.4. Picked 76 random moves according to weights. Top 5 among these were H5 (40.43%), J5 (3.06%), S8 (3.03%), S10 (2.46%), S9 (2.36%) and picked top H5. ];W[sg]SQ[oc][sg][nh]MA[kc]C[Move 214: W T13
+Score: B+30.4
+Win rate: B 99.2%
+Predicted top move was L17 (B+37.8).
+PV: WL17 P17
+Move was #3 according to policy  (11.45%).
+Top policy move was L17 (17.8%).
+];B[pf]SQ[ac]MA[pf]C[Move 215: B Q14
+Score: B+38.4
+Win rate: B 100.0%
+Move was predicted best move
+PV: BQ14 L17 P17 pass
+Move was #1 according to policy  (95.28%).
+Top policy move was Q14 (95.3%).
+
+AI thought process: Using policy based strategy, base top 5 moves are Q14 (95.28%), B18 (1.34%), C18 (1.11%), A17 (0.62%), H18 (0.39%). Top policy move has weight > 95.0%, so overriding other strategies.];W[kc]SQ[oc][rl][qk]MA[kc]C[Move 216: W L17
+Score: B+37.6
+Win rate: B 100.0%
+Move was predicted best move
+PV: WL17 P17 pass N14
+Move was #1 according to policy  (21.29%).
+Top policy move was L17 (21.3%).
+];B[oc]SQ[rl][qk][rj][bb]MA[oc]C[Move 217: B P17
+Score: B+38.1
+Win rate: B 100.0%
+Move was predicted best move
+PV: BP17 pass N14 S8
+Move was #1 according to policy  (44.01%).
+Top policy move was P17 (44.0%).
+
+AI thought process: Using policy based strategy, base top 5 moves are P17 (44.01%), R9 (6.21%), S8 (5.12%), N14 (2.69%), S10 (2.41%). Generated equal weights as move number >= 144.4. Picked 74 random moves according to weights. Top 5 among these were P17 (44.01%), R9 (6.21%), S8 (5.12%), S10 (2.41%), S9 (2.10%) and picked top P17. ];W[]SQ[rl][qk][cb][pb][hb]C[Move 218: W pass
+Score: B+38.0
+Win rate: B 100.0%
+Move was predicted best move
+PV: Wpass N14 S8 P14
+Move was #1 according to policy  (10.56%).
+Top policy move was pass (10.6%).
+];B[gf]SQ[gf][of][oq][og][dg]MA[mf]C[Move 219: B G14
+Score: B+37.9
+Win rate: B 100.0%
+Predicted top move was N14 (B+38.0).
+PV: BN14 S8 P14
+Move was #2 according to policy  (10.45%).
+Top policy move was N14 (12.1%).
+
+AI thought process: Using policy based strategy, base top 5 moves are N14 (12.08%), G14 (10.45%), P14 (8.97%), P3 (7.50%), P13 (5.45%). Generated equal weights as move number >= 144.4. Picked 74 random moves according to weights. Top 5 among these were G14 (10.45%), P3 (7.50%), P13 (5.45%), D13 (3.85%), O12 (3.81%) and picked top G14. ];W[]SQ[qk][cb][][pb][hb]MA[rl]C[Move 220: W pass
+Score: B+37.8
+Win rate: B 100.0%
+Predicted top move was S8 (B+37.9).
+PV: WS8 N14
+Move was #4 according to policy  (8.41%).
+Top policy move was S8 (10.2%).
+];B[of]SQ[of][oq][og][nh][dg]MA[mf]C[Move 221: B P14
+Score: B+38.0
+Win rate: B 100.0%
+Predicted top move was N14 (B+37.9).
+PV: BN14 S8
+Move was #2 according to policy  (10.33%).
+Top policy move was N14 (12.7%).
+
+AI thought process: Using policy based strategy, base top 5 moves are N14 (12.66%), P14 (10.33%), P3 (8.61%), P13 (4.86%), O12 (4.35%). Generated equal weights as move number >= 144.4. Picked 74 random moves according to weights. Top 5 among these were P14 (10.33%), P13 (4.86%), O12 (4.35%), D13 (3.67%), G11 (2.94%) and picked top P14. ];W[]SQ[rl][qk][cb][pb][hb]C[Move 222: W pass
+Score: B+37.9
+Win rate: B 100.0%
+Move was predicted best move
+PV: Wpass N14 S8 pass
+Move was #1 according to policy  (11.71%).
+Top policy move was pass (11.7%).
+];B[]SQ[oq][qk][nh][og][dg][]MA[mf]C[Move 223: B pass
+Score: B+37.8
+Win rate: B 100.0%
+Predicted top move was N14 (B+37.7).
+PV: BN14 S8 pass
+Move was #18 according to policy  (1.64%).
+Top policy move was N14 (13.8%).
+])
