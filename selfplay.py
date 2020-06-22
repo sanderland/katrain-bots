@@ -48,12 +48,13 @@ class AI:
     DEFAULT_ENGINE_SETTINGS = {
         "katago": "katrain/KataGo/katago",
         "model": "katrain/models/g170e-b15c192-s1672170752-d466197061.bin.gz",
-        "config": "lowmem.cfg",
+#        "config": "lowmem.cfg",
+        "config": "kata_config.cfg",
         "max_visits": 1,
         "max_time": 300.0,
         "_enable_ownership": False,
     }
-    NUM_THREADS = 32
+    NUM_THREADS = 128
     IGNORE_SETTINGS_IN_TAG = {"threads", "_enable_ownership", "katago"}  # katago for switching from/to bs version
     ENGINES = []
     LOCK = threading.Lock()
@@ -116,33 +117,42 @@ def retrieve_ais(selected_ais):
     return [ai for ai in ai_database if ai in selected_ais]
 
 
-test_ais = [
+reference_ais = [
     AI(AI_RANK, {"kyu_rank": 18}, {}),
     AI(AI_RANK, {"kyu_rank": 14}, {}),
     AI(AI_RANK, {"kyu_rank": 10}, {}),
+    AI(AI_RANK, {"kyu_rank": 8}, {}),
     AI(AI_RANK, {"kyu_rank": 6}, {}),
+    AI(AI_RANK, {"kyu_rank": 4}, {}),
     AI(AI_RANK, {"kyu_rank": 2}, {}),
     AI(AI_RANK, {"kyu_rank": -1}, {}),
-    AI(AI_LOCAL, {}, {}),
-    AI(AI_TENUKI, {}, {}),
-    AI(AI_WEIGHTED, {}, {}),
-    AI(AI_PICK, {}, {}),
-    AI(AI_TERRITORY, {}, {}),
+    AI(AI_RANK, {"kyu_rank": -3}, {}),
     AI(AI_POLICY, {}, {}),
 ]
+
+test_ais = []
+for wf in [0.5, 1.0, 1.25, 2]:
+    for po in [1.0, 0.9, 0.95, 0.99]:
+        for lb in [0.001]:
+            test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf, "pick_override": po, "lower_bound": lb}, {}))
+
+
+for ai in reference_ais:
+    add_ai(ai)
 
 for ai in test_ais:
     add_ai(ai)
 
+
 N_GAMES = 5
 BOARDSIZE = 19
 
-ais_to_test = retrieve_ais(test_ais)
+ais_to_test = retrieve_ais(test_ais+reference_ais)
 
 results = defaultdict(list)
 
 
-def play_games(black: AI, white: AI):
+def play_game(black: AI, white: AI):
     players = {"B": black, "W": white}
     engines = {"B": black.get_engine(), "W": white.get_engine()}
     tag = f"{black.name} vs {white.name}"
@@ -167,7 +177,9 @@ def play_games(black: AI, white: AI):
         score = game.current_node.score
         if score > 0.3:
             black.elo_comp.beat(white.elo_comp)
-        elif score > -0.3:
+        elif score < -0.3:
+            white.elo_comp.beat(black.elo_comp)
+        else:
             black.elo_comp.tied(white.elo_comp)
 
         results[tag].append(score)
@@ -192,11 +204,11 @@ for n in range(N_GAMES):
         e.shutdown()
     AI.ENGINES = []
 
-    with ThreadPoolExecutor(max_workers=16) as threadpool:
+    with ThreadPoolExecutor(max_workers=4*AI.NUM_THREADS) as threadpool:
         for b in ais_to_test:
             for w in ais_to_test:
                 if b is not w:
-                    threadpool.submit(play_games, b, w)
+                    threadpool.submit(play_game, b, w)
     print("POOL EXIT")
 
     print(f"---- RESULTS ({n}) ----")
