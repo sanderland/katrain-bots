@@ -6,10 +6,6 @@ import sys
 from katrain.core.constants import *
 
 
-class PLayer(object):
-    pass
-
-
 class Logger:
     def log(self, msg, level=OUTPUT_INFO):
         if level <= OUTPUT_INFO:

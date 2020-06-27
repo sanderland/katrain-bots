@@ -8,6 +8,8 @@ import json
 import traceback
 import math
 
+from rank_utils import rank_game
+
 os.environ["KCFG_KIVY_LOG_LEVEL"] = os.environ.get("KCFG_KIVY_LOG_LEVEL", "warning")
 
 
@@ -25,7 +27,7 @@ port = int(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_PORT
 REPORT_SCORE_THRESHOLD = 1.5
 MAX_WAIT_ANALYSIS = 10
 MAX_PASS = 3  # after opponent passes this many times, we always pass
-
+len_segment = 80
 
 logger = Logger()
 
@@ -67,6 +69,13 @@ def rank_to_string(r):
         return f"{r - 30 + 1}d"
     else:
         return f"{30 - r}k"
+
+
+def format_rank(rank):
+    if rank <= 0:
+        return f"{1 - rank:.1f}d"
+    else:
+        return f"{rank:.1f}k"
 
 
 def malkovich_analysis(cn):
@@ -202,6 +211,15 @@ while True:
                 )
                 if any(gamedata["players"][p]["username"] == "katrain-dev-beta" for p in ["white", "black"]):
                     sgf_dir = "sgf_ogs_beta/"
+
+                if game.board_size == (19, 19):
+                    ranks = rank_game(game, len_segment)
+                    if ranks:
+                        for start, end, rank in ranks:
+                            print(
+                                f"DISCUSSION: Experimental Rank Estimation for moves {start:3d} to {end:3d}: B ~ {format_rank(rank['B'])}, W ~ {format_rank(rank['W'])}"
+                            )
+
             except Exception as e:
                 _, _, tb = sys.exc_info()
                 logger.log(f"error while processing gamedata: {e}\n{traceback.format_tb(tb)}", OUTPUT_ERROR)

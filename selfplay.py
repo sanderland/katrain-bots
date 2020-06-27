@@ -48,7 +48,7 @@ class AI:
     DEFAULT_ENGINE_SETTINGS = {
         "katago": "katrain/KataGo/katago",
         "model": "katrain/models/g170e-b15c192-s1672170752-d466197061.bin.gz",
-#        "config": "lowmem.cfg",
+        #        "config": "lowmem.cfg",
         "config": "kata_config.cfg",
         "max_visits": 1,
         "max_time": 300.0,
@@ -147,7 +147,7 @@ for ai in test_ais:
 N_GAMES = 5
 BOARDSIZE = 19
 
-ais_to_test = retrieve_ais(test_ais+reference_ais)
+ais_to_test = retrieve_ais(test_ais + reference_ais)
 
 results = defaultdict(list)
 
@@ -204,7 +204,7 @@ for n in range(N_GAMES):
         e.shutdown()
     AI.ENGINES = []
 
-    with ThreadPoolExecutor(max_workers=4*AI.NUM_THREADS) as threadpool:
+    with ThreadPoolExecutor(max_workers=4 * AI.NUM_THREADS) as threadpool:
         for b in ais_to_test:
             for w in ais_to_test:
                 if b is not w:
