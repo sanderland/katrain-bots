@@ -131,10 +131,16 @@ reference_ais = [
 ]
 
 test_ais = []
-for wf in [0.5, 1.0, 1.25, 2]:
-    for po in [1.0, 0.9, 0.95, 0.99]:
-        for lb in [0.001]:
-            test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf, "pick_override": po, "lower_bound": lb}, {}))
+for wf in [0.5, 1.0, 1.25, 1.5,1.75, 2, 2.25]:
+#    for po in [1.0, 0.9, 0.95, 0.99]:
+        for lb in [0.01,0.005,0.001,0.0005]:
+            test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf, "lower_bound": lb}, {}))
+
+test_ais = []
+for wf in [0.5, 1.0, 2.0]:
+    for po in [0.0,0.25,0.5,0.75]:
+        for lb in [0.1,0.01]:
+            test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf, "pick_override":po, "lower_bound": lb}, {}))
 
 
 for ai in reference_ais:
@@ -144,7 +150,7 @@ for ai in test_ais:
     add_ai(ai)
 
 
-N_GAMES = 5
+N_GAMES = 2
 BOARDSIZE = 19
 
 ais_to_test = retrieve_ais(test_ais + reference_ais)
