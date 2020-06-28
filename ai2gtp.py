@@ -1,17 +1,11 @@
 # This is a script that turns a KaTrain AI into a sort-of GTP compatible bot
 import json
+import math
+import os
 import random
 import sys
 import time
-import os
-import json
 import traceback
-import math
-
-from rank_utils import rank_game
-
-os.environ["KCFG_KIVY_LOG_LEVEL"] = os.environ.get("KCFG_KIVY_LOG_LEVEL", "warning")
-
 
 from katrain.core.ai import generate_ai_move
 from katrain.core.base_katrain import KaTrainBase
@@ -20,7 +14,11 @@ from katrain.core.engine import EngineDiedException, KataGoEngine
 from katrain.core.game import Game
 from katrain.core.sgf_parser import Move
 
-from settings import DEFAULT_PORT, bot_strategies, Logger
+from rank_utils import rank_game
+from settings import DEFAULT_PORT, Logger, bot_strategies
+
+os.environ["KCFG_KIVY_LOG_LEVEL"] = os.environ.get("KCFG_KIVY_LOG_LEVEL", "warning")
+
 
 bot = sys.argv[1].strip()
 port = int(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_PORT
@@ -217,7 +215,8 @@ while True:
                     if ranks:
                         for start, end, rank in ranks:
                             print(
-                                f"DISCUSSION: Experimental Rank Estimation for moves {start:3d} to {end:3d}: B ~ {format_rank(rank['B'])}, W ~ {format_rank(rank['W'])}"
+                                f"DISCUSSION: Experimental Rank Estimation for moves {start:3d} to {end:3d}: B ~ {format_rank(rank['B'])}, W ~ {format_rank(rank['W'])}",
+                                file=sys.stderr,
                             )
 
             except Exception as e:
