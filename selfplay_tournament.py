@@ -7,6 +7,7 @@ import time
 import traceback
 from collections import defaultdict
 from concurrent.futures.thread import ThreadPoolExecutor
+import random
 
 from elote import EloCompetitor
 from katrain.core.ai import generate_ai_move
@@ -21,7 +22,7 @@ from katrain.core.constants import (
     AI_PICK,
     AI_TERRITORY,
     PLAYER_AI,
-    AI_POLICY,
+    AI_POLICY, AI_INFLUENCE,
 )
 from katrain.core.engine import KataGoEngine
 from katrain.core.game import Game
@@ -34,7 +35,7 @@ class SPLogger(Logger):
         return {bw: Player(player=bw, player_type=PLAYER_AI) for bw in "BW"}
 
 
-DB_FILENAME = "ai_performance.pickle"
+DB_FILENAME = "tournament_ai_performance.pickle"
 
 
 logger = Logger()
@@ -117,42 +118,31 @@ def retrieve_ais(selected_ais):
     return [ai for ai in ai_database if ai in selected_ais]
 
 
-reference_ais = [
-    AI(AI_RANK, {"kyu_rank": 18}, {}),
-    AI(AI_RANK, {"kyu_rank": 14}, {}),
-    AI(AI_RANK, {"kyu_rank": 10}, {}),
-    AI(AI_RANK, {"kyu_rank": 8}, {}),
-    AI(AI_RANK, {"kyu_rank": 6}, {}),
-    AI(AI_RANK, {"kyu_rank": 4}, {}),
-    AI(AI_RANK, {"kyu_rank": 2}, {}),
-    AI(AI_RANK, {"kyu_rank": -1}, {}),
-    AI(AI_RANK, {"kyu_rank": -3}, {}),
-    AI(AI_POLICY, {}, {}),
-]
+test_ais = [AI(AI_POLICY, {}, {})]
+test_types = [AI_RANK,AI_WEIGHTED,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
 
-test_ais = []
-test_type = AI_LOCAL
+for test_type in test_types:
+    if test_type==AI_WEIGHTED:
+        for wf in [0.5, 1.0, 1.25, 1.5,1.75, 2, 2.25]:
+            test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf}, {}))
+    elif test_type in [AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]:
+        for pf in [0.0, 0.05, 0.1,0.2,0.3,0.5,0.75,1.0]:
+            for pn in [0, 5, 10, 15, 25, 50]:
+                test_ais.append(AI(test_type, {"pick_frac": pf, "pick_n":pn}, {}))
+    elif test_type==AI_RANK:
+        for kyu in range(-4,19):
+            test_ais.append(AI(AI_RANK, {"kyu_rank": -3}, {}))
 
-if test_type==AI_WEIGHTED:
-    for wf in [0.5, 1.0, 1.25, 1.5,1.75, 2, 2.25]:
-        test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf}, {}))
-elif test_type==AI_LOCAL:
-    for pf in [0.0, 0.05, 0.1,0.2,0.3,0.5,0.75,1.0]:
-        for pn in [0, 5, 10, 15, 25, 50]:
-            test_ais.append(AI(AI_LOCAL, {"pick_frac": pf, "pick_n":pn}, {}))
-elif test_type == AI_TENUKI:
-    for pf in [0.0, 0.05, 0.1,0.2,0.3,0.5,0.75,1.0]:
-        for pn in [0, 5, 10, 15, 25, 50]:
-            test_ais.append(AI(AI_TENUKI, {"pick_frac": pf, "pick_n": pn}, {}))
-
-for ai in reference_ais+test_ais:
+for ai in test_ais:
     add_ai(ai)
+ais_to_test = retrieve_ais(test_ais)
 
-
-N_GAMES = 1
 BOARDSIZE = 19
-
-ais_to_test = retrieve_ais(test_ais + reference_ais)
+N_ROUNDS = 10
+N_GAMES_PER_PLAYER = 5
+RATING_NOISE = 100
+SIMUL_GAMES = 32 #4 * AI.NUM_THREADS
+OUTPUT_SGF = False
 
 results = defaultdict(list)
 
@@ -172,9 +162,12 @@ def play_game(black: AI, white: AI):
         while not game.current_node.analysis_ready:
             time.sleep(0.001)
         game.game_id += f"_{game.current_node.format_score()}"
-        sgf_out_msg = game.write_sgf(
-            "sgf_selfplay/", trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": [0]}
-        )
+        if OUTPUT_SGF:
+            sgf_out_msg = game.write_sgf(
+                "sgf_selfplay/", trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": [0]}
+            )
+        else:
+            sgf_out_msg = "<not saved>"
         print(
             f"{tag}\tGame finished in {time.time()-start_time:.1f}s @ move {game.current_node.depth} {game.current_node.format_score()} -> {sgf_out_msg}",
             file=sys.stderr,
@@ -204,16 +197,22 @@ def fmt_score(score):
 print(len(ais_to_test), "ais to test")
 global_start = time.time()
 
-for n in range(N_GAMES):
+
+for n in range(N_ROUNDS):
     for _, e in AI.ENGINES:  # no caching/replays
         e.shutdown()
     AI.ENGINES = []
 
-    with ThreadPoolExecutor(max_workers=4 * AI.NUM_THREADS) as threadpool:
+    with ThreadPoolExecutor(max_workers=SIMUL_GAMES) as threadpool:
+        n_games = 0
         for b in ais_to_test:
-            for w in ais_to_test:
-                if b is not w:
-                    threadpool.submit(play_game, b, w)
+            ws = sorted( ais_to_test, key=lambda opp: abs( (b.elo_comp.rating + (random.random()-0.5)*2*RATING_NOISE) - opp.elo_comp.rating) + (b is opp)*1e9 )
+            for w in ws[:N_GAMES_PER_PLAYER]:
+                if random.random() < 0.5:
+                    w,b = b,w
+                threadpool.submit(play_game, b, w)
+                n_games += 1
+        print(f"Playing {n_games} games")
     print("POOL EXIT")
 
     print(f"---- RESULTS ({n}) ----")
