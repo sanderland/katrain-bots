@@ -18,7 +18,9 @@ class Logger:
 
 
 bot_strategies = {
-    "dev": (AI_SCORELOSS, {}, {"maxVisits": 500}),
+#    "dev": (AI_SCORELOSS, {}, {"max_visits": 500}),
+    "dev": (AI_WEIGHTED, {"weaken_fac": 0.5},{}),
+    "2d": (AI_WEIGHTED, {}, {"weaken_fac": 1.0}),
     #    "dev": (AI_POLICY, {}, {}),
     "dev-beta": (AI_WEIGHTED, {}, {}),
     "strong": (AI_POLICY, {}, {}),
@@ -33,7 +35,7 @@ bot_strategies = {
     "10k": (AI_RANK, {"kyu_rank": 10}, {}),
     "6k": (AI_RANK, {"kyu_rank": 6}, {}),
     "2k": (AI_RANK, {"kyu_rank": 2}, {}),
-    "2d": (AI_RANK, {"kyu_rank": -1}, {}),
+#    "2d": (AI_RANK, {"kyu_rank": -1}, {}),
 }
 
 engine_overrides = {"dev": {"maxVisits": 500}}

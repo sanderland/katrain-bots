@@ -1,28 +1,30 @@
 # This is a script I use to test the performance of AIs
 import json
 import pickle
+import random
 import sys
 import threading
 import time
 import traceback
 from collections import defaultdict
 from concurrent.futures.thread import ThreadPoolExecutor
-import random
 
 from elote import EloCompetitor
 from katrain.core.ai import generate_ai_move
 from katrain.core.base_katrain import Player
 from katrain.core.constants import (
+    AI_INFLUENCE,
     AI_LOCAL,
+    AI_PICK,
+    AI_POLICY,
     AI_RANK,
     AI_TENUKI,
+    AI_TERRITORY,
     AI_WEIGHTED,
     OUTPUT_ERROR,
     OUTPUT_INFO,
-    AI_PICK,
-    AI_TERRITORY,
     PLAYER_AI,
-    AI_POLICY, AI_INFLUENCE,
+    AI_SCORELOSS,
 )
 from katrain.core.engine import KataGoEngine
 from katrain.core.game import Game
@@ -35,7 +37,8 @@ class SPLogger(Logger):
         return {bw: Player(player=bw, player_type=PLAYER_AI) for bw in "BW"}
 
 
-DB_FILENAME = "tournament_ai_performance.pickle"
+SAVE_RESULTS_FILENAME = "calibrated_ai_performance.pickle"
+REFERENCE_DB_FILENAME = "tournament_ai_performance.pickle"
 
 
 logger = Logger()
@@ -45,6 +48,39 @@ with open("config.json") as f:
     DEFAULT_AI_SETTINGS = settings["ai"]
 
 INIT_RATING = 1000
+
+
+class FixedEloCompetitor(EloCompetitor):  # rating doesn't update on wins/losses
+    def __init__(self, initial_rating: float = 400, fixed: bool = False):
+        super().__init__(initial_rating)
+        self.fixed = fixed
+
+    @property
+    def rating(self):
+        return self._rating
+
+    @rating.setter
+    def rating(self, value):
+        if not self.fixed:
+            self._rating = value
+
+    def beat(self, competitor):
+        win_es = self.expected_score(competitor)
+        lose_es = competitor.expected_score(self)
+        # update the winner's rating
+        self.rating = self.rating + self._k_factor * (1 - win_es)
+        # update the loser's rating
+        competitor.rating = competitor.rating + self._k_factor * (0 - lose_es)
+
+    def tied(self, competitor):
+        self.verify_competitor_types(competitor)
+        win_es = self.expected_score(competitor)
+        lose_es = competitor.expected_score(self)
+        # update the winner's rating
+        self.rating = self.rating + self._k_factor * (0.5 - win_es)
+        # update the loser's rating
+        competitor.rating = competitor.rating + self._k_factor * (0.5 - lose_es)
+
 
 class AI:
     DEFAULT_ENGINE_SETTINGS = {
@@ -61,8 +97,8 @@ class AI:
     ENGINES = []
     LOCK = threading.Lock()
 
-    def __init__(self, strategy, ai_settings, engine_settings=None):
-        self.elo_comp = EloCompetitor(initial_rating=INIT_RATING)
+    def __init__(self, strategy, ai_settings, engine_settings=None, rating=INIT_RATING, fixed_rating=False):
+        self.elo_comp = FixedEloCompetitor(initial_rating=rating, fixed=fixed_rating)
         self.strategy = strategy
         self.ai_settings = ai_settings
         self.engine_settings = engine_settings or {}
@@ -88,67 +124,81 @@ class AI:
             print("Creating new engine for", self.engine_settings, "now have", len(AI.ENGINES), "engines up")
             return engine
 
+    def __repr__(self):
+        return f"{self.strategy}({self.ai_settings})"
+
     def __eq__(self, other):
         return self.name == other.name  # should capture all relevant setting differences
 
 
-try:
-    with open(DB_FILENAME, "rb") as f:
-        ai_database_loaded, all_results = pickle.load(f)
-        ai_database = []
-        for ai in ai_database_loaded:
-            try:
-                ai.fix_settings()  # update as required
-                ai_database.append(ai)
-            except:
-                print("Error loading AI", ai.strategy)
-except FileNotFoundError:
-    ai_database = []
-    all_results = []
+with open(REFERENCE_DB_FILENAME, "rb") as f:
+    init_rating_db, _ = pickle.load(f)
 
 
-def add_ai(ai):
-    if ai not in ai_database:
-        ai_database.append(ai)
-        print(f"Adding {ai.name}")
-    else:
-        print(f"AI {ai.name} already in DB")
+pure_policy_ai = AI(AI_POLICY, {"opening_moves": 0}, {}, rating=1800, fixed_rating=True)
+default_policy_ai = AI(AI_POLICY, {}, {}, rating=1700, fixed_rating=True)
 
+CALIBRATED_ELO = [
+    (-4, 1112.802892326076),
+    (-3, 1069.9095810474219),
+    (-2, 1027.0162697687679),
+    (-1, 984.1229584901139),
+    (0, 941.2296472114598),
+    (1, 898.3363359328057),
+    (2, 855.4430246541517),
+    (3, 812.5497133754976),
+    (4, 769.6564020968435),
+    (5, 726.7630908181895),
+    (6, 683.8697795395354),
+    (7, 640.9764682608813),
+    (8, 598.0831569822274),
+    (9, 555.1898457035733),
+    (10, 512.2965344249192),
+    (11, 469.40322314626513),
+    (12, 426.5099118676111),
+    (13, 383.616600588957),
+    (14, 340.7232893103029),
+    (15, 297.8299780316489),
+    (16, 254.93666675299482),
+    (17, 212.04335547434073),
+    (18, 169.15004419568675),
+]
 
-def retrieve_ais(selected_ais):
-    return [ai for ai in ai_database if ai in selected_ais]
+fixed_ais = [pure_policy_ai, default_policy_ai] + [
+    AI(AI_RANK, {"kyu_rank": kyu}, {}, rating=elo, fixed_rating=True) for kyu, elo in CALIBRATED_ELO
+]
 
-
-default_policy_ai = AI(AI_POLICY, {}, {})
-pure_policy_ai = AI(AI_POLICY, {'opening_moves':0}, {})
-test_ais = [pure_policy_ai,default_policy_ai]
-test_types = [AI_RANK,AI_WEIGHTED,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
-
+test_types = [AI_WEIGHTED]  # ,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
+test_types = [AI_SCORELOSS]
+test_ais = []
 for test_type in test_types:
-    if test_type==AI_WEIGHTED:
-        for wf in [0.5, 1.0, 1.25, 1.5,1.75, 2, 2.25]:
+    if test_type == AI_WEIGHTED:
+        for wf in [0.5, 1.0, 1.25, 1.5, 1.75, 2, 2.5, 3.0]:
             test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf}, {}))
-    elif test_type in [AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]:
-        for pf in [0.0, 0.05, 0.1,0.2,0.3,0.5,0.75,1.0]:
+    elif test_type in [AI_LOCAL, AI_TENUKI, AI_TERRITORY, AI_INFLUENCE, AI_PICK]:
+        for pf in [0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0]:
             for pn in [0, 5, 10, 15, 25, 50]:
-                test_ais.append(AI(test_type, {"pick_frac": pf, "pick_n":pn}, {}))
-    elif test_type==AI_RANK:
-        for kyu in range(-4,19):
-            test_ais.append(AI(AI_RANK, {"kyu_rank": kyu}, {}))
+                test_ais.append(AI(test_type, {"pick_frac": pf, "pick_n": pn}, {}))
+    elif test_type == AI_SCORELOSS:
+        for str in [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0]:
+            test_ais.append(AI(AI_SCORELOSS, {"strength": str}, {"max_visits": 500, "max_time": 100}))
 
 for ai in test_ais:
-    add_ai(ai)
-ais_to_test = retrieve_ais(test_ais)
+    find = [ref_ai for ref_ai in init_rating_db if ai == ref_ai]  # load ratings
+    if len(find) != 1:
+        print(ai, "not found")
+        continue
+    print(ai, "rating", find[0].elo_comp.rating)
+    ai.elo_comp.rating = find[0].elo_comp.rating
 
 BOARDSIZE = 19
-N_ROUNDS = 100
-N_GAMES_PER_PLAYER = 2
-STARTING_GAMES = 25
-RATING_NOISE = 300
-SIMUL_GAMES = 32 #4 * AI.NUM_THREADS
+N_ROUNDS = 50
+N_GAMES_PER_PLAYER = 4
+RATING_NOISE = 200
+SIMUL_GAMES = 32  # 4 * AI.NUM_THREADS
 OUTPUT_SGF = False
 
-results = defaultdict(list)
+all_results = []
 
 
 def play_game(black: AI, white: AI):
@@ -173,8 +223,7 @@ def play_game(black: AI, white: AI):
         else:
             sgf_out_msg = "<not saved>"
         print(
-            f"{tag}\tGame finished in {time.time()-start_time:.1f}s @ move {game.current_node.depth} {game.current_node.format_score()} -> {sgf_out_msg}",
-            file=sys.stderr,
+            f"{tag}\tGame finished in {time.time()-start_time:.1f}s @ move {game.current_node.depth} {game.current_node.format_score()} -> {sgf_out_msg}"
         )
         score = game.current_node.score
         if score > 0.3:
@@ -183,8 +232,6 @@ def play_game(black: AI, white: AI):
             white.elo_comp.beat(black.elo_comp)
         else:
             black.elo_comp.tied(white.elo_comp)
-
-        results[tag].append(score)
         all_results.append((black.name, white.name, score))
 
     except Exception as e:
@@ -198,9 +245,7 @@ def fmt_score(score):
     return f"{'B' if score >= 0 else 'W'}+{abs(score):.1f}"
 
 
-print(len(ais_to_test), "ais to test")
 global_start = time.time()
-
 
 for n in range(N_ROUNDS):
     for _, e in AI.ENGINES:  # no caching/replays
@@ -209,11 +254,16 @@ for n in range(N_ROUNDS):
 
     with ThreadPoolExecutor(max_workers=SIMUL_GAMES) as threadpool:
         n_games = 0
-        for b in ais_to_test:
-            if b.elo_comp.rating==INIT_RATING:
-                ws = sorted( ais_to_test, key=lambda opp: random.random() + (b is opp)*1e9 )[:STARTING_GAMES]
-            else:
-                ws = sorted( ais_to_test, key=lambda opp: abs( (b.elo_comp.rating + (random.random()-0.5)*2*RATING_NOISE) - opp.elo_comp.rating) + (b is opp)*1e9 )[:N_GAMES_PER_PLAYER]
+        for b in test_ais:
+            if b.elo_comp.rating > default_policy_ai.elo_comp.rating:
+                continue  # bunch of near-identical policy ais
+            ws = sorted(
+                fixed_ais,
+                key=lambda opp: abs(
+                    (b.elo_comp.rating + (random.random() - 0.5) * 2 * RATING_NOISE) - opp.elo_comp.rating
+                )
+                + (b is opp) * 1e9,
+            )[:N_GAMES_PER_PLAYER]
             for w in ws:
                 if random.random() < 0.5:
                     threadpool.submit(play_game, w, b)
@@ -223,24 +273,16 @@ for n in range(N_ROUNDS):
         print(f"Playing {n_games} games")
     print("POOL EXIT")
 
-    print(f"---- RESULTS ({n}) ----")
-    for k, v in results.items():
-        b_win = sum([s > 0.3 for s in v])
-        w_win = sum([s < -0.3 for s in v])
-        print(f"{b_win} {k} {w_win} : {list(map(fmt_score,v))}")
-
     print("---- ELO ----")
-    for ai in sorted(ai_database, key=lambda a: -a.elo_comp.rating):
+    for ai in sorted(fixed_ais + test_ais, key=lambda a: -a.elo_comp.rating):
         wins = [(b, w, s) for (b, w, s) in all_results if s > 0.3 and b == ai.name or w == ai.name and s < -0.3]
         losses = [(b, w, s) for (b, w, s) in all_results if s < -0.3 and b == ai.name or w == ai.name and s > -0.3]
         draws = [(b, w, s) for (b, w, s) in all_results if -0.3 <= s <= 0.3 and (b == ai.name or w == ai.name)]
-        out = f"{'*' if ai in ais_to_test else ' '} {ai.name}: ELO {ai.elo_comp.rating:.1f} WINS {len(wins)} LOSSES {len(losses)} DRAWS {len(draws)}"
-        #    print("Wins:",wins)
+        out = f"{ai.name}: ELO {ai.elo_comp.rating:.1f} WINS {len(wins)} LOSSES {len(losses)} DRAWS {len(draws)}"
         print(out)
-        print(out, file=sys.stderr)
 
-    with open(DB_FILENAME, "wb") as f:
-        pickle.dump((ai_database, all_results), f)
-    print(f"Saving {len(all_results)} to pickle", file=sys.stderr)
+    with open(SAVE_RESULTS_FILENAME, "wb") as f:
+        pickle.dump((test_ais, []), f)
+    print(f"Saving {len(test_ais)} ais to pickle", file=sys.stderr)
 
 print(f"Done!Time taken {time.time()-global_start:.1f}s", file=sys.stderr)
