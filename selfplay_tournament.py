@@ -22,7 +22,8 @@ from katrain.core.constants import (
     AI_PICK,
     AI_TERRITORY,
     PLAYER_AI,
-    AI_POLICY, AI_INFLUENCE,
+    AI_POLICY,
+    AI_INFLUENCE,
 )
 from katrain.core.engine import KataGoEngine
 from katrain.core.game import Game
@@ -45,6 +46,7 @@ with open("config.json") as f:
     DEFAULT_AI_SETTINGS = settings["ai"]
 
 INIT_RATING = 1000
+
 
 class AI:
     DEFAULT_ENGINE_SETTINGS = {
@@ -119,24 +121,24 @@ def retrieve_ais(selected_ais):
     return [ai for ai in ai_database if ai in selected_ais]
 
 
-default_policy_ai = AI(AI_POLICY, {}, {},rating=1300)
-pure_policy_ai = AI(AI_POLICY, {'opening_moves':0}, {},rating=1400)
-random_ai = AI(AI_PICK, {'pick_frac':0,'pick_n':1}, {},rating=0)
+default_policy_ai = AI(AI_POLICY, {}, {}, rating=1300)
+pure_policy_ai = AI(AI_POLICY, {"opening_moves": 0}, {}, rating=1400)
+random_ai = AI(AI_PICK, {"pick_frac": 0, "pick_n": 1}, {}, rating=0)
 
-test_ais = [pure_policy_ai,default_policy_ai,random_ai]
-test_types = [AI_RANK,AI_WEIGHTED] # ,AI_WEIGHTED,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
+test_ais = [pure_policy_ai, default_policy_ai, random_ai]
+test_types = [AI_RANK, AI_WEIGHTED]  # ,AI_WEIGHTED,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
 
 for test_type in test_types:
-    if test_type==AI_WEIGHTED:
+    if test_type == AI_WEIGHTED:
         for wf in [0.5, 1.0, 1.25, 1.5, 1.75, 2, 2.5, 3.0]:
             test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf}, {}))
-    elif test_type in [AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]:
-        for pf in [0.0, 0.05, 0.1,0.2,0.3,0.5,0.75,1.0]:
+    elif test_type in [AI_LOCAL, AI_TENUKI, AI_TERRITORY, AI_INFLUENCE, AI_PICK]:
+        for pf in [0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0]:
             for pn in [0, 5, 10, 15, 25, 50]:
-                test_ais.append(AI(test_type, {"pick_frac": pf, "pick_n":pn}, {}))
-    elif test_type==AI_RANK:
-        for kyu in range(-4,19):
-            test_ais.append(AI(AI_RANK, {"kyu_rank": kyu}, {},rating=1000 - kyu*50  ))
+                test_ais.append(AI(test_type, {"pick_frac": pf, "pick_n": pn}, {}))
+    elif test_type == AI_RANK:
+        for kyu in range(-4, 19):
+            test_ais.append(AI(AI_RANK, {"kyu_rank": kyu}, {}, rating=1000 - kyu * 50))
 
 for ai in test_ais:
     add_ai(ai)
@@ -147,7 +149,7 @@ N_ROUNDS = 100
 N_GAMES_PER_PLAYER = 5
 STARTING_GAMES = 25
 RATING_NOISE = 300
-SIMUL_GAMES = 32 #4 * AI.NUM_THREADS
+SIMUL_GAMES = 32  # 4 * AI.NUM_THREADS
 OUTPUT_SGF = False
 
 results = defaultdict(list)
@@ -212,10 +214,16 @@ for n in range(N_ROUNDS):
     with ThreadPoolExecutor(max_workers=SIMUL_GAMES) as threadpool:
         n_games = 0
         for b in ais_to_test:
-            if b.elo_comp.rating==INIT_RATING:
-                ws = sorted( ais_to_test, key=lambda opp: random.random() + (b is opp)*1e9 )[:STARTING_GAMES]
+            if b.elo_comp.rating == INIT_RATING:
+                ws = sorted(ais_to_test, key=lambda opp: random.random() + (b is opp) * 1e9)[:STARTING_GAMES]
             else:
-                ws = sorted( ais_to_test, key=lambda opp: abs( (b.elo_comp.rating + (random.random()-0.5)*2*RATING_NOISE) - opp.elo_comp.rating) + (b is opp)*1e9 )[:N_GAMES_PER_PLAYER]
+                ws = sorted(
+                    ais_to_test,
+                    key=lambda opp: abs(
+                        (b.elo_comp.rating + (random.random() - 0.5) * 2 * RATING_NOISE) - opp.elo_comp.rating
+                    )
+                    + (b is opp) * 1e9,
+                )[:N_GAMES_PER_PLAYER]
             for w in ws:
                 if random.random() < 0.5:
                     threadpool.submit(play_game, w, b)

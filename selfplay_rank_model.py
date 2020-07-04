@@ -106,13 +106,22 @@ except FileNotFoundError:
 
 
 from sklearn.linear_model import LinearRegression
-ranked = [ai for ai in ai_database if ai.strategy==AI_RANK]
-calibrate = [ai for ai in ai_database if ai.strategy==AI_WEIGHTED]
 
-kyu_elo = [(r.ai_settings['kyu_rank'],r.elo_comp.rating) for r in ranked]
-wt_elo =  [([r.ai_settings['weaken_fac'],math.log(r.ai_settings['lower_bound']),1-r.ai_settings.get('pick_override',1)],r.elo_comp.rating) for r in calibrate]
+ranked = [ai for ai in ai_database if ai.strategy == AI_RANK]
+calibrate = [ai for ai in ai_database if ai.strategy == AI_WEIGHTED]
 
-x,y = zip(*wt_elo)
+kyu_elo = [(r.ai_settings["kyu_rank"], r.elo_comp.rating) for r in ranked]
+wt_elo = [
+    (
+        [
+            r.ai_settings["weaken_fac"],
+            math.log(r.ai_settings["lower_bound"]),
+            1 - r.ai_settings.get("pick_override", 1),
+        ],
+        r.elo_comp.rating,
+    )
+    for r in calibrate
+]
+
+x, y = zip(*wt_elo)
 reg = LinearRegression().fit(x, y)
-
-
