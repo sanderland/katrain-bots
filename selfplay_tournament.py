@@ -61,8 +61,8 @@ class AI:
     ENGINES = []
     LOCK = threading.Lock()
 
-    def __init__(self, strategy, ai_settings, engine_settings=None):
-        self.elo_comp = EloCompetitor(initial_rating=INIT_RATING)
+    def __init__(self, strategy, ai_settings, engine_settings=None, rating=INIT_RATING):
+        self.elo_comp = EloCompetitor(initial_rating=rating)
         self.strategy = strategy
         self.ai_settings = ai_settings
         self.engine_settings = engine_settings or {}
@@ -119,14 +119,16 @@ def retrieve_ais(selected_ais):
     return [ai for ai in ai_database if ai in selected_ais]
 
 
-default_policy_ai = AI(AI_POLICY, {}, {})
-pure_policy_ai = AI(AI_POLICY, {'opening_moves':0}, {})
-test_ais = [pure_policy_ai,default_policy_ai]
-test_types = [AI_RANK,AI_WEIGHTED,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
+default_policy_ai = AI(AI_POLICY, {}, {},rating=1300)
+pure_policy_ai = AI(AI_POLICY, {'opening_moves':0}, {},rating=1400)
+random_ai = AI(AI_PICK, {'pick_frac':0,'pick_n':1}, {},rating=0)
+
+test_ais = [pure_policy_ai,default_policy_ai,random_ai]
+test_types = [AI_RANK,AI_WEIGHTED] # ,AI_WEIGHTED,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
 
 for test_type in test_types:
     if test_type==AI_WEIGHTED:
-        for wf in [0.5, 1.0, 1.25, 1.5,1.75, 2, 2.25]:
+        for wf in [0.5, 1.0, 1.25, 1.5, 1.75, 2, 2.5, 3.0]:
             test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf}, {}))
     elif test_type in [AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]:
         for pf in [0.0, 0.05, 0.1,0.2,0.3,0.5,0.75,1.0]:
@@ -134,7 +136,7 @@ for test_type in test_types:
                 test_ais.append(AI(test_type, {"pick_frac": pf, "pick_n":pn}, {}))
     elif test_type==AI_RANK:
         for kyu in range(-4,19):
-            test_ais.append(AI(AI_RANK, {"kyu_rank": kyu}, {}))
+            test_ais.append(AI(AI_RANK, {"kyu_rank": kyu}, {},rating=1000 - kyu*50  ))
 
 for ai in test_ais:
     add_ai(ai)
@@ -142,7 +144,7 @@ ais_to_test = retrieve_ais(test_ais)
 
 BOARDSIZE = 19
 N_ROUNDS = 100
-N_GAMES_PER_PLAYER = 2
+N_GAMES_PER_PLAYER = 5
 STARTING_GAMES = 25
 RATING_NOISE = 300
 SIMUL_GAMES = 32 #4 * AI.NUM_THREADS

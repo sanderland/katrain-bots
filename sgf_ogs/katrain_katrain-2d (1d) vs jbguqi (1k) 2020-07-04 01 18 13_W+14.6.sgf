@@ -1,0 +1,2512 @@
+(;GM[1]FF[4]AP[KaTrain:https://github.com/sanderland/katrain]CA[UTF-8]SZ[19]KM[7.5]DT[2020-07-04 01 18 13]PW[jbguqi (1k)]PB[katrain-2d (1d)]RU[chinese]C[Moves marked 'X' indicate the top move according to KataGo, those with a square are moves that lose less than 0.5 points
+AI ai:p:weighted {'weaken_fac': 1.25, 'pick_override': 1.0, 'lower_bound': 0.001}
+OGS Gamedata: {"white_player_id":800020,"black_player_id":792373,"game_id":25169649,"game_name":"友谊赛","private":false,"pause_on_weekends":false,"players":{"black":{"username":"katrain-2d","rank":30.207292976669954,"professional":false,"id":792373,"accepted_stones":"caabdbdcmidjmjojdknkokrmsprqps","accepted_strict_seki_mode":false},"white":{"username":"jbguqi","rank":29.563387112404072,"professional":false,"id":800020,"accepted_stones":"caabdbdcmidjmjojdknkokrmsprqps","accepted_strict_seki_mode":false}},"ranked":true,"disable_analysis":false,"handicap":0,"komi":7.5,"width":19,"height":19,"rules":"chinese","time_control":{"system":"byoyomi","time_control":"byoyomi","speed":"live","pause_on_weekends":false,"main_time":1200,"period_time":30,"periods":5},"meta_groups":[5460\],"phase":"finished","initial_player":"black","moves":[[15,16,978\],[2,2,11450\],[15,2,524\],[2,16,2654\],[15,14,1007\],[16,5,4669\],[16,8,672\],[16,2,13424\],[16,3,660\],[15,3,2364\],[15,4,590\],[14,3,2546\],[17,2,668\],[16,4,2524\],[16,1,765\],[17,3,1709\],[16,2,501\],[14,5,1710\],[15,7,557\],[15,11,11449\],[13,11,571\],[14,9,7783\],[13,8,3124\],[13,12,10165\],[12,12,1166\],[13,13,1954\],[14,11,491\],[15,13,1839\],[15,10,502\],[16,14,2105\],[16,15,519\],[14,14,5369\],[15,15,755\],[17,13,22928\],[15,12,648\],[16,12,4052\],[16,11,667\],[17,15,3034\],[17,12,587\],[16,13,6641\],[12,16,601\],[16,17,7913\],[17,16,577\],[16,16,5468\],[18,15,1686\],[17,14,1580\],[13,15,716\],[15,17,8275\],[13,2,651\],[9,16,14419\],[12,13,442\],[3,9,14251\],[12,4,791\],[17,7,2714\],[16,6,797\],[15,6,2491\],[17,6,498\],[14,7,2567\],[16,7,625\],[13,3,8234\],[14,17,594\],[17,17,3862\],[12,3,546\],[13,7,45099\],[3,15,867\],[2,15,3839\],[3,13,588\],[4,15,3451\],[7,16,1067\],[13,17,12384\],[5,2,1585\],[14,15,7515\],[3,4,846\],[2,4,8598\],[2,3,903\],[3,3,3601\],[1,3,504\],[1,4,3498\],[13,5,691\],[14,4,6445\],[12,7,1801\],[12,8,4247\],[13,9,490\],[12,6,1919\],[13,6,572\],[14,6,24627\],[11,7,630\],[12,9,1690\],[14,8,1623\],[11,6,7960\],[10,7,848\],[13,10,13448\],[15,8,623\],[12,2,18636\],[14,2,4258\],[17,5,2535\],[13,4,1222\],[15,5,2723\],[4,4,601\],[4,3,14769\],[1,2,652\],[5,3,1609\],[18,5,602\],[18,4,8299\],[18,6,661\],[10,6,9507\],[9,6,603\],[9,7,5919\],[10,8,668\],[9,8,4772\],[10,9,535\],[9,5,1801\],[11,2,611\],[9,9,7093\],[10,10,579\],[8,6,22552\],[2,9,394\],[2,8,4870\],[2,7,604\],[3,5,6264\],[5,4,792\],[6,3,2821\],[3,8,489\],[1,8,1847\],[1,7,523\],[1,9,1894\],[3,6,447\],[4,5,1915\],[5,5,605\],[4,6,7929\],[2,5,1954\],[1,5,1443\],[5,6,488\],[2,6,4078\],[4,7,579\],[3,7,1749\],[4,8,498\],[1,6,15695\],[3,6,595\],[12,1,1927\],[10,3,436\],[3,7,2067\],[3,16,597\],[0,7,2905\],[4,17,615\],[2,17,2348\],[3,2,8526\],[2,1,5691\],[13,14,891\],[14,16,12391\],[3,1,669\],[1,1,3595\],[8,2,594\],[8,3,7199\],[7,3,698\],[7,4,2552\],[7,2,964\],[6,4,1147\],[2,14,4368\],[3,17,9491\],[4,16,636\],[1,14,3892\],[8,11,973\],[1,13,8196\],[6,12,973\],[7,15,4570\],[8,16,750\],[8,15,2036\],[12,17,915\],[6,16,1793\],[6,17,4024\],[5,14,8578\],[6,15,657\],[6,14,1716\],[4,12,636\],[5,16,6316\],[5,17,884\],[5,15,1180\],[8,14,838\],[9,14,10927\],[8,13,706\],[9,17,19468\],[8,17,536\],[11,17,1362\],[5,9,883\],[4,13,7262\],[5,13,752\],[4,14,1233\],[7,18,684\],[6,2,40490\],[3,14,517\],[12,18,10106\],[6,1,852\],[5,1,6989\],[11,16,1242\],[10,16,2830\],[13,18,1175\],[14,18,2474\],[7,14,774\],[6,13,11260\],[5,12,561\],[9,15,1935\],[7,13,908\],[6,15,1659\],[2,0,900\],[0,3,7012\],[5,0,581\],[4,2,3830\],[8,4,1214\],[6,6,15707\],[5,7,638\],[7,1,4871\],[8,1,630\],[6,0,1366\],[7,7,643\],[10,1,17911\],[11,1,2079\],[6,7,12313\],[6,8,778\],[7,8,20867\],[2,10,1237\],[8,0,26166\],[2,12,550\],[11,0,38210\],[9,3,695\],[9,0,7617\],[13,1,1106\],[12,0,3015\],[7,9,1265\],[11,4,22664\],[11,3,652\],[10,4,6116\],[9,2,789\],[18,2,13677\],[18,1,913\],[8,5,21043\],[18,3,1217\],[3,10,36010\],[1,10,979\],[18,2,4310\],[1,12,476\],[12,5,6125\],[18,3,1464\],[17,11,10717\],[13,0,1547\],[10,0,3459\],[17,4,5547\],[16,10,5197\],[14,13,998\],[15,11,3700\],[10,18,560\],[9,18,4550\],[14,12,1023\],[10,12,26511\],[10,13,895\],[9,13,2656\],[11,12,600\],[8,12,7058\],[7,12,597\],[9,12,1368\],[0,13,1106\],[1,15,2728\],[1,17,932\],[1,18,2208\],[0,17,730\],[0,16,1309\],[10,2,641\],[4,0,4736\],[16,9,953\],[8,18,6714\],[0,1,1874\],[0,2,2691\],[7,17,853\],[17,9,2050\],[17,8,1337\],[0,14,22997\],[8,8,1548\],[8,10,5003\],[10,14,1091\],[7,11,11495\],[9,11,1246\],[7,10,14883\],[10,11,635\],[11,18,4942\],[10,15,1218\],[10,17,1245\],[6,10,698\],[6,11,5414\],[8,9,1451\],[9,10,4847\],[5,11,635\],[8,7,1645\],[18,9,665\],[17,10,5009\],[9,4,541\],[18,10,8055\],[18,8,1683\],[16,11,6540\],[3,18,1220\],[0,12,5707\],[0,11,2579\],[0,9,4366\],[7,6,969\],[6,5,2569\],[1,16,1651\],[0,18,7462\],[15,4,630\],[0,10,7733\],[1,11,623\],[2,18,6574\],[9,1,913\],[7,0,3128\],[13,16,1953\],[4,18,5986\],[5,18,1311\],[3,18,2242\],[0,13,836\],[14,10,8895\],[15,9,1402\],[0,12,4354\],[15,18,547\],[2,13,10311\],[18,7,524\],[7,5,8037\],[2,11,3586\],[7,8,10316\],[0,13,682\],[6,9,2079\],[7,9,1263\],[8,9,1828\],[5,8,555\],[6,9,5089\],[5,10,1169\],[7,9,7553\],[3,11,573\],[0,12,5220\],[10,5,1731\],[11,5,2359\],[0,13,823\],[-1,-1,11997\],[16,4,1213\],[0,12,2558\],[2,7,845\],[1,7,2609\],[0,13,612\],[-1,-1,1933\],[0,12,1131\],[-1,-1,2855\],[17,7,665\],[-1,-1,11872\],[-1,-1,1024\]\],"allow_self_capture":false,"automatic_stone_removal":false,"free_handicap_placement":true,"aga_handicap_scoring":false,"allow_ko":false,"allow_superko":false,"superko_algorithm":"ssk","score_territory":true,"score_territory_in_seki":true,"score_stones":true,"score_handicap":true,"score_prisoners":false,"score_passes":true,"white_must_pass_last":false,"opponent_plays_first_after_resume":false,"strict_seki_mode":false,"initial_state":{"black":"","white":""},"start_time":1593818293,"original_disable_analysis":false,"clock":{"game_id":25169649,"current_player":800020,"black_player_id":792373,"white_player_id":800020,"title":"友谊赛","last_move":1593819763706,"expiration":1593819913706,"black_time":{"thinking_time":1023.2309999999997,"periods":5,"period_time":30},"white_time":{"thinking_time":0,"periods":5,"period_time":30},"pause_delta":0,"expiration_delta":150000,"paused_since":1593819763706,"stone_removal_mode":true,"stone_removal_expiration":1593820064362},"pause_control":{"stone-removal":true},"paused_since":1593819763706,"removed":"caabdbdcmidjmjojdknkokrmsprqps","auto_scoring_done":true,"score":{"white":{"total":191.5,"stones":134,"territory":50,"prisoners":0,"scoring_positions":"aabacadaabdbebdcfagbbcbdcdfcaeafagcfkfdghghhjgchaiiislrmsmsnsosprqsqsrpsqsrssspoppqppqapbqarbrorksnseagahaiajakalamabbcbfbhbkbmbacccecgcmcadddedfdgdbecegehekelebfdfefgfhfifjflfmfbgcgegggigkglgmgahbhdhghihjhbicihijiajbjgjhjijjjrjakhkikjkqkrkskglhlplqlrlimjmkmqmbncnengnjnpnqnrnaoboeofogojoooqorobpcpepfpgphpipjpoprpaqcqfqgqjqkqoqqqcrdrjrkrlrnrprqrrrasbscsdsesisjslsmsos","handicap":0,"komi":7.5},"black":{"total":177,"stones":128,"territory":49,"prisoners":0,"scoring_positions":"oapaqarasaobpbrbscidndodpdoeofpfqfrfogpgnhohrdselimiljmjojlkmknkokllmldjejdkekeldmnmnnlnlomolpmpgsnaibjblbnbqbsbhcicjckclcncocpcqcrchdjdkdldmdqdsddeeefeiejemenepeqereffnfsffgngqgrgsgehfhkhlhmhphqhrhshdieifigikinioipiqirisicjfjkjnjpjqjsjbkckfkgkkkpkalblcldlfliljlklnlolambmcmemfmgmhmlmmmompmandnfnhninknmnoncodohoiokonodpkpnpdqeqhqiqlqmqnqerfrgrhrirmrfshs","handicap":0,"komi":0}},"winner":800020,"outcome":"14.5 points","end_time":1593819765,"active_game":{"id":25169649,"phase":"play","name":"友谊赛","player_to_move":792373,"width":19,"height":19,"move_number":0,"paused":0,"private":false,"black":{"username":"katrain-2d","id":792373,"rank":30.207292976669954,"professional":false,"accepted":false,"ratings":{"overall":{"rating":2234.716659499105,"deviation":74.16371757225116,"volatility":0.05924139084985331}}},"white":{"username":"jbguqi","id":800020,"rank":29.563387112404072,"professional":false,"accepted":false,"ratings":{"overall":{"rating":2189.14150056662,"deviation":64.76507758634722,"volatility":0.05972831685664687}}},"time_per_move":43}}
+SGF with review generated by KaTrain.];B[pq]SQ[cp][qd][dc][cd][dq]MA[pq]C[Move 1: B Q3
+Score: W+0.7
+Win rate: W 56.4%
+Move was predicted best move
+PV: BQ3 Q16 D4 D16
+Move was #5 according to policy  (7.53%).
+Top policy move was C4 (8.7%).
+
+AI thought process: Playing policy-weighted random move Q3 (9.1%) from 40 moves above lower_bound of 0.1%.];W[cc]SQ[dd][dp][cc]MA[pd]C[Move 2: W C17
+Score: W+0.2
+Win rate: W 54.1%
+Predicted top move was Q16 (W+0.8).
+PV: WQ16 D4 D16
+Move was #14 according to policy  (0.37%).
+Top policy move was Q16 (25.2%).
+];B[pc]SQ[dp][pc][po][cp][qd]MA[pd]C[Move 3: B Q17
+Score: W+0.2
+Win rate: W 53.9%
+Predicted top move was Q16 (W+0.2).
+PV: BQ16 D4 Q5
+Move was #3 according to policy  (10.41%).
+Top policy move was Q16 (20.8%).
+
+AI thought process: Playing policy-weighted random move Q17 (10.4%) from 26 moves above lower_bound of 0.1%.];W[cq]SQ[dq][cp][qo][cq][qe]MA[dp]C[Move 4: W C3
+Score: W+0.1
+Win rate: W 53.7%
+Predicted top move was D4 (W+0.4).
+PV: WD4 Q15
+Move was #4 according to policy  (0.81%).
+Top policy move was D4 (57.6%).
+];B[po]SQ[po][qf][pf][qn][pn]MA[pe]C[Move 5: B Q5
+Score: W+0.2
+Win rate: W 53.3%
+Predicted top move was Q15 (W+0.3).
+PV: BQ15 Q5
+Move was #2 according to policy  (19.57%).
+Top policy move was Q15 (23.9%).
+
+AI thought process: Playing policy-weighted random move Q5 (19.6%) from 28 moves above lower_bound of 0.1%.];W[qf]SQ[pe][pn][pd][jp][jq][qf]MA[qe]C[Move 6: W R14
+Score: B+0.1
+Win rate: W 51.7%
+Predicted top move was R15 (W+0.2).
+PV: WR15 O16
+Move was #14 according to policy  (0.33%).
+Top policy move was R15 (43.9%).
+];B[qi]SQ[qd][pe][qj][qh][dp]MA[qi]C[Move 7: B R11
+Score: B+0.3
+Win rate: W 50.0%
+Move was predicted best move
+PV: BR11 Q16 R17 O16
+Move was #1 according to policy  (37.45%).
+
+AI thought process: Playing policy-weighted random move R11 (37.4%) from 32 moves above lower_bound of 0.1%.];W[qc]SQ[qc][pn][od][pe][qd]MA[pd]C[Move 8: W R17
+Score: W+0.2
+Win rate: W 54.0%
+Predicted top move was Q16 (B+0.2).
+PV: WQ16 R17 O16
+Move was #2 according to policy  (26.99%).
+Top policy move was Q16 (37.1%).
+];B[qd]SQ[dp][dd][qb]MA[qd]C[Move 9: B R16
+Score: B+0.4
+Win rate: B 50.1%
+Move was predicted best move
+PV: BR16 Q16 Q15 P16
+Move was #1 according to policy  (90.36%).
+
+AI thought process: Playing policy-weighted random move R16 (90.4%) from 9 moves above lower_bound of 0.1%.];W[pd]SQ[rc][rd]MA[pd]C[Move 10: W Q16
+Score: W+0.6
+Win rate: W 55.9%
+Move was predicted best move
+PV: WQ16 Q15 P16 S17
+Move was #1 according to policy  (91.89%).
+];B[pe]SQ[rd][rc][qb]MA[pe]C[Move 11: B Q15
+Score: B+3.8
+Win rate: B 62.8%
+Move was predicted best move
+PV: BQ15 P16 S17 R18
+Move was #1 according to policy  (69.22%).
+
+AI thought process: Playing policy-weighted random move Q15 (69.2%) from 6 moves above lower_bound of 0.1%.];W[od]MA[od]C[Move 12: W P16
+Score: W+1.3
+Win rate: W 59.0%
+Move was predicted best move
+PV: WP16 S17 R18 R15
+Move was #1 according to policy  (99.81%).
+];B[rc]SQ[qe][qb]MA[rc]C[Move 13: B S17
+Score: B+1.1
+Win rate: B 54.5%
+Move was predicted best move
+PV: BS17 R18 R15 S18 O14
+Move was #1 according to policy  (68.15%).
+
+AI thought process: Playing policy-weighted random move S17 (68.2%) from 3 moves above lower_bound of 0.1%.];W[qe]SQ[qe]MA[qb]C[Move 14: W R15
+Score: W+4.1
+Win rate: W 62.1%
+Predicted top move was R18 (W+0.1).
+PV: WR18 R15 S18 O14
+Move was #2 according to policy  (4.74%).
+Top policy move was R18 (87.8%).
+];B[qb]SQ[rd]MA[qb]C[Move 15: B R18
+Score: B+2.1
+Win rate: B 60.5%
+Move was predicted best move
+PV: BR18 S16 R17 P14
+Move was #1 according to policy  (99.90%).
+
+AI thought process: Playing policy-weighted random move R18 (99.9%) from 1 moves above lower_bound of 0.1%.];W[rd]SQ[of][og]MA[rd]C[Move 16: W S16
+Score: B+0.6
+Win rate: B 51.5%
+Move was predicted best move
+PV: WS16 R17 P14 Q8 O17
+Move was #1 according to policy  (85.33%).
+];B[qc]SQ[dp][dd][oc][oi]MA[qc]C[Move 17: B R17
+Score: B+1.4
+Win rate: B 56.9%
+Move was predicted best move
+PV: BR17 P14 Q8 O17 K3
+Move was #1 according to policy  (79.21%).
+
+AI thought process: Playing policy-weighted random move R17 (79.2%) from 9 moves above lower_bound of 0.1%.];W[of]SQ[nc][og][nd]MA[of]C[Move 18: W P14
+Score: B+0.7
+Win rate: B 51.8%
+Move was predicted best move
+PV: WP14 Q8 O17 K3 P18
+Move was #1 according to policy  (52.59%).
+];B[ph]SQ[nd][nc][mc][pk]MA[pl]C[Move 19: B Q12
+Score: B+0.1
+Win rate: W 51.1%
+Estimated point loss: 0.5
+Predicted top move was Q8 (B+0.7).
+PV: BQ8 O17 K3 P18
+Move was #21 according to policy  (0.27%).
+Top policy move was Q8 (36.9%).
+
+AI thought process: Playing policy-weighted random move Q12 (0.3%) from 32 moves above lower_bound of 0.1%.];W[pl]SQ[qm][pn][jq][pl]MA[nc]C[Move 20: W Q8
+Score: B+0.2
+Win rate: W 51.7%
+Predicted top move was O17 (W+0.2).
+PV: WO17 P13
+Move was #22 according to policy  (0.07%).
+Top policy move was O17 (81.7%).
+];B[nl]SQ[og][nh][nc][nl][nd]MA[mc]C[Move 21: B O8
+Score: B+0.2
+Win rate: W 50.5%
+Predicted top move was N17 (B+0.0).
+PV: BN17 O17
+Move was #4 according to policy  (14.49%).
+Top policy move was N17 (17.3%).
+
+AI thought process: Playing policy-weighted random move O8 (14.5%) from 27 moves above lower_bound of 0.1%.];W[oj]SQ[pn][pj][nm][qm][jq][oj]MA[nc]C[Move 22: W P10
+Score: B+0.6
+Win rate: B 51.1%
+Predicted top move was O17 (W+0.1).
+PV: WO17 O12
+Move was #98 according to policy  (0.01%).
+Top policy move was O17 (32.9%).
+];B[ni]SQ[ni][og][pk][ng][qk][mc]MA[nh]C[Move 23: B O11
+Score: B+0.8
+Win rate: B 53.0%
+Predicted top move was O12 (B+0.3).
+PV: BO12 O17
+Move was #3 according to policy  (19.93%).
+Top policy move was O12 (25.2%).
+
+AI thought process: Playing policy-weighted random move O11 (19.9%) from 21 moves above lower_bound of 0.1%.];W[nm]SQ[nc][nj][qn][nm]MA[mk]C[Move 24: W O7
+Score: B+1.1
+Win rate: B 54.6%
+Predicted top move was N9 (B+0.6).
+PV: WN9 N8
+Move was #6 according to policy  (0.35%).
+Top policy move was N9 (58.3%).
+];B[mm]SQ[ml][om][mk]MA[mm]C[Move 25: B N7
+Score: B+1.4
+Win rate: B 57.0%
+Move was predicted best move
+PV: BN7 O6 N6 Q6
+Move was #1 according to policy  (35.39%).
+
+AI thought process: Playing policy-weighted random move N7 (35.4%) from 17 moves above lower_bound of 0.1%.];W[nn]SQ[pn][om][nc]MA[nn]C[Move 26: W O6
+Score: B+0.5
+Win rate: B 50.9%
+Move was predicted best move
+PV: WO6 N6 Q6 R6
+Move was #1 according to policy  (57.29%).
+];B[ol]SQ[ol][mk][qn][pn][qm]MA[mn]C[Move 27: B P8
+Score: B+1.0
+Win rate: B 54.3%
+Predicted top move was N6 (B+0.4).
+PV: BN6 Q6 R6
+Move was #2 according to policy  (16.09%).
+Top policy move was N6 (19.3%).
+
+AI thought process: Playing policy-weighted random move P8 (16.1%) from 19 moves above lower_bound of 0.1%.];W[pn]SQ[om][op]MA[pn]C[Move 28: W Q6
+Score: W+0.1
+Win rate: W 53.6%
+Move was predicted best move
+PV: WQ6 Q9 R5 R4
+Move was #1 according to policy  (67.79%).
+];B[pk]SQ[pm][qn][qo][om]MA[pk]C[Move 29: B Q9
+Score: B+0.4
+Win rate: B 50.6%
+Move was predicted best move
+PV: BQ9 R5 R4 P5
+Move was #1 according to policy  (62.88%).
+
+AI thought process: Playing policy-weighted random move Q9 (62.9%) from 17 moves above lower_bound of 0.1%.];W[qo]SQ[pm][oo][nc][ml]MA[qo]C[Move 30: W R5
+Score: W+0.0
+Win rate: W 52.8%
+Move was predicted best move
+PV: WR5 R4 P5 Q4
+Move was #1 according to policy  (34.29%).
+];B[qp]SQ[pm][nd][oo][np][nc]MA[qp]C[Move 31: B R4
+Score: B+0.9
+Win rate: B 53.6%
+Move was predicted best move
+PV: BR4 P5 Q4 N8
+Move was #1 according to policy  (45.24%).
+
+AI thought process: Playing policy-weighted random move R4 (45.2%) from 17 moves above lower_bound of 0.1%.];W[oo]SQ[ro][ml][nc]MA[oo]C[Move 32: W P5
+Score: W+1.2
+Win rate: W 59.0%
+Move was predicted best move
+PV: WP5 Q4 N8 M7
+Move was #1 according to policy  (70.18%).
+];B[pp]SQ[nd]MA[pp]C[Move 33: B Q4
+Score: B+0.2
+Win rate: B 50.0%
+Move was predicted best move
+PV: BQ4 N8 M7 R8
+Move was #1 according to policy  (97.11%).
+
+AI thought process: Playing policy-weighted random move Q4 (97.1%) from 5 moves above lower_bound of 0.1%.];W[rn]SQ[nq][ro][nc][pm][rn]MA[ml]C[Move 34: W S6
+Score: W+0.1
+Win rate: W 53.5%
+Predicted top move was N8 (B+0.1).
+PV: WN8 M7 R8
+Move was #8 according to policy  (2.00%).
+Top policy move was N8 (33.3%).
+];B[pm]SQ[np][mq][mp][pm][om]MA[ro]C[Move 35: B Q7
+Score: B+0.1
+Win rate: W 51.5%
+Predicted top move was S5 (W+0.1).
+PV: BS5 R6
+Move was #4 according to policy  (11.93%).
+Top policy move was S5 (30.6%).
+
+AI thought process: Playing policy-weighted random move Q7 (11.9%) from 19 moves above lower_bound of 0.1%.];W[qm]SQ[rp][mq][qm]MA[nq]C[Move 36: W R7
+Score: W+0.7
+Win rate: W 54.2%
+Predicted top move was O3 (W+0.5).
+PV: WO3 O4
+Move was #6 according to policy  (1.73%).
+Top policy move was O3 (42.3%).
+];B[ql]SQ[om][nd][ne]MA[ql]C[Move 37: B R8
+Score: B+0.5
+Win rate: B 51.6%
+Move was predicted best move
+PV: BR8 S4 S3
+Move was #1 according to policy  (85.77%).
+
+AI thought process: Playing policy-weighted random move R8 (85.8%) from 4 moves above lower_bound of 0.1%.];W[rp]SQ[nq][rl][mq]MA[rp]C[Move 38: W S4
+Score: B+0.3
+Win rate: W 50.7%
+Move was predicted best move
+PV: WS4 S3 O3 T4
+Move was #1 according to policy  (32.42%).
+];B[rm]SQ[rm][mq][np][nd]MA[rq]C[Move 39: B S7
+Score: B+2.5
+Win rate: B 58.4%
+Predicted top move was S3 (B+0.0).
+PV: BS3 O3 T4
+Move was #2 according to policy  (41.90%).
+Top policy move was S3 (45.9%).
+
+AI thought process: Playing policy-weighted random move S7 (41.9%) from 8 moves above lower_bound of 0.1%.];W[qn]MA[qn]C[Move 40: W R6
+Score: W+1.3
+Win rate: W 61.6%
+Move was predicted best move
+PV: WR6 S3 O3 T4
+Move was #1 according to policy  (99.40%).
+];B[mq]SQ[mq][np][nd][nq]MA[rq]C[Move 41: B N3
+Score: W+1.0
+Win rate: W 58.8%
+Predicted top move was S3 (W+1.3).
+PV: BS3 O3 T4
+Move was #2 according to policy  (24.11%).
+Top policy move was S3 (65.9%).
+
+AI thought process: Playing policy-weighted random move N3 (24.1%) from 11 moves above lower_bound of 0.1%.];W[qr]SQ[qr][oq][nq][rr]MA[rq]C[Move 42: W R2
+Score: W+0.9
+Win rate: W 58.3%
+Predicted top move was S3 (W+1.5).
+PV: WS3 O17
+Move was #2 according to policy  (26.67%).
+Top policy move was S3 (49.6%).
+];B[rq]SQ[np][pr][nc]MA[rq]C[Move 43: B S3
+Score: B+0.8
+Win rate: B 53.4%
+Move was predicted best move
+PV: BS3 R3 T4
+Move was #1 according to policy  (40.52%).
+
+AI thought process: Playing policy-weighted random move S3 (40.5%) from 20 moves above lower_bound of 0.1%.];W[qq]SQ[pr][oq]MA[qq]C[Move 44: W R3
+Score: W+0.1
+Win rate: W 52.9%
+Move was predicted best move
+PV: WR3 T4 S5
+Move was #1 according to policy  (31.73%).
+];B[sp]SQ[rr][nd]MA[sp]C[Move 45: B T4
+Score: B+6.0
+Win rate: B 69.5%
+Move was predicted best move
+PV: BT4 S5 S2
+Move was #1 according to policy  (64.57%).
+
+AI thought process: Playing policy-weighted random move T4 (64.6%) from 18 moves above lower_bound of 0.1%.];W[ro]MA[ro]C[Move 46: W S5
+Score: B+0.0
+Win rate: W 53.4%
+Move was predicted best move
+PV: WS5 S2 Q2
+Move was #1 according to policy  (95.59%).
+];B[np]SQ[np]MA[rr]C[Move 47: B O4
+Score: B+0.9
+Win rate: B 51.7%
+Predicted top move was S2 (B+2.8).
+PV: BS2 Q2
+Move was #2 according to policy  (29.73%).
+Top policy move was S2 (34.5%).
+
+AI thought process: Playing policy-weighted random move O4 (29.7%) from 19 moves above lower_bound of 0.1%.];W[pr]SQ[nr][pr][or][op]MA[rr]C[Move 48: W Q2
+Score: W+0.4
+Win rate: W 54.9%
+Predicted top move was S2 (W+0.8).
+PV: WS2 O17 O16
+Move was #3 according to policy  (8.44%).
+Top policy move was S2 (44.6%).
+];B[nc]SQ[nc][or][mc][nd]MA[mn]C[Move 49: B O17
+Score: B+0.3
+Win rate: W 50.4%
+Predicted top move was N6 (W+0.4).
+PV: BN6 O17
+Move was #3 according to policy  (12.29%).
+Top policy move was N6 (32.4%).
+
+AI thought process: Playing policy-weighted random move O17 (12.3%) from 20 moves above lower_bound of 0.1%.];W[jq]SQ[mn][me][jq]MA[nd]C[Move 50: W K3
+Score: B+0.4
+Win rate: B 50.9%
+Predicted top move was O16 (W+0.9).
+PV: WO16 N17 N6
+Move was #7 according to policy  (3.87%).
+Top policy move was O16 (27.3%).
+];B[mn]SQ[me][ne][nd]MA[mn]C[Move 51: B N6
+Score: B+1.9
+Win rate: B 60.0%
+Move was predicted best move
+PV: BN6 G4 N15
+Move was #1 according to policy  (48.84%).
+
+AI thought process: Playing policy-weighted random move N6 (48.8%) from 17 moves above lower_bound of 0.1%.];W[dj]SQ[nd][fp][mo][nr][dj]MA[gp]C[Move 52: W D10
+Score: B+2.2
+Win rate: B 60.2%
+Predicted top move was G4 (B+2.7).
+PV: WG4 N15
+Move was #38 according to policy  (0.03%).
+Top policy move was G4 (35.8%).
+];B[me]SQ[nd][mf][gq]MA[me]C[Move 53: B N15
+Score: B+2.9
+Win rate: B 64.0%
+Move was predicted best move
+PV: BN15 S12 R13
+Move was #1 according to policy  (39.97%).
+
+AI thought process: Playing policy-weighted random move N15 (40.0%) from 22 moves above lower_bound of 0.1%.];W[rh]SQ[pg][ng][nd][fd]MA[rh]C[Move 54: W S12
+Score: B+2.2
+Win rate: B 59.8%
+Move was predicted best move
+PV: WS12 R13 Q13 S13
+Move was #1 according to policy  (27.19%).
+];B[qg]SQ[ri][fc][nf][ec]MA[qg]C[Move 55: B R13
+Score: B+3.8
+Win rate: B 65.9%
+Move was predicted best move
+PV: BR13 Q13 S13 S14
+Move was #1 according to policy  (30.16%).
+
+AI thought process: Playing policy-weighted random move R13 (30.2%) from 31 moves above lower_bound of 0.1%.];W[pg]SQ[og]MA[pg]C[Move 56: W Q13
+Score: B+0.4
+Win rate: B 50.7%
+Move was predicted best move
+PV: WQ13 S13 S14
+Move was #1 according to policy  (57.58%).
+];B[rg]SQ[rf][dp]MA[rg]C[Move 57: B S13
+Score: B+2.2
+Win rate: B 60.2%
+Move was predicted best move
+PV: BS13 S14 R12
+Move was #1 according to policy  (43.76%).
+
+AI thought process: Playing policy-weighted random move S13 (43.8%) from 15 moves above lower_bound of 0.1%.];W[oh]SQ[oh][mf][qh]MA[rf]C[Move 58: W P12
+Score: W+0.2
+Win rate: W 53.1%
+Predicted top move was S14 (B+2.9).
+PV: WS14 R12
+Move was #2 according to policy  (31.92%).
+Top policy move was S14 (32.1%).
+];B[qh]SQ[rf][ri][ng]MA[qh]C[Move 59: B R12
+Score: B+1.4
+Win rate: B 56.5%
+Move was predicted best move
+PV: BR12 O12 O13 P13
+Move was #1 according to policy  (63.12%).
+
+AI thought process: Playing policy-weighted random move R12 (63.1%) from 14 moves above lower_bound of 0.1%.];W[nd]SQ[mf][mg][nd]MA[nh]C[Move 60: W O16
+Score: W+0.7
+Win rate: W 54.0%
+Predicted top move was O12 (B+1.3).
+PV: WO12 O13 P13
+Move was #6 according to policy  (1.08%).
+Top policy move was O12 (40.8%).
+];B[or]SQ[or][mc]MA[md]C[Move 61: B P2
+Score: B+1.9
+Win rate: B 56.2%
+Predicted top move was N16 (B+1.6).
+PV: BN16 N14
+Move was #4 according to policy  (5.10%).
+Top policy move was N16 (68.1%).
+
+AI thought process: Playing policy-weighted random move P2 (5.1%) from 10 moves above lower_bound of 0.1%.];W[rr]SQ[rr][sr]MA[nr]C[Move 62: W S2
+Score: W+1.6
+Win rate: W 61.7%
+Predicted top move was O2 (W+1.9).
+PV: WO2 P3
+Move was #2 according to policy  (31.40%).
+Top policy move was O2 (59.6%).
+];B[md]SQ[mc][ne]MA[md]C[Move 63: B N16
+Score: B+1.9
+Win rate: B 57.9%
+Move was predicted best move
+PV: BN16 O14 O12 N14 M14
+Move was #1 according to policy  (72.18%).
+
+AI thought process: Playing policy-weighted random move N16 (72.2%) from 12 moves above lower_bound of 0.1%.];W[nh]SQ[mf][nh][ng][mg]MA[nf]C[Move 64: W O12
+Score: B+1.3
+Win rate: B 55.4%
+Predicted top move was O14 (B+2.4).
+PV: WO14 O12 N14 M14
+Move was #3 according to policy  (15.00%).
+Top policy move was O14 (43.1%).
+];B[dp]SQ[ng][dp][gq]MA[nf]C[Move 65: B D4
+Score: B+1.2
+Win rate: B 56.0%
+Predicted top move was O14 (B+1.8).
+PV: BO14 N11
+Move was #5 according to policy  (2.75%).
+Top policy move was O14 (53.1%).
+
+AI thought process: Playing policy-weighted random move D4 (2.8%) from 18 moves above lower_bound of 0.1%.];W[cp]SQ[dq][nf]MA[cp]C[Move 66: W C4
+Score: B+1.8
+Win rate: B 58.1%
+Move was predicted best move
+PV: WC4 D5 E2
+Move was #1 according to policy  (39.29%).
+];B[dn]SQ[nf][ng]MA[do]C[Move 67: B D6
+Score: B+0.4
+Win rate: W 50.2%
+Estimated point loss: 1.5
+Predicted top move was D5 (B+0.8).
+PV: BD5 E2
+Move was #2 according to policy  (23.93%).
+Top policy move was D5 (36.6%).
+
+AI thought process: Playing policy-weighted random move D6 (23.9%) from 19 moves above lower_bound of 0.1%.];W[ep]SQ[fq][mi][gq][do]MA[nf]C[Move 68: W E4
+Score: B+1.9
+Win rate: B 58.1%
+Estimated point loss: 1.5
+Predicted top move was O14 (B+0.8).
+PV: WO14 D3
+Move was #2 according to policy  (22.03%).
+Top policy move was O14 (24.5%).
+];B[hq]SQ[nf][ng][eo]MA[gq]C[Move 69: B H3
+Score: B+0.8
+Win rate: B 53.4%
+Estimated point loss: 1.1
+Predicted top move was G3 (B+1.7).
+PV: BG3 D5
+Move was #6 according to policy  (5.61%).
+Top policy move was G3 (16.3%).
+
+AI thought process: Playing policy-weighted random move H3 (5.6%) from 32 moves above lower_bound of 0.1%.];W[nr]SQ[nf][fq][mi][eo][lp]MA[do]C[Move 70: W O2
+Score: B+1.3
+Win rate: B 55.3%
+Estimated point loss: 0.5
+Predicted top move was D5 (B+1.4).
+PV: WD5 H5
+Move was #42 according to policy  (0.05%).
+Top policy move was D5 (21.2%).
+];B[fc]SQ[mr][fc][dq][eo]MA[ec]C[Move 71: B F17
+Score: B+1.9
+Win rate: B 60.2%
+Predicted top move was E17 (B+1.3).
+PV: BE17 D15
+Move was #2 according to policy  (11.96%).
+Top policy move was E17 (14.6%).
+
+AI thought process: Playing policy-weighted random move F17 (12.0%) from 36 moves above lower_bound of 0.1%.];W[op]SQ[df][nf][ed][mi]MA[de]C[Move 72: W P4
+Score: B+7.0
+Win rate: B 81.7%
+Estimated point loss: 5.1
+Predicted top move was D15 (B+2.2).
+PV: WD15 F15
+Move was #19 according to policy  (0.13%).
+Top policy move was D15 (37.2%).
+];B[de]SQ[nf][no][ng]MA[dd]C[Move 73: B D15
+Score: B+4.8
+Win rate: B 75.6%
+Estimated point loss: 2.2
+Predicted top move was D16 (B+5.4).
+PV: BD16 C16
+Move was #13 according to policy  (1.60%).
+Top policy move was D16 (28.6%).
+
+AI thought process: Playing policy-weighted random move D15 (1.6%) from 32 moves above lower_bound of 0.1%.];W[ce]SQ[ed][mi][eb]MA[nf]C[Move 74: W C15
+Score: B+6.4
+Win rate: B 78.4%
+Estimated point loss: 1.6
+Predicted top move was O14 (B+3.8).
+PV: WO14 C16
+Move was #8 according to policy  (2.78%).
+Top policy move was E16 (31.3%).
+];B[cd]SQ[nf][ng][cd]MA[cf]C[Move 75: B C16
+Score: B+6.8
+Win rate: B 81.2%
+Predicted top move was C14 (B+6.5).
+PV: BC14 D14
+Move was #12 according to policy  (1.07%).
+Top policy move was C14 (53.2%).
+
+AI thought process: Playing policy-weighted random move C16 (1.1%) from 18 moves above lower_bound of 0.1%.];W[dd]SQ[bd]MA[dd]C[Move 76: W D16
+Score: B+3.9
+Win rate: B 69.3%
+Move was predicted best move
+PV: WD16 B16 E16 C14
+Move was #1 according to policy  (91.05%).
+];B[bd]SQ[ng][nf]MA[bd]C[Move 77: B B16
+Score: B+4.9
+Win rate: B 75.5%
+Move was predicted best move
+PV: BB16 E16 C14 F16
+Move was #1 according to policy  (94.17%).
+
+AI thought process: Playing policy-weighted random move B16 (94.2%) from 8 moves above lower_bound of 0.1%.];W[be]SQ[ee][be][bc][fd]MA[ed]C[Move 78: W B15
+Score: B+4.3
+Win rate: B 71.0%
+Predicted top move was E16 (B+5.1).
+PV: WE16 C14 F16
+Move was #3 according to policy  (16.06%).
+Top policy move was E16 (27.1%).
+];B[nf]SQ[bc][ng][nf]MA[dc]C[Move 79: B O14
+Score: B+7.2
+Win rate: B 80.1%
+Predicted top move was D17 (B+4.3).
+PV: BD17 E16
+Move was #4 according to policy  (9.17%).
+Top policy move was D17 (41.3%).
+
+AI thought process: Playing policy-weighted random move O14 (9.2%) from 14 moves above lower_bound of 0.1%.];W[oe]SQ[lh]MA[mi]C[Move 80: W P15
+Score: B+14.4
+Win rate: B 91.3%
+Estimated point loss: 7.2
+Predicted top move was N11 (B+3.9).
+PV: WN11 D17
+Move was #9 according to policy  (0.61%).
+Top policy move was N11 (44.0%).
+];B[mh]SQ[ng][bc]MA[mh]C[Move 81: B N12
+Score: B+19.6
+Win rate: B 95.6%
+Move was predicted best move
+PV: BN12 N11 O13
+Move was #1 according to policy  (37.39%).
+
+AI thought process: Playing policy-weighted random move N12 (37.4%) from 11 moves above lower_bound of 0.1%.];W[mi]SQ[mg]MA[mi]C[Move 82: W N11
+Score: B+15.9
+Win rate: B 93.5%
+Move was predicted best move
+PV: WN11 O13 M12 N13
+Move was #1 according to policy  (44.22%).
+];B[nj]SQ[oi][mj][li]MA[ng]C[Move 83: B O10
+Score: B+11.9
+Win rate: B 85.1%
+Estimated point loss: 4.0
+Predicted top move was O13 (B+18.2).
+PV: BO13 M12 N13
+Move was #2 according to policy  (22.79%).
+Top policy move was O13 (40.7%).
+
+AI thought process: Playing policy-weighted random move O10 (22.8%) from 12 moves above lower_bound of 0.1%.];W[mg]SQ[mc][mj]MA[mg]C[Move 84: W N13
+Score: B+3.5
+Win rate: B 63.7%
+Move was predicted best move
+PV: WN13 O13 M12 P13
+Move was #1 according to policy  (36.09%).
+];B[ng]SQ[lh]MA[ng]C[Move 85: B O13
+Score: B+5.5
+Win rate: B 70.1%
+Move was predicted best move
+PV: BO13 M12 P13 D17
+Move was #2 according to policy  (39.67%).
+Top policy move was M12 (58.3%).
+
+AI thought process: Playing policy-weighted random move O13 (39.7%) from 7 moves above lower_bound of 0.1%.];W[og]SQ[mf][mc][og]MA[lh]C[Move 86: W P13
+Score: B+5.2
+Win rate: B 63.6%
+Predicted top move was M12 (B+2.7).
+PV: WM12 P13 D17
+Move was #5 according to policy  (3.75%).
+Top policy move was M12 (50.3%).
+];B[lh]SQ[lh]MA[dc]C[Move 87: B M12
+Score: B+21.6
+Win rate: B 95.7%
+Predicted top move was D17 (B+6.6).
+PV: BD17 M12
+Move was #1 according to policy  (99.06%).
+
+AI thought process: Playing policy-weighted random move M12 (99.1%) from 3 moves above lower_bound of 0.1%.];W[mj]SQ[mf][rf][mj]MA[mc]C[Move 88: W N10
+Score: B+20.1
+Win rate: B 91.9%
+Predicted top move was N17 (B+19.7).
+PV: WN17 M17
+Move was #8 according to policy  (2.26%).
+Top policy move was N17 (38.1%).
+];B[oi]SQ[nk][oi]MA[mk]C[Move 89: B P11
+Score: B+22.4
+Win rate: B 97.0%
+Predicted top move was N9 (B+26.4).
+PV: BN9 P11
+Move was #3 according to policy  (24.69%).
+Top policy move was N9 (45.5%).
+
+AI thought process: Playing policy-weighted random move P11 (24.7%) from 9 moves above lower_bound of 0.1%.];W[lg]SQ[mf][dc][ed][oc][nk]MA[mc]C[Move 90: W M13
+Score: B+23.0
+Win rate: B 97.3%
+Estimated point loss: 0.7
+Predicted top move was N17 (B+24.7).
+PV: WN17 M17 P17
+Move was #13 according to policy  (0.64%).
+Top policy move was N17 (23.9%).
+];B[kh]SQ[kg][li][ki][lj]MA[kh]C[Move 91: B L12
+Score: B+27.1
+Win rate: B 98.2%
+Move was predicted best move
+PV: BL12 N17 M17 L13
+Move was #1 according to policy  (78.27%).
+
+AI thought process: Playing policy-weighted random move L12 (78.3%) from 7 moves above lower_bound of 0.1%.];W[nk]SQ[ed][kg][oc][nk][dc]MA[mc]C[Move 92: W O9
+Score: B+8.6
+Win rate: B 60.6%
+Predicted top move was N17 (B+28.0).
+PV: WN17 M17 L13
+Move was #4 according to policy  (10.23%).
+Top policy move was N17 (25.3%).
+];B[pi]MA[pi]C[Move 93: B Q11
+Score: B+27.2
+Win rate: B 98.5%
+Move was predicted best move
+PV: BQ11 N17 P17 L13
+Move was #1 according to policy  (99.08%).
+
+AI thought process: Playing policy-weighted random move Q11 (99.1%) from 2 moves above lower_bound of 0.1%.];W[mc]SQ[dc][oc][ed]MA[mc]C[Move 94: W N17
+Score: B+21.6
+Win rate: B 93.5%
+Move was predicted best move
+PV: WN17 P17 L13 K12
+Move was #1 according to policy  (25.26%).
+];B[oc]SQ[lc]MA[oc]C[Move 95: B P17
+Score: B+26.8
+Win rate: B 98.6%
+Move was predicted best move
+PV: BP17 L13 K12 M17
+Move was #1 according to policy  (45.34%).
+
+AI thought process: Playing policy-weighted random move P17 (45.3%) from 9 moves above lower_bound of 0.1%.];W[rf]SQ[dc][rf][mf][ld]MA[kg]C[Move 96: W S14
+Score: B+27.0
+Win rate: B 98.8%
+Predicted top move was L13 (B+26.5).
+PV: WL13 K12 M17
+Move was #3 according to policy  (7.14%).
+Top policy move was L13 (46.8%).
+];B[ne]SQ[ne][ee][bc]MA[se]C[Move 97: B O15
+Score: B+30.8
+Win rate: B 99.2%
+Predicted top move was T15 (B+26.2).
+PV: BT15 L13
+Move was #2 according to policy  (22.35%).
+Top policy move was T14 (24.3%).
+
+AI thought process: Playing policy-weighted random move O15 (22.4%) from 19 moves above lower_bound of 0.1%.];W[pf]SQ[ed]MA[pf]C[Move 98: W Q14
+Score: B+24.5
+Win rate: B 98.7%
+Move was predicted best move
+PV: WQ14 T14 E16 B17
+Move was #1 according to policy  (56.01%).
+];B[ee]SQ[sd][se][sc][bc]MA[sf]C[Move 99: B E15
+Score: B+23.3
+Win rate: B 98.2%
+Estimated point loss: 1.2
+Predicted top move was T14 (B+23.6).
+PV: BT14 E16 B17
+Move was #6 according to policy  (3.82%).
+Top policy move was T14 (37.3%).
+
+AI thought process: Playing policy-weighted random move E15 (3.8%) from 18 moves above lower_bound of 0.1%.];W[ed]SQ[lc][se][kg][ed]MA[dc]C[Move 100: W E16
+Score: B+20.6
+Win rate: B 97.9%
+Predicted top move was D17 (B+23.3).
+PV: WD17 T14
+Move was #6 according to policy  (5.15%).
+Top policy move was D17 (35.7%).
+];B[bc]SQ[bc][fe]MA[fd]C[Move 101: B B17
+Score: B+24.3
+Win rate: B 98.3%
+Predicted top move was F16 (B+24.8).
+PV: BF16 B17
+Move was #2 according to policy  (11.02%).
+Top policy move was F16 (55.8%).
+
+AI thought process: Playing policy-weighted random move B17 (11.0%) from 13 moves above lower_bound of 0.1%.];W[fd]SQ[fe][lc]MA[fd]C[Move 102: W F16
+Score: B+21.9
+Win rate: B 98.3%
+Move was predicted best move
+PV: WF16 T14 L13
+Move was #1 according to policy  (58.43%).
+];B[sf]SQ[cg][se][cb][dc]MA[sf]C[Move 103: B T14
+Score: B+20.9
+Win rate: B 97.9%
+Move was predicted best move
+PV: BT14 L13 K12 M17
+Move was #1 according to policy  (21.54%).
+
+AI thought process: Playing policy-weighted random move T14 (21.5%) from 20 moves above lower_bound of 0.1%.];W[se]SQ[se][fe][cg]MA[kg]C[Move 104: W T15
+Score: B+14.3
+Win rate: B 93.0%
+Predicted top move was L13 (B+19.2).
+PV: WL13 K12 M17
+Move was #2 according to policy  (12.40%).
+Top policy move was L13 (15.5%).
+];B[sg]SQ[sc]MA[sg]C[Move 105: B T13
+Score: B+20.9
+Win rate: B 98.7%
+Move was predicted best move
+PV: BT13 C13 D17
+Move was #1 according to policy  (82.54%).
+
+AI thought process: Playing policy-weighted random move T13 (82.5%) from 14 moves above lower_bound of 0.1%.];W[kg]SQ[fe][bb][cb][lc][kg]MA[cg]C[Move 106: W L13
+Score: B+19.0
+Win rate: B 96.8%
+Predicted top move was C13 (B+21.9).
+PV: WC13 D17
+Move was #8 according to policy  (4.74%).
+Top policy move was C13 (16.5%).
+];B[jg]SQ[ke][lc][jg]MA[jh]C[Move 107: B K13
+Score: B+19.1
+Win rate: B 96.4%
+Predicted top move was K12 (B+19.5).
+PV: BK12 M17
+Move was #5 according to policy  (6.01%).
+Top policy move was K12 (46.5%).
+
+AI thought process: Playing policy-weighted random move K13 (6.0%) from 19 moves above lower_bound of 0.1%.];W[jh]SQ[lc]MA[jh]C[Move 108: W K12
+Score: B+11.5
+Win rate: B 85.3%
+Move was predicted best move
+PV: WK12 L11 K14 J13
+Move was #1 according to policy  (52.82%).
+];B[ki]SQ[ji][lj]MA[ki]C[Move 109: B L11
+Score: B+15.4
+Win rate: B 93.8%
+Move was predicted best move
+PV: BL11 K14 J13 M17
+Move was #1 according to policy  (59.09%).
+
+AI thought process: Playing policy-weighted random move L11 (59.1%) from 4 moves above lower_bound of 0.1%.];W[ji]SQ[ji][lc]MA[jf]C[Move 110: W K11
+Score: W+5.4
+Win rate: B 54.8%
+Predicted top move was K14 (B+14.8).
+PV: WK14 J13 M17
+Move was #3 according to policy  (15.29%).
+Top policy move was K14 (46.1%).
+];B[kj]MA[kj]C[Move 111: B L10
+Score: B+18.5
+Win rate: B 97.0%
+Move was predicted best move
+PV: BL10 K10 L9 K14
+Move was #1 according to policy  (99.96%).
+
+AI thought process: Playing policy-weighted random move L10 (100.0%) from 1 moves above lower_bound of 0.1%.];W[jf]SQ[jf][lc]MA[jj]C[Move 112: W K14
+Score: B+13.8
+Win rate: B 93.5%
+Predicted top move was K10 (B+18.6).
+PV: WK10 L9 K14
+Move was #2 according to policy  (28.07%).
+Top policy move was K10 (32.2%).
+];B[lc]SQ[lc][kd][ke]MA[ig]C[Move 113: B M17
+Score: B+17.7
+Win rate: B 97.6%
+Predicted top move was J13 (B+11.1).
+PV: BJ13 M17
+Move was #2 according to policy  (32.78%).
+Top policy move was J13 (49.3%).
+
+AI thought process: Playing policy-weighted random move M17 (32.8%) from 11 moves above lower_bound of 0.1%.];W[jj]SQ[jj]MA[ig]C[Move 114: W K10
+Score: B+13.7
+Win rate: B 92.2%
+Predicted top move was J13 (B+15.2).
+PV: WJ13 C13
+Move was #2 according to policy  (19.41%).
+Top policy move was J13 (59.6%).
+];B[kk]MA[kk]C[Move 115: B L9
+Score: B+17.9
+Win rate: B 98.6%
+Move was predicted best move
+PV: BL9 J13 C13 B13 B12
+Move was #1 according to policy  (90.26%).
+
+AI thought process: Playing policy-weighted random move L9 (90.3%) from 5 moves above lower_bound of 0.1%.];W[ig]SQ[fe]MA[ig]C[Move 116: W J13
+Score: B+17.8
+Win rate: B 98.5%
+Move was predicted best move
+PV: WJ13 C13 B13 B12 C14
+Move was #1 according to policy  (62.36%).
+];B[cj]SQ[cb]MA[cg]C[Move 117: B C10
+Score: B+15.0
+Win rate: B 98.2%
+Estimated point loss: 2.8
+Predicted top move was C13 (B+18.1).
+PV: BC13 B13 B12 C14
+Move was #10 according to policy  (1.35%).
+Top policy move was C13 (27.1%).
+
+AI thought process: Playing policy-weighted random move C10 (1.3%) from 24 moves above lower_bound of 0.1%.];W[ci]SQ[bb][ci][bg][cg]MA[ch]C[Move 118: W C11
+Score: B+15.1
+Win rate: B 97.4%
+Predicted top move was C12 (B+14.2).
+PV: WC12 D9
+Move was #2 according to policy  (19.83%).
+Top policy move was C12 (29.1%).
+];B[ch]SQ[bg][cg][cb][dc]MA[ch]C[Move 119: B C12
+Score: B+18.0
+Win rate: B 98.4%
+Move was predicted best move
+PV: BC12 B11 C14
+Move was #1 according to policy  (49.95%).
+
+AI thought process: Playing policy-weighted random move C12 (49.9%) from 21 moves above lower_bound of 0.1%.];W[df]SQ[bb][bg][df]MA[bi]C[Move 120: W D14
+Score: B+17.9
+Win rate: B 98.8%
+Predicted top move was B11 (B+18.1).
+PV: WB11 C14
+Move was #7 according to policy  (3.29%).
+Top policy move was B11 (29.9%).
+];B[fe]SQ[ef][fe][bi]MA[di]C[Move 121: B F15
+Score: B+20.2
+Win rate: B 98.9%
+Predicted top move was D11 (B+18.0).
+PV: BD11 B11
+Move was #4 according to policy  (13.90%).
+Top policy move was D11 (30.5%).
+
+AI thought process: Playing policy-weighted random move F15 (13.9%) from 16 moves above lower_bound of 0.1%.];W[gd]SQ[ge][dc]MA[gd]C[Move 122: W G16
+Score: B+18.1
+Win rate: B 98.5%
+Move was predicted best move
+PV: WG16 D11 B11 B12
+Move was #1 according to policy  (46.98%).
+];B[di]SQ[cf]MA[di]C[Move 123: B D11
+Score: B+19.3
+Win rate: B 98.8%
+Move was predicted best move
+PV: BD11 B11 B12 B10
+Move was #1 according to policy  (55.53%).
+
+AI thought process: Playing policy-weighted random move D11 (55.5%) from 13 moves above lower_bound of 0.1%.];W[bi]SQ[mb][bb]MA[bi]C[Move 124: W B11
+Score: B+17.6
+Win rate: B 98.4%
+Move was predicted best move
+PV: WB11 B12 B10 C14
+Move was #1 according to policy  (69.75%).
+];B[bh]SQ[cf]MA[bh]C[Move 125: B B12
+Score: B+18.9
+Win rate: B 98.4%
+Move was predicted best move
+PV: BB12 B10 C14 B14
+Move was #1 according to policy  (31.90%).
+
+AI thought process: Playing policy-weighted random move B12 (31.9%) from 17 moves above lower_bound of 0.1%.];W[bj]SQ[bb]MA[bj]C[Move 126: W B10
+Score: B+16.1
+Win rate: B 96.9%
+Move was predicted best move
+PV: WB10 C14 B14 C13
+Move was #1 according to policy  (28.93%).
+];B[dg]SQ[dg][ck]MA[cf]C[Move 127: B D13
+Score: B+17.6
+Win rate: B 97.6%
+Predicted top move was C14 (B+17.8).
+PV: BC14 B14 C13
+Move was #2 according to policy  (29.17%).
+Top policy move was C14 (31.1%).
+
+AI thought process: Playing policy-weighted random move D13 (29.2%) from 16 moves above lower_bound of 0.1%.];W[ef]SQ[ef]MA[ei]C[Move 128: W E14
+Score: B+15.6
+Win rate: B 95.3%
+Predicted top move was E11 (B+16.0).
+PV: WE11 D12
+Move was #3 according to policy  (17.97%).
+Top policy move was E11 (28.3%).
+];B[ff]SQ[cf][ff]MA[ck]C[Move 129: B F14
+Score: B+18.1
+Win rate: B 97.6%
+Predicted top move was C9 (B+17.8).
+PV: BC9 E11
+Move was #3 according to policy  (13.93%).
+Top policy move was C9 (65.8%).
+
+AI thought process: Playing policy-weighted random move F14 (13.9%) from 10 moves above lower_bound of 0.1%.];W[eg]SQ[cf]MA[eg]C[Move 130: W E13
+Score: B+13.1
+Win rate: B 93.0%
+Move was predicted best move
+PV: WE13 C14 B14 C13
+Move was #1 according to policy  (51.29%).
+];B[cf]SQ[ck]MA[cf]C[Move 131: B C14
+Score: B+15.1
+Win rate: B 92.8%
+Move was predicted best move
+PV: BC14 B14 C13 F13
+Move was #1 according to policy  (58.47%).
+
+AI thought process: Playing policy-weighted random move C14 (58.5%) from 10 moves above lower_bound of 0.1%.];W[bf]MA[bf]C[Move 132: W B14
+Score: B+9.2
+Win rate: B 83.7%
+Move was predicted best move
+PV: WB14 C13 F13 G14
+Move was #1 according to policy  (87.91%).
+];B[fg]SQ[ck][fg]MA[cg]C[Move 133: B F13
+Score: B+16.7
+Win rate: B 88.6%
+Predicted top move was C13 (B+7.0).
+PV: BC13 F13 G14
+Move was #4 according to policy  (4.44%).
+Top policy move was C13 (69.8%).
+
+AI thought process: Playing policy-weighted random move F13 (4.4%) from 11 moves above lower_bound of 0.1%.];W[cg]SQ[cg]MA[eh]C[Move 134: W C13
+Score: B+5.7
+Win rate: B 67.8%
+Predicted top move was E12 (B+8.7).
+PV: WE12 E11
+Move was #2 according to policy  (11.39%).
+Top policy move was E12 (83.8%).
+];B[eh]SQ[eh]MA[dh]C[Move 135: B E12
+Score: B+8.5
+Win rate: B 73.7%
+Predicted top move was D12 (B+11.3).
+PV: BD12 E12
+Move was #1 according to policy  (55.22%).
+
+AI thought process: Playing policy-weighted random move E12 (55.2%) from 5 moves above lower_bound of 0.1%.];W[dh]MA[dh]C[Move 136: W D12
+Score: W+0.1
+Win rate: B 52.3%
+Move was predicted best move
+PV: WD12 E11 A12
+Move was #1 according to policy  (89.92%).
+];B[ei]MA[ei]C[Move 137: B E11
+Score: B+11.5
+Win rate: B 92.2%
+Move was predicted best move
+PV: BE11 A12 D13 M16
+Move was #1 according to policy  (98.84%).
+
+AI thought process: Playing policy-weighted random move E11 (98.8%) from 5 moves above lower_bound of 0.1%.];W[bg]SQ[bg][ck][bb]MA[ah]C[Move 138: W B13
+Score: B+8.5
+Win rate: B 85.8%
+Predicted top move was A12 (B+11.6).
+PV: WA12 D13 M16
+Move was #2 according to policy  (26.26%).
+Top policy move was A12 (37.2%).
+];B[dg]SQ[cb]MA[dg]C[Move 139: B D13
+Score: B+10.9
+Win rate: B 91.2%
+Move was predicted best move
+PV: BD13 N18 L16 D12
+Move was #1 according to policy  (85.91%).
+
+AI thought process: Playing policy-weighted random move D13 (85.9%) from 12 moves above lower_bound of 0.1%.];W[mb]SQ[ld][ah][ck]MA[mb]C[Move 140: W N18
+Score: B+10.3
+Win rate: B 89.8%
+Move was predicted best move
+PV: WN18 L16 D12 D3
+Move was #1 according to policy  (42.36%).
+];B[kd]SQ[jd][ke]MA[kd]C[Move 141: B L16
+Score: B+13.3
+Win rate: B 95.3%
+Move was predicted best move
+PV: BL16 D12 D3 D5 D13
+Move was #1 according to policy  (37.65%).
+
+AI thought process: Playing policy-weighted random move L16 (37.6%) from 15 moves above lower_bound of 0.1%.];W[dh]SQ[jc]MA[dh]C[Move 142: W D12
+Score: B+11.9
+Win rate: B 94.5%
+Move was predicted best move
+PV: WD12 D3 D5 D13
+Move was #1 according to policy  (60.15%).
+];B[dq]SQ[cb][dc]MA[dq]C[Move 143: B D3
+Score: B+12.5
+Win rate: B 95.1%
+Move was predicted best move
+PV: BD3 D5 D13 K17
+Move was #1 according to policy  (27.55%).
+
+AI thought process: Playing policy-weighted random move D3 (27.5%) from 21 moves above lower_bound of 0.1%.];W[ah]SQ[ah]MA[do]C[Move 144: W A12
+Score: B+10.6
+Win rate: B 93.8%
+Predicted top move was D5 (B+11.6).
+PV: WD5 D13 K17
+Move was #2 according to policy  (25.68%).
+Top policy move was D5 (36.8%).
+];B[er]SQ[co][cb][er]MA[do]C[Move 145: B E2
+Score: B+12.5
+Win rate: B 95.6%
+Predicted top move was D5 (B+10.6).
+PV: BD5 K17
+Move was #5 according to policy  (4.31%).
+Top policy move was D5 (41.0%).
+
+AI thought process: Playing policy-weighted random move E2 (4.3%) from 15 moves above lower_bound of 0.1%.];W[cr]SQ[do][ic]MA[jc]C[Move 146: W C2
+Score: B+13.0
+Win rate: B 96.7%
+Estimated point loss: 0.6
+Predicted top move was K17 (B+11.2).
+PV: WK17 K16
+Move was #21 according to policy  (0.12%).
+Top policy move was K17 (44.4%).
+];B[dc]SQ[do][dc][hd]MA[co]C[Move 147: B D17
+Score: B+16.0
+Win rate: B 97.6%
+Predicted top move was C5 (B+12.9).
+PV: BC5 K17
+Move was #4 according to policy  (6.16%).
+Top policy move was C5 (53.4%).
+
+AI thought process: Playing policy-weighted random move D17 (6.2%) from 21 moves above lower_bound of 0.1%.];W[cb]SQ[do][jc]MA[cb]C[Move 148: W C18
+Score: B+12.7
+Win rate: B 96.1%
+Move was predicted best move
+PV: WC18 C5 K17
+Move was #1 according to policy  (28.45%).
+];B[no]SQ[ec][do][ic][bb]MA[co]C[Move 149: B O5
+Score: B+9.9
+Win rate: B 91.0%
+Estimated point loss: 2.8
+Predicted top move was C5 (B+14.0).
+PV: BC5 K17
+Move was #15 according to policy  (0.43%).
+Top policy move was C5 (32.4%).
+
+AI thought process: Playing policy-weighted random move O5 (0.4%) from 22 moves above lower_bound of 0.1%.];W[oq]SQ[jc]MA[do]C[Move 150: W P3
+Score: B+14.5
+Win rate: B 97.7%
+Estimated point loss: 4.7
+Predicted top move was D5 (B+7.9).
+PV: WD5 E5
+Move was #11 according to policy  (0.63%).
+Top policy move was D5 (50.5%).
+];B[db]SQ[hd][do][db]MA[co]C[Move 151: B D18
+Score: B+16.0
+Win rate: B 96.7%
+Predicted top move was C5 (B+16.7).
+PV: BC5 K17
+Move was #9 according to policy  (2.56%).
+Top policy move was C5 (37.2%).
+
+AI thought process: Playing policy-weighted random move D18 (2.6%) from 25 moves above lower_bound of 0.1%.];W[bb]SQ[do]MA[bb]C[Move 152: W B18
+Score: B+13.3
+Win rate: B 97.2%
+Move was predicted best move
+PV: WB18 H16 G17
+Move was #1 according to policy  (70.63%).
+];B[ic]SQ[co][id][gc]MA[hd]C[Move 153: B J17
+Score: B+12.1
+Win rate: B 95.8%
+Estimated point loss: 1.2
+Predicted top move was H16 (B+11.9).
+PV: BH16 G17
+Move was #4 according to policy  (12.21%).
+Top policy move was H16 (21.7%).
+
+AI thought process: Playing policy-weighted random move J17 (12.2%) from 23 moves above lower_bound of 0.1%.];W[id]SQ[hc][id]MA[do]C[Move 154: W J16
+Score: B+11.7
+Win rate: B 96.2%
+Predicted top move was D5 (B+8.7).
+PV: WD5 E5
+Move was #3 according to policy  (9.26%).
+Top policy move was D5 (47.0%).
+];B[hd]SQ[hd][co]MA[hc]C[Move 155: B H16
+Score: B+13.1
+Win rate: B 94.3%
+Predicted top move was H17 (B+11.8).
+PV: BH17 D5
+Move was #2 according to policy  (21.01%).
+Top policy move was H17 (32.7%).
+
+AI thought process: Playing policy-weighted random move H16 (21.0%) from 24 moves above lower_bound of 0.1%.];W[he]SQ[he]MA[hc]C[Move 156: W H15
+Score: B+11.7
+Win rate: B 91.7%
+Predicted top move was H17 (B+9.2).
+PV: WH17 H15
+Move was #2 according to policy  (16.01%).
+Top policy move was H17 (58.7%).
+];B[hc]MA[hc]C[Move 157: B H17
+Score: B+18.8
+Win rate: B 99.1%
+Move was predicted best move
+PV: BH17 G17 G18 G15
+Move was #1 according to policy  (93.80%).
+
+AI thought process: Playing policy-weighted random move H17 (93.8%) from 5 moves above lower_bound of 0.1%.];W[ge]SQ[do][ge]MA[gc]C[Move 158: W G15
+Score: B+16.4
+Win rate: B 99.1%
+Predicted top move was G17 (B+18.5).
+PV: WG17 G18 G15
+Move was #3 according to policy  (7.03%).
+Top policy move was G17 (58.7%).
+];B[co]SQ[eo][co][do]MA[gc]C[Move 159: B C5
+Score: B+21.7
+Win rate: B 99.5%
+Predicted top move was G17 (B+15.0).
+PV: BG17 D5
+Move was #1 according to policy  (49.75%).
+
+AI thought process: Playing policy-weighted random move C5 (49.7%) from 28 moves above lower_bound of 0.1%.];W[dr]SQ[jk][em][eo][le][dr]MA[gc]C[Move 160: W D2
+Score: B+17.0
+Win rate: B 96.1%
+Predicted top move was G17 (B+22.6).
+PV: WG17 B5
+Move was #22 according to policy  (0.70%).
+Top policy move was G17 (31.9%).
+];B[eq]SQ[fr]MA[eq]C[Move 161: B E3
+Score: B+25.6
+Win rate: B 99.6%
+Move was predicted best move
+PV: BE3 B5 B6 B4
+Move was #1 according to policy  (98.98%).
+
+AI thought process: Playing policy-weighted random move E3 (99.0%) from 2 moves above lower_bound of 0.1%.];W[bo]SQ[eo][le][jd]MA[bo]C[Move 162: W B5
+Score: B+24.6
+Win rate: B 99.8%
+Move was predicted best move
+PV: WB5 B6 B4 G17
+Move was #1 according to policy  (26.12%).
+];B[il]SQ[ej][ek][il]MA[bn]C[Move 163: B J8
+Score: B+24.4
+Win rate: B 99.7%
+Predicted top move was B6 (B+24.5).
+PV: BB6 B4 G17
+Move was #3 according to policy  (3.47%).
+Top policy move was B6 (62.3%).
+
+AI thought process: Playing policy-weighted random move J8 (3.5%) from 29 moves above lower_bound of 0.1%.];W[bn]SQ[fk][fl][hp][cm]MA[bn]C[Move 164: W B6
+Score: B+23.9
+Win rate: B 99.7%
+Move was predicted best move
+PV: WB6 N2 E5 D5
+Move was #1 according to policy  (9.69%).
+];B[gm]SQ[el][ek][fk][gc][ej][gm]MA[mr]C[Move 165: B G7
+Score: B+23.7
+Win rate: B 99.8%
+Predicted top move was N2 (B+22.5).
+PV: BN2 E5 D5
+Move was #16 according to policy  (0.88%).
+Top policy move was N2 (20.0%).
+
+AI thought process: Playing policy-weighted random move G7 (0.9%) from 29 moves above lower_bound of 0.1%.];W[hp]SQ[hp][em][mr]MA[lr]C[Move 166: W H4
+Score: B+22.3
+Win rate: B 99.7%
+Predicted top move was M2 (B+20.1).
+PV: WM2 G17
+Move was #2 according to policy  (9.08%).
+Top policy move was M2 (21.1%).
+];B[iq]SQ[gp]MA[iq]C[Move 167: B J3
+Score: B+24.1
+Win rate: B 99.6%
+Move was predicted best move
+PV: BJ3 J4 K2 L2
+Move was #1 according to policy  (42.46%).
+
+AI thought process: Playing policy-weighted random move J3 (42.5%) from 32 moves above lower_bound of 0.1%.];W[ip]SQ[eo][fm][em]MA[ip]C[Move 168: W J4
+Score: B+23.2
+Win rate: B 99.7%
+Move was predicted best move
+PV: WJ4 K2 L2 L3
+Move was #1 according to policy  (31.08%).
+];B[mr]SQ[gq][mr]MA[jr]C[Move 169: B N2
+Score: B+25.5
+Win rate: B 99.3%
+Predicted top move was K2 (B+23.9).
+PV: BK2 L2 L3
+Move was #6 according to policy  (2.55%).
+Top policy move was K2 (34.8%).
+
+AI thought process: Playing policy-weighted random move N2 (2.5%) from 35 moves above lower_bound of 0.1%.];W[gq]SQ[gq][gp]MA[eo]C[Move 170: W G3
+Score: B+16.6
+Win rate: B 97.6%
+Predicted top move was E5 (B+22.5).
+PV: WE5 D5
+Move was #2 according to policy  (14.72%).
+Top policy move was E5 (17.8%).
+];B[gr]MA[gr]C[Move 171: B G2
+Score: B+26.1
+Win rate: B 99.3%
+Move was predicted best move
+PV: BG2 G4 F3 K2
+Move was #1 according to policy  (97.25%).
+
+AI thought process: Playing policy-weighted random move G2 (97.3%) from 6 moves above lower_bound of 0.1%.];W[fo]SQ[fq][hr][lr][fo]MA[gp]C[Move 172: W F5
+Score: B+26.4
+Win rate: B 99.6%
+Predicted top move was G4 (B+24.3).
+PV: WG4 F3 K2
+Move was #35 according to policy  (0.18%).
+Top policy move was G4 (21.7%).
+];B[gp]SQ[gp][fn][en][em]MA[fq]C[Move 173: B G4
+Score: B+26.3
+Win rate: B 99.7%
+Predicted top move was F3 (B+23.4).
+PV: BF3 F7
+Move was #2 according to policy  (19.56%).
+Top policy move was F3 (25.0%).
+
+AI thought process: Playing policy-weighted random move G4 (19.6%) from 22 moves above lower_bound of 0.1%.];W[go]SQ[fm][fq][gn]MA[go]C[Move 174: W G5
+Score: B+25.2
+Win rate: B 99.5%
+Move was predicted best move
+PV: WG5 F3 F7 F8
+Move was #1 according to policy  (32.22%).
+];B[em]SQ[en][em][el]MA[fq]C[Move 175: B E7
+Score: B+30.2
+Win rate: B 99.6%
+Predicted top move was F3 (B+24.3).
+PV: BF3 F7 F8
+Move was #2 according to policy  (22.64%).
+Top policy move was F3 (46.4%).
+
+AI thought process: Playing policy-weighted random move E7 (22.6%) from 17 moves above lower_bound of 0.1%.];W[fq]SQ[fp][hm]MA[fq]C[Move 176: W F3
+Score: B+23.3
+Win rate: B 99.1%
+Move was predicted best move
+PV: WF3 F2 F4 H6
+Move was #1 according to policy  (21.84%).
+];B[fr]MA[fr]C[Move 177: B F2
+Score: B+28.6
+Win rate: B 99.3%
+Move was predicted best move
+PV: BF2 F4 H6 K2 H2
+Move was #1 according to policy  (96.13%).
+
+AI thought process: Playing policy-weighted random move F2 (96.1%) from 7 moves above lower_bound of 0.1%.];W[fp]SQ[hm]MA[fp]C[Move 178: W F4
+Score: B+26.4
+Win rate: B 99.3%
+Move was predicted best move
+PV: WF4 H6 K2 H2 E6
+Move was #1 according to policy  (44.18%).
+];B[io]SQ[in]MA[hn]C[Move 179: B J5
+Score: B+22.4
+Win rate: B 98.5%
+Estimated point loss: 4.0
+Predicted top move was H6 (B+27.1).
+PV: BH6 K2 H2 E6
+Move was #6 according to policy  (2.18%).
+Top policy move was H6 (42.1%).
+
+AI thought process: Playing policy-weighted random move J5 (2.2%) from 21 moves above lower_bound of 0.1%.];W[jo]SQ[jr]MA[jo]C[Move 180: W K5
+Score: B+14.7
+Win rate: B 96.0%
+Move was predicted best move
+PV: WK5 J6 K2
+Move was #1 according to policy  (35.76%).
+];B[in]SQ[jr][kp]MA[in]C[Move 181: B J6
+Score: B+18.2
+Win rate: B 94.3%
+Move was predicted best move
+PV: BJ6 K2 H2 E6
+Move was #1 according to policy  (68.05%).
+
+AI thought process: Playing policy-weighted random move J6 (68.0%) from 17 moves above lower_bound of 0.1%.];W[jr]MA[jr]C[Move 182: W K2
+Score: B+10.9
+Win rate: B 89.0%
+Move was predicted best move
+PV: WK2 H2 E6 D5
+Move was #1 according to policy  (45.07%).
+];B[ir]SQ[is][ir][hs][ej]MA[hr]C[Move 183: B J2
+Score: B+16.4
+Win rate: B 95.3%
+Predicted top move was H2 (B+8.8).
+PV: BH2 E6 D5
+Move was #3 according to policy  (17.39%).
+Top policy move was H2 (39.1%).
+
+AI thought process: Playing policy-weighted random move J2 (17.4%) from 21 moves above lower_bound of 0.1%.];W[lr]SQ[en][lr]MA[is]C[Move 184: W M2
+Score: B+14.0
+Win rate: B 96.4%
+Predicted top move was J1 (B+15.0).
+PV: WJ1 H2
+Move was #4 according to policy  (9.89%).
+Top policy move was J1 (38.9%).
+];B[fj]SQ[ms][ls][nq]MA[lq]C[Move 185: B F10
+Score: B+12.7
+Win rate: B 96.8%
+Estimated point loss: 1.2
+Predicted top move was M3 (B+11.8).
+PV: BM3 J1
+Move was #21 according to policy  (0.15%).
+Top policy move was N1 (36.2%).
+
+AI thought process: Playing policy-weighted random move F10 (0.2%) from 24 moves above lower_bound of 0.1%.];W[en]SQ[en][fl][dl]MA[is]C[Move 186: W E6
+Score: B+10.0
+Win rate: B 92.3%
+Predicted top move was J1 (B+12.1).
+PV: WJ1 H2
+Move was #2 according to policy  (19.80%).
+Top policy move was J1 (25.3%).
+];B[fn]SQ[dl][dm][fn]MA[hs]C[Move 187: B F6
+Score: B+11.8
+Win rate: B 87.6%
+Predicted top move was H1 (B+11.2).
+PV: BH1 G17
+Move was #2 according to policy  (25.55%).
+Top policy move was H1 (25.7%).
+
+AI thought process: Playing policy-weighted random move F6 (25.5%) from 14 moves above lower_bound of 0.1%.];W[eo]MA[eo]C[Move 188: W E5
+Score: B+4.8
+Win rate: B 69.9%
+Move was predicted best move
+PV: WE5 D5 D7
+Move was #1 according to policy  (76.94%).
+];B[hs]SQ[hs]MA[do]C[Move 189: B H1
+Score: B+12.2
+Win rate: B 98.5%
+Predicted top move was D5 (B+3.3).
+PV: BD5 D7
+Move was #2 according to policy  (39.57%).
+Top policy move was D5 (53.4%).
+
+AI thought process: Playing policy-weighted random move H1 (39.6%) from 10 moves above lower_bound of 0.1%.];W[gc]SQ[jd][js]MA[gc]C[Move 190: W G17
+Score: B+9.2
+Win rate: B 98.6%
+Move was predicted best move
+PV: WG17 G18 F18
+Move was #1 according to policy  (47.33%).
+];B[do]SQ[do][ck][dl]MA[gb]C[Move 191: B D5
+Score: B+11.5
+Win rate: B 98.3%
+Predicted top move was G18 (B+10.4).
+PV: BG18 F18
+Move was #3 according to policy  (16.37%).
+Top policy move was G18 (47.4%).
+
+AI thought process: Playing policy-weighted random move D5 (16.4%) from 16 moves above lower_bound of 0.1%.];W[ms]SQ[jn][nq]MA[ms]C[Move 192: W N1
+Score: B+7.7
+Win rate: B 97.5%
+Move was predicted best move
+PV: WN1 G18 F18
+Move was #1 according to policy  (33.92%).
+];B[gb]MA[gb]C[Move 193: B G18
+Score: B+10.9
+Win rate: B 98.6%
+Move was predicted best move
+PV: BG18 F18 H18 D8
+Move was #1 according to policy  (65.62%).
+
+AI thought process: Playing policy-weighted random move G18 (65.6%) from 18 moves above lower_bound of 0.1%.];W[fb]SQ[jd][hb]MA[fb]C[Move 194: W F18
+Score: B+9.1
+Win rate: B 98.4%
+Move was predicted best move
+PV: WF18 H18 D8 E8
+Move was #1 according to policy  (45.78%).
+];B[lq]SQ[nq][ha]MA[hb]C[Move 195: B M3
+Score: B+7.1
+Win rate: B 94.0%
+Estimated point loss: 2.0
+Predicted top move was H18 (B+10.6).
+PV: BH18 D8 E8
+Move was #10 according to policy  (0.86%).
+Top policy move was H18 (55.9%).
+
+AI thought process: Playing policy-weighted random move M3 (0.9%) from 20 moves above lower_bound of 0.1%.];W[kq]SQ[js][jd][ks]MA[kq]C[Move 196: W L3
+Score: B+7.2
+Win rate: B 95.6%
+Move was predicted best move
+PV: WL3 H18 K16 K17
+Move was #1 according to policy  (32.33%).
+];B[ns]SQ[nq][ie][ha][ho][ns]MA[hb]C[Move 197: B O1
+Score: B+11.5
+Win rate: B 90.9%
+Predicted top move was H18 (B+8.1).
+PV: BH18 K16 K17
+Move was #17 according to policy  (0.17%).
+Top policy move was H18 (44.0%).
+
+AI thought process: Playing policy-weighted random move O1 (0.2%) from 17 moves above lower_bound of 0.1%.];W[os]SQ[le]MA[os]C[Move 198: W P1
+Score: B+4.5
+Win rate: B 86.4%
+Move was predicted best move
+PV: WP1 H18 K16
+Move was #1 according to policy  (70.83%).
+];B[ho]SQ[ho][ha]MA[hb]C[Move 199: B H5
+Score: B+5.9
+Win rate: B 91.2%
+Predicted top move was H18 (B+6.5).
+PV: BH18 K16
+Move was #4 according to policy  (7.75%).
+Top policy move was H18 (39.5%).
+
+AI thought process: Playing policy-weighted random move H5 (7.8%) from 20 moves above lower_bound of 0.1%.];W[gn]SQ[hb][jd]MA[gn]C[Move 200: W G6
+Score: B+4.1
+Win rate: B 79.4%
+Move was predicted best move
+PV: WG6 F7 K4
+Move was #1 according to policy  (52.19%).
+];B[fm]SQ[hb]MA[fm]C[Move 201: B F7
+Score: B+7.4
+Win rate: B 95.5%
+Move was predicted best move
+PV: BF7 K4 H18 K16
+Move was #1 according to policy  (84.98%).
+
+AI thought process: Playing policy-weighted random move F7 (85.0%) from 12 moves above lower_bound of 0.1%.];W[jp]SQ[hb][jc][jd]MA[jp]C[Move 202: W K4
+Score: B+7.5
+Win rate: B 96.7%
+Move was predicted best move
+PV: WK4 H18 K16 K17
+Move was #1 according to policy  (34.84%).
+];B[hn]SQ[hn][ie][ha]MA[hb]C[Move 203: B H6
+Score: B+7.7
+Win rate: B 96.3%
+Predicted top move was H18 (B+8.2).
+PV: BH18 K16 K17
+Move was #2 according to policy  (32.39%).
+Top policy move was H18 (39.4%).
+
+AI thought process: Playing policy-weighted random move H6 (32.4%) from 15 moves above lower_bound of 0.1%.];W[gp]SQ[le][gp][hb][ib]MA[jd]C[Move 204: W G4
+Score: B+7.0
+Win rate: B 96.2%
+Predicted top move was K16 (B+6.7).
+PV: WK16 K17
+Move was #1 according to policy  (48.73%).
+];B[ca]SQ[ha][ck][ca]MA[hb]C[Move 205: B C19
+Score: B+9.9
+Win rate: B 97.0%
+Predicted top move was H18 (B+8.7).
+PV: BH18 K16
+Move was #6 according to policy  (2.06%).
+Top policy move was H18 (60.1%).
+
+AI thought process: Playing policy-weighted random move C19 (2.1%) from 15 moves above lower_bound of 0.1%.];W[ad]SQ[ac][ba][ad]MA[ab]C[Move 206: W A16
+Score: B+6.4
+Win rate: B 93.9%
+Predicted top move was A18 (B+9.0).
+PV: WA18 H18
+Move was #4 according to policy  (14.49%).
+Top policy move was A18 (24.0%).
+];B[fa]SQ[hb][ha][fa]MA[ba]C[Move 207: B F19
+Score: B+6.5
+Win rate: B 83.1%
+Predicted top move was B19 (B+7.1).
+PV: BB19 A17
+Move was #3 according to policy  (12.63%).
+Top policy move was H18 (55.2%).
+
+AI thought process: Playing policy-weighted random move F19 (12.6%) from 13 moves above lower_bound of 0.1%.];W[ec]SQ[jc]MA[hb]C[Move 208: W E17
+Score: B+7.5
+Win rate: B 96.3%
+Estimated point loss: 1.0
+Predicted top move was H18 (B+3.4).
+PV: WH18 E18
+Move was #4 according to policy  (2.60%).
+Top policy move was H18 (63.2%).
+];B[ie]SQ[ib][ba]MA[hb]C[Move 209: B J15
+Score: B+6.6
+Win rate: B 94.9%
+Estimated point loss: 0.9
+Predicted top move was H18 (B+9.8).
+PV: BH18 E19
+Move was #4 according to policy  (4.79%).
+Top policy move was H18 (45.4%).
+
+AI thought process: Playing policy-weighted random move J15 (4.8%) from 14 moves above lower_bound of 0.1%.];W[gg]MA[hb]C[Move 210: W G13
+Score: B+8.1
+Win rate: B 99.1%
+Estimated point loss: 1.5
+Predicted top move was H18 (B+4.1).
+PV: WH18 J18
+Move was #49 according to policy  (0.05%).
+Top policy move was H18 (48.8%).
+];B[fh]SQ[hb][gh][ib][ba]MA[fh]C[Move 211: B F12
+Score: B+8.4
+Win rate: B 98.0%
+Move was predicted best move
+PV: BF12 H18 J18
+Move was #1 according to policy  (31.22%).
+
+AI thought process: Playing policy-weighted random move F12 (31.2%) from 14 moves above lower_bound of 0.1%.];W[hb]SQ[dl][km]MA[hb]C[Move 212: W H18
+Score: B+4.6
+Win rate: B 88.4%
+Move was predicted best move
+PV: WH18 J18 G19
+Move was #1 according to policy  (44.06%).
+];B[ib]SQ[ba][ab]MA[ib]C[Move 213: B J18
+Score: B+7.8
+Win rate: B 98.6%
+Move was predicted best move
+PV: BJ18 G19 C9 J19
+Move was #1 according to policy  (97.39%).
+
+AI thought process: Playing policy-weighted random move J18 (97.4%) from 6 moves above lower_bound of 0.1%.];W[ga]MA[ga]C[Move 214: W G19
+Score: B+6.4
+Win rate: B 98.1%
+Move was predicted best move
+PV: WG19 C9 J19 K18
+Move was #1 according to policy  (65.64%).
+];B[hh]SQ[jn]MA[ck]C[Move 215: B H12
+Score: B+5.7
+Win rate: B 97.2%
+Estimated point loss: 0.8
+Predicted top move was C9 (B+8.0).
+PV: BC9 J19 K18
+Move was #16 according to policy  (0.67%).
+Top policy move was C9 (28.8%).
+
+AI thought process: Playing policy-weighted random move H12 (0.7%) from 31 moves above lower_bound of 0.1%.];W[kb]SQ[dl][ia][if][hj]MA[gh]C[Move 216: W L18
+Score: B+7.9
+Win rate: B 96.0%
+Estimated point loss: 2.3
+Predicted top move was G12 (B+5.6).
+PV: WG12 G11
+Move was #6 according to policy  (3.41%).
+Top policy move was G12 (22.5%).
+];B[lb]SQ[je][ia]MA[jd]C[Move 217: B M18
+Score: B+4.9
+Win rate: B 95.2%
+Estimated point loss: 3.0
+Predicted top move was K16 (B+9.8).
+PV: BK16 H13
+Move was #3 according to policy  (10.65%).
+Top policy move was K16 (50.1%).
+
+AI thought process: Playing policy-weighted random move M18 (10.7%) from 19 moves above lower_bound of 0.1%.];W[gh]SQ[dl][gh][le][hj][jd]MA[ia]C[Move 218: W G12
+Score: B+5.0
+Win rate: B 95.7%
+Predicted top move was J19 (B+5.1).
+PV: WJ19 K16 H13
+Move was #3 according to policy  (10.78%).
+Top policy move was J19 (36.5%).
+];B[gi]SQ[ck][gf][hi][hj][cm]MA[gi]C[Move 219: B G11
+Score: B+5.2
+Win rate: B 96.3%
+Move was predicted best move
+PV: BG11 J19 K16 G14
+Move was #1 according to policy  (38.43%).
+
+AI thought process: Playing policy-weighted random move G11 (38.4%) from 20 moves above lower_bound of 0.1%.];W[hi]SQ[dl][js][km]MA[ia]C[Move 220: W H11
+Score: B+6.2
+Win rate: B 98.3%
+Estimated point loss: 1.1
+Predicted top move was J19 (B+4.4).
+PV: WJ19 K16 G14
+Move was #18 according to policy  (0.59%).
+Top policy move was J19 (24.2%).
+];B[ck]SQ[ck]MA[hj]C[Move 221: B C9
+Score: B+6.1
+Win rate: B 98.2%
+Predicted top move was H10 (B+7.8).
+PV: BH10 J11
+Move was #2 according to policy  (15.06%).
+Top policy move was H10 (66.4%).
+
+AI thought process: Playing policy-weighted random move C9 (15.1%) from 13 moves above lower_bound of 0.1%.];W[ia]SQ[ia][hj][cl][cm]MA[gj]C[Move 222: W J19
+Score: B+5.5
+Win rate: B 95.5%
+Predicted top move was G10 (B+5.7).
+PV: WG10 E10
+Move was #2 according to policy  (23.50%).
+Top policy move was G10 (36.4%).
+];B[cm]SQ[jd][hj][jb]MA[ja]C[Move 223: B C7
+Score: B+4.0
+Win rate: B 88.5%
+Estimated point loss: 1.4
+Predicted top move was K19 (B+6.4).
+PV: BK19 K18 H19
+Move was #8 according to policy  (0.89%).
+Top policy move was K19 (27.9%).
+
+AI thought process: Playing policy-weighted random move C7 (0.9%) from 15 moves above lower_bound of 0.1%.];W[la]SQ[jd][gj][ja][le]MA[la]C[Move 224: W M19
+Score: B+4.1
+Win rate: B 85.4%
+Move was predicted best move
+PV: WM19 K16 K18 H10
+Move was #1 according to policy  (28.01%).
+];B[jd]SQ[ja][kc]MA[jd]C[Move 225: B K16
+Score: B+3.7
+Win rate: B 85.0%
+Move was predicted best move
+PV: BK16 K18 H10 L15
+Move was #1 according to policy  (42.03%).
+
+AI thought process: Playing policy-weighted random move K16 (42.0%) from 9 moves above lower_bound of 0.1%.];W[ja]SQ[ka][le]MA[jb]C[Move 226: W K19
+Score: B+4.4
+Win rate: B 91.1%
+Estimated point loss: 0.7
+Predicted top move was K18 (B+4.3).
+PV: WK18 H10 L15
+Move was #3 according to policy  (21.33%).
+Top policy move was K18 (33.0%).
+];B[nb]SQ[nb][kc][jb][na]MA[hj]C[Move 227: B O18
+Score: B+4.5
+Win rate: B 92.0%
+Predicted top move was H10 (B+5.5).
+PV: BH10 J11
+Move was #3 according to policy  (8.14%).
+Top policy move was H10 (74.4%).
+
+AI thought process: Playing policy-weighted random move O18 (8.1%) from 10 moves above lower_bound of 0.1%.];W[ma]SQ[gj][hj][gf]MA[ma]C[Move 228: W N19
+Score: B+3.0
+Win rate: B 80.8%
+Move was predicted best move
+PV: WN19 H10 J11 G14
+Move was #1 according to policy  (43.23%).
+];B[hj]SQ[kc][jb]MA[hj]C[Move 229: B H10
+Score: B+3.3
+Win rate: B 83.7%
+Move was predicted best move
+PV: BH10 J11 G14
+Move was #1 according to policy  (49.50%).
+
+AI thought process: Playing policy-weighted random move H10 (49.5%) from 8 moves above lower_bound of 0.1%.];W[le]SQ[sc][ke][gf][le][km]MA[ii]C[Move 230: W M15
+Score: W+1.3
+Win rate: B 70.2%
+Predicted top move was J11 (B+3.6).
+PV: WJ11 G14
+Move was #6 according to policy  (3.33%).
+Top policy move was J11 (35.6%).
+];B[ld]SQ[ke][na][lf]MA[ld]C[Move 231: B M16
+Score: B+4.0
+Win rate: B 89.0%
+Move was predicted best move
+PV: BM16 L15 T17 L7
+Move was #1 according to policy  (69.22%).
+
+AI thought process: Playing policy-weighted random move M16 (69.2%) from 4 moves above lower_bound of 0.1%.];W[ke]SQ[je][ii]MA[ke]C[Move 232: W L15
+Score: B+2.9
+Win rate: B 82.8%
+Move was predicted best move
+PV: WL15 T17 L7 L8
+Move was #1 according to policy  (42.16%).
+];B[jc]SQ[na][rl][kn][jn]MA[sc]C[Move 233: B K17
+Score: B+0.5
+Win rate: B 54.1%
+Estimated point loss: 2.4
+Predicted top move was T17 (B+2.6).
+PV: BT17 L7 L8
+Move was #19 according to policy  (0.34%).
+Top policy move was T17 (41.2%).
+
+AI thought process: Playing policy-weighted random move K17 (0.3%) from 23 moves above lower_bound of 0.1%.];W[sc]SQ[je][rl][ii][km][bl]MA[sc]C[Move 234: W T17
+Score: W+0.6
+Win rate: W 55.4%
+Move was predicted best move
+PV: WT17 T18 J11
+Move was #1 according to policy  (15.85%).
+];B[sb]SQ[na][on]MA[sb]C[Move 235: B T18
+Score: B+0.6
+Win rate: B 54.5%
+Move was predicted best move
+PV: BT18 J11 G14
+Move was #1 according to policy  (84.66%).
+
+AI thought process: Playing policy-weighted random move T18 (84.7%) from 15 moves above lower_bound of 0.1%.];W[if]SQ[rl][lp]MA[ii]C[Move 236: W J14
+Score: B+2.4
+Win rate: B 73.1%
+Estimated point loss: 1.9
+Predicted top move was J11 (W+0.2).
+PV: WJ11 G14
+Move was #31 according to policy  (0.06%).
+Top policy move was J11 (27.9%).
+];B[sd]SQ[jn][bm]MA[rl]C[Move 237: B T16
+Score: W+0.3
+Win rate: W 62.2%
+Estimated point loss: 2.7
+Predicted top move was S8 (B+3.2).
+PV: BS8 K15
+Move was #1 according to policy  (24.01%).
+
+AI thought process: Playing policy-weighted random move T16 (24.0%) from 19 moves above lower_bound of 0.1%.];W[dk]SQ[cl][lp][lo][nq][ik]MA[rl]C[Move 238: W D9
+Score: B+2.4
+Win rate: B 74.8%
+Estimated point loss: 2.7
+Predicted top move was S8 (B+0.0).
+PV: WS8 S9
+Move was #27 according to policy  (0.03%).
+Top policy move was S8 (25.4%).
+];B[bk]SQ[dl][bl][bk]MA[cl]C[Move 239: B B9
+Score: B+4.2
+Win rate: B 88.9%
+Predicted top move was C8 (B+5.0).
+PV: BC8 T17
+Move was #3 according to policy  (8.09%).
+Top policy move was C8 (76.1%).
+
+AI thought process: Playing policy-weighted random move B9 (8.1%) from 10 moves above lower_bound of 0.1%.];W[sc]SQ[bm][rl]MA[sc]C[Move 240: W T17
+Score: B+4.1
+Win rate: B 84.2%
+Move was predicted best move
+PV: WT17 O19 L19
+Move was #1 according to policy  (86.38%).
+];B[bm]SQ[bm][jn]MA[na]C[Move 241: B B7
+Score: B+5.6
+Win rate: B 94.7%
+Predicted top move was O19 (B+4.2).
+PV: BO19 L19
+Move was #2 according to policy  (18.74%).
+Top policy move was O19 (22.6%).
+
+AI thought process: Playing policy-weighted random move B7 (18.7%) from 27 moves above lower_bound of 0.1%.];W[mf]SQ[jn][ik][rl]MA[je]C[Move 242: W N14
+Score: B+8.4
+Win rate: B 96.8%
+Estimated point loss: 2.8
+Predicted top move was K15 (B+6.3).
+PV: WK15 T16
+Move was #9 according to policy  (3.90%).
+Top policy move was K15 (16.9%).
+];B[sd]SQ[rl][ii][na][jn]MA[sd]C[Move 243: B T16
+Score: B+7.4
+Win rate: B 97.2%
+Move was predicted best move
+PV: BT16 S8 S9 T17
+Move was #1 according to policy  (65.11%).
+
+AI thought process: Playing policy-weighted random move T16 (65.1%) from 23 moves above lower_bound of 0.1%.];W[rl]SQ[bl][ii][nq]MA[rl]C[Move 244: W S8
+Score: B+6.1
+Win rate: B 95.3%
+Move was predicted best move
+PV: WS8 S9 T17 O19
+Move was #1 according to policy  (23.54%).
+];B[na]SQ[an][na][ba]MA[rk]C[Move 245: B O19
+Score: B+6.1
+Win rate: B 96.3%
+Predicted top move was S9 (B+7.5).
+PV: BS9 T17 O19
+Move was #3 according to policy  (4.42%).
+Top policy move was S9 (77.6%).
+
+AI thought process: Playing policy-weighted random move O19 (4.4%) from 17 moves above lower_bound of 0.1%.];W[ka]SQ[qk][rk][cl]MA[ka]C[Move 246: W L19
+Score: B+4.4
+Win rate: B 88.0%
+Move was predicted best move
+PV: WL19 S9 T17 T8
+Move was #1 according to policy  (62.21%).
+];B[re]MA[rk]C[Move 247: B S15
+Score: B+1.7
+Win rate: B 72.5%
+Estimated point loss: 2.7
+Predicted top move was S9 (B+7.6).
+PV: BS9 T17 T8
+Move was #2 according to policy  (28.06%).
+Top policy move was S9 (65.0%).
+
+AI thought process: Playing policy-weighted random move S15 (28.1%) from 14 moves above lower_bound of 0.1%.];W[qk]SQ[qk]MA[rk]C[Move 248: W R9
+Score: B+1.9
+Win rate: B 76.4%
+Predicted top move was S9 (B+0.9).
+PV: WS9 S10
+Move was #2 according to policy  (24.30%).
+Top policy move was S9 (67.2%).
+];B[on]SQ[rk][qj][an][kc]MA[pl]C[Move 249: B P6
+Score: B+1.1
+Win rate: B 67.3%
+Estimated point loss: 0.8
+Predicted top move was Q8 (B+1.2).
+PV: BQ8 S10
+Move was #4 according to policy  (12.02%).
+Top policy move was Q8 (43.3%).
+
+AI thought process: Playing policy-weighted random move P6 (12.0%) from 20 moves above lower_bound of 0.1%.];W[pl]SQ[lp][rj][km][qj][ii]MA[pl]C[Move 250: W Q8
+Score: B+0.2
+Win rate: B 51.6%
+Move was predicted best move
+PV: WQ8 P7 Q10
+Move was #1 according to policy  (62.61%).
+];B[ks]SQ[ba][kr][ls][ks]MA[om]C[Move 251: B L1
+Score: B+0.2
+Win rate: W 53.2%
+Predicted top move was P7 (B+1.2).
+PV: BP7 Q10
+Move was #8 according to policy  (0.95%).
+Top policy move was P7 (50.3%).
+
+AI thought process: Playing policy-weighted random move L1 (0.9%) from 10 moves above lower_bound of 0.1%.];W[js]SQ[om][nq]MA[js]C[Move 252: W K1
+Score: W+1.2
+Win rate: W 68.0%
+Move was predicted best move
+PV: WK1 R8 M4
+Move was #1 according to policy  (58.53%).
+];B[om]SQ[om][ls][ba]MA[ql]C[Move 253: B P7
+Score: W+0.5
+Win rate: W 74.0%
+Predicted top move was R8 (B+0.2).
+PV: BR8 M4
+Move was #2 according to policy  (8.86%).
+Top policy move was R8 (85.3%).
+
+AI thought process: Playing policy-weighted random move P7 (8.9%) from 7 moves above lower_bound of 0.1%.];W[km]SQ[km][qj][jn][ii][rj]MA[pj]C[Move 254: W L7
+Score: W+0.8
+Win rate: W 79.0%
+Predicted top move was Q10 (W+0.0).
+PV: WQ10 P9
+Move was #3 according to policy  (11.98%).
+Top policy move was Q10 (35.7%).
+];B[kn]SQ[kn][an][kl][ql][lo]MA[qj]C[Move 255: B L6
+Score: B+0.5
+Win rate: W 51.6%
+Predicted top move was R10 (W+0.7).
+PV: BR10 J11
+Move was #2 according to policy  (14.59%).
+Top policy move was R10 (18.0%).
+
+AI thought process: Playing policy-weighted random move L6 (14.6%) from 19 moves above lower_bound of 0.1%.];W[jn]SQ[is][cl]MA[jn]C[Move 256: W K6
+Score: W+1.1
+Win rate: W 81.6%
+Move was predicted best move
+PV: WK6 K7 M6 L8
+Move was #1 according to policy  (93.35%).
+];B[lm]SQ[ko][lm][an][ls]MA[jm]C[Move 257: B M7
+Score: W+1.3
+Win rate: W 86.7%
+Predicted top move was K7 (W+0.7).
+PV: BK7 M6 L8
+Move was #3 according to policy  (6.90%).
+Top policy move was K7 (47.4%).
+
+AI thought process: Playing policy-weighted random move M7 (6.9%) from 19 moves above lower_bound of 0.1%.];W[im]SQ[pj][ko][ik][qj][ii][im]MA[jm]C[Move 258: W J7
+Score: W+2.5
+Win rate: W 87.7%
+Predicted top move was K7 (W+1.5).
+PV: WK7 S10
+Move was #10 according to policy  (2.36%).
+Top policy move was L5 (24.6%).
+];B[hm]SQ[ba][ab]MA[hm]C[Move 259: B H7
+Score: W+0.1
+Win rate: W 62.3%
+Move was predicted best move
+PV: BH7 K7 R10
+Move was #1 according to policy  (94.25%).
+
+AI thought process: Playing policy-weighted random move H7 (94.2%) from 6 moves above lower_bound of 0.1%.];W[jm]SQ[is][ko][ii]MA[jm]C[Move 260: W K7
+Score: W+1.3
+Win rate: W 88.2%
+Move was predicted best move
+PV: WK7 R10 S10
+Move was #1 according to policy  (90.72%).
+];B[an]SQ[rj][ii][an][ko]MA[qj]C[Move 261: B A6
+Score: W+0.3
+Win rate: W 66.0%
+Predicted top move was R10 (W+1.1).
+PV: BR10 S10
+Move was #3 according to policy  (11.89%).
+Top policy move was R10 (29.4%).
+
+AI thought process: Playing policy-weighted random move A6 (11.9%) from 18 moves above lower_bound of 0.1%.];W[bp]SQ[ar][qj][rj][bp]MA[ao]C[Move 262: W B4
+Score: B+0.1
+Win rate: W 61.7%
+Predicted top move was A5 (W+1.1).
+PV: WA5 A3
+Move was #11 according to policy  (1.07%).
+Top policy move was A5 (59.6%).
+];B[br]SQ[br][qj][ko][gf][ls]MA[ds]C[Move 263: B B2
+Score: B+1.9
+Win rate: B 66.9%
+Predicted top move was D1 (B+0.2).
+PV: BD1 B2
+Move was #7 according to policy  (4.10%).
+Top policy move was S10 (36.7%).
+
+AI thought process: Playing policy-weighted random move B2 (4.1%) from 18 moves above lower_bound of 0.1%.];W[bs]MA[bs]C[Move 264: W B1
+Score: B+0.2
+Win rate: W 56.0%
+Move was predicted best move
+PV: WB1 A2 D1
+Move was #1 according to policy  (80.08%).
+];B[ar]SQ[qj][rj][aq][ds][ql]MA[ar]C[Move 265: B A2
+Score: B+1.8
+Win rate: B 58.0%
+Move was predicted best move
+PV: BA2 D1 A5
+Move was #1 according to policy  (21.90%).
+
+AI thought process: Playing policy-weighted random move A2 (21.9%) from 19 moves above lower_bound of 0.1%.];W[aq]SQ[aq][ao]MA[ds]C[Move 266: W A3
+Score: W+0.6
+Win rate: W 73.4%
+Predicted top move was D1 (W+0.6).
+PV: WD1 A5
+Move was #2 according to policy  (41.90%).
+Top policy move was D1 (46.1%).
+];B[kc]SQ[ds][qj][rj][ii][ls][kc]MA[ao]C[Move 267: B L17
+Score: W+0.8
+Win rate: W 79.3%
+Predicted top move was A5 (W+0.7).
+PV: BA5 D1
+Move was #8 according to policy  (3.04%).
+Top policy move was A5 (46.3%).
+
+AI thought process: Playing policy-weighted random move L17 (3.0%) from 17 moves above lower_bound of 0.1%.];W[ea]SQ[ea][gb][je]MA[ha]C[Move 268: W E19
+Score: W+0.9
+Win rate: W 80.2%
+Predicted top move was H19 (W+1.3).
+PV: WH19 A5
+Move was #3 according to policy  (21.36%).
+Top policy move was H19 (36.1%).
+];B[qj]SQ[ao][ii][qj][ko][ls]MA[rj]C[Move 269: B R10
+Score: W+1.0
+Win rate: W 84.8%
+Predicted top move was S10 (W+1.4).
+PV: BS10 J11
+Move was #4 according to policy  (11.33%).
+Top policy move was S10 (20.8%).
+
+AI thought process: Playing policy-weighted random move R10 (11.3%) from 19 moves above lower_bound of 0.1%.];W[is]SQ[rj][ik][lo][kl][is]MA[ii]C[Move 270: W J1
+Score: W+2.0
+Win rate: W 88.5%
+Predicted top move was J11 (W+1.2).
+PV: WJ11 G14
+Move was #11 according to policy  (0.56%).
+Top policy move was J11 (32.5%).
+];B[ab]SQ[ao][ab]MA[hr]C[Move 271: B A18
+Score: B+1.7
+Win rate: W 64.6%
+Predicted top move was H2 (W+0.8).
+PV: BH2 M5
+Move was #7 according to policy  (1.23%).
+Top policy move was H2 (76.2%).
+
+AI thought process: Playing policy-weighted random move A18 (1.2%) from 11 moves above lower_bound of 0.1%.];W[ac]SQ[ba][bl]MA[ac]C[Move 272: W A17
+Score: W+2.2
+Win rate: W 91.2%
+Move was predicted best move
+PV: WA17 H2 J11
+Move was #1 according to policy  (96.30%).
+];B[hr]SQ[ao]MA[hr]C[Move 273: B H2
+Score: W+1.0
+Win rate: W 82.0%
+Move was predicted best move
+PV: BH2 J11 G14 H13
+Move was #1 according to policy  (56.31%).
+
+AI thought process: Playing policy-weighted random move H2 (56.3%) from 12 moves above lower_bound of 0.1%.];W[rj]SQ[rj][lo]MA[ii]C[Move 274: W S10
+Score: W+1.4
+Win rate: W 87.7%
+Predicted top move was J11 (W+1.5).
+PV: WJ11 G14 H13
+Move was #2 according to policy  (22.62%).
+Top policy move was J11 (23.2%).
+];B[ri]SQ[ao][ii][ql][ls][gf][ri]MA[ko]C[Move 275: B S11
+Score: W+1.8
+Win rate: W 94.6%
+Predicted top move was L5 (W+1.1).
+PV: BL5 J11
+Move was #9 according to policy  (1.18%).
+Top policy move was L5 (32.2%).
+
+AI thought process: Playing policy-weighted random move S11 (1.2%) from 15 moves above lower_bound of 0.1%.];W[ao]SQ[ik][lo][ko][lp]MA[ii]C[Move 276: W A5
+Score: W+1.1
+Win rate: W 88.5%
+Estimated point loss: 0.7
+Predicted top move was J11 (W+2.5).
+PV: WJ11 G14
+Move was #5 according to policy  (6.10%).
+Top policy move was J11 (36.0%).
+];B[ii]SQ[ii][ql][gf][sj]MA[ko]C[Move 277: B J11
+Score: W+0.9
+Win rate: W 85.5%
+Predicted top move was L5 (W+1.4).
+PV: BL5 J11
+Move was #2 according to policy  (32.66%).
+Top policy move was L5 (35.9%).
+
+AI thought process: Playing policy-weighted random move J11 (32.7%) from 17 moves above lower_bound of 0.1%.];W[ik]SQ[ko][ik][lp][kl][jk]MA[lo]C[Move 278: W J9
+Score: W+2.0
+Win rate: W 92.4%
+Predicted top move was M5 (W+1.7).
+PV: WM5 M6
+Move was #1 according to policy  (29.64%).
+];B[ko]SQ[jk][hk][ql][sj]MA[ko]C[Move 279: B L5
+Score: W+0.6
+Win rate: W 77.2%
+Move was predicted best move
+PV: BL5 H9 G9
+Move was #2 according to policy  (17.08%).
+Top policy move was K9 (44.1%).
+
+AI thought process: Playing policy-weighted random move L5 (17.1%) from 15 moves above lower_bound of 0.1%.];W[hl]SQ[kl][hl][kp][jk][jl][lp]MA[hk]C[Move 280: W H8
+Score: W+1.0
+Win rate: W 75.1%
+Predicted top move was H9 (W+0.7).
+PV: WH9 G9
+Move was #3 according to policy  (10.87%).
+Top policy move was H9 (42.4%).
+];B[jl]SQ[jl][ql]MA[jb]C[Move 281: B K8
+Score: B+1.8
+Win rate: B 68.9%
+Predicted top move was K18 (W+1.0).
+PV: BK18 H19
+Move was #1 according to policy  (77.51%).
+
+AI thought process: Playing policy-weighted random move K8 (77.5%) from 14 moves above lower_bound of 0.1%.];W[hk]SQ[kl][ls]MA[hk]C[Move 282: W H9
+Score: B+0.3
+Win rate: W 55.1%
+Move was predicted best move
+PV: WH9 L8 M1 G9
+Move was #1 according to policy  (45.91%).
+];B[kl]SQ[gk][kp]MA[kl]C[Move 283: B L8
+Score: B+10.6
+Win rate: B 57.6%
+Move was predicted best move
+PV: BL8 M1 G9 J12
+Move was #1 according to policy  (39.95%).
+
+AI thought process: Playing policy-weighted random move L8 (40.0%) from 13 moves above lower_bound of 0.1%.];W[ls]SQ[kr]MA[ls]C[Move 284: W M1
+Score: W+0.2
+Win rate: W 67.9%
+Move was predicted best move
+PV: WM1 G9 J12 T10
+Move was #1 according to policy  (53.96%).
+];B[kp]SQ[kp][ij][hg]MA[gk]C[Move 285: B L4
+Score: B+17.8
+Win rate: B 60.2%
+Predicted top move was G9 (B+0.4).
+PV: BG9 J12 T10
+Move was #2 according to policy  (36.13%).
+Top policy move was G9 (40.7%).
+
+AI thought process: Playing policy-weighted random move L4 (36.1%) from 11 moves above lower_bound of 0.1%.];W[kr]MA[kr]C[Move 286: W L2
+Score: W+0.4
+Win rate: W 73.5%
+Move was predicted best move
+PV: WL2 G9 J12
+Move was #1 according to policy  (98.87%).
+];B[gk]SQ[ij][sj]MA[gk]C[Move 287: B G9
+Score: B+0.6
+Win rate: B 61.5%
+Move was predicted best move
+PV: BG9 T10 J10
+Move was #1 according to policy  (61.09%).
+
+AI thought process: Playing policy-weighted random move G9 (61.1%) from 12 moves above lower_bound of 0.1%.];W[gl]SQ[am][ih][gl][rk][ql][je]MA[sj]C[Move 288: W G8
+Score: W+1.0
+Win rate: W 70.5%
+Predicted top move was T10 (B+0.6).
+PV: WT10 J10
+Move was #4 according to policy  (7.27%).
+Top policy move was J12 (28.9%).
+];B[ij]SQ[ij][fk]MA[fl]C[Move 289: B J10
+Score: B+1.4
+Win rate: B 55.4%
+Predicted top move was F8 (B+0.4).
+PV: BF8 J12
+Move was #2 according to policy  (15.49%).
+Top policy move was F8 (81.0%).
+
+AI thought process: Playing policy-weighted random move J10 (15.5%) from 9 moves above lower_bound of 0.1%.];W[jk]SQ[dl][cl][bl][pj]MA[jk]C[Move 290: W K9
+Score: W+0.9
+Win rate: W 71.5%
+Move was predicted best move
+PV: WK9 F8 J12
+Move was #1 according to policy  (71.07%).
+];B[fl]SQ[ih][fk]MA[fl]C[Move 291: B F8
+Score: B+1.5
+Win rate: B 69.9%
+Move was predicted best move
+PV: BF8 J12 T10
+Move was #1 according to policy  (69.08%).
+
+AI thought process: Playing policy-weighted random move F8 (69.1%) from 8 moves above lower_bound of 0.1%.];W[ih]SQ[sj][rk]MA[ih]C[Move 292: W J12
+Score: B+0.0
+Win rate: W 65.6%
+Move was predicted best move
+PV: WJ12 T10 S9
+Move was #1 according to policy  (93.31%).
+];B[sj]SQ[hg][ql][am][je][jb]MA[sj]C[Move 293: B T10
+Score: B+0.7
+Win rate: B 53.5%
+Move was predicted best move
+PV: BT10 S9 A7
+Move was #1 according to policy  (52.34%).
+
+AI thought process: Playing policy-weighted random move T10 (52.3%) from 13 moves above lower_bound of 0.1%.];W[rk]SQ[ql][hg][fk]MA[rk]C[Move 294: W S9
+Score: B+0.2
+Win rate: W 61.2%
+Move was predicted best move
+PV: WS9 A7 H13
+Move was #1 according to policy  (94.33%).
+];B[je]SQ[hg][je][ql][sk][ds][es]MA[am]C[Move 295: B K15
+Score: B+0.1
+Win rate: W 63.5%
+Predicted top move was A7 (B+0.2).
+PV: BA7 H13
+Move was #2 according to policy  (27.74%).
+Top policy move was A7 (32.7%).
+
+AI thought process: Playing policy-weighted random move K15 (27.7%) from 16 moves above lower_bound of 0.1%.];W[sk]SQ[sk][ql][am][es][ak]MA[hg]C[Move 296: W T9
+Score: B+0.1
+Win rate: W 62.1%
+Predicted top move was H13 (B+0.1).
+PV: WH13 H11
+Move was #2 according to policy  (23.99%).
+Top policy move was H13 (28.6%).
+];B[si]SQ[am][si][ql][gf][hi]MA[hg]C[Move 297: B T11
+Score: B+0.2
+Win rate: W 58.7%
+Predicted top move was H13 (B+0.5).
+PV: BH13 G14
+Move was #1 according to policy  (42.85%).
+
+AI thought process: Playing policy-weighted random move T11 (42.8%) from 16 moves above lower_bound of 0.1%.];W[ql]SQ[am][hg][es][ak][dl]MA[ql]C[Move 298: W R8
+Score: W+0.2
+Win rate: W 79.4%
+Move was predicted best move
+PV: WR8 A7 H13
+Move was #1 according to policy  (47.18%).
+];B[ds]SQ[hg][ds][gf][es][aj][pe]MA[am]C[Move 299: B D1
+Score: B+0.2
+Win rate: W 58.4%
+Predicted top move was A7 (B+0.2).
+PV: BA7 H13
+Move was #3 according to policy  (16.87%).
+Top policy move was A7 (44.6%).
+
+AI thought process: Playing policy-weighted random move D1 (16.9%) from 14 moves above lower_bound of 0.1%.];W[am]SQ[am][hg][dl][gf][es][aj][al]MA[cs]C[Move 300: W A7
+Score: W+0.8
+Win rate: W 86.0%
+Predicted top move was C1 (B+0.2).
+PV: WC1 E1
+Move was #2 according to policy  (30.22%).
+Top policy move was C1 (31.4%).
+];B[al]SQ[aj][ak][es][hg][kf]MA[al]C[Move 301: B A8
+Score: W+0.0
+Win rate: W 68.8%
+Move was predicted best move
+PV: BA8 C1 E1
+Move was #1 according to policy  (52.29%).
+
+AI thought process: Playing policy-weighted random move A8 (52.3%) from 12 moves above lower_bound of 0.1%.];W[aj]SQ[aj][hg][gf][an][es]MA[cs]C[Move 302: W A10
+Score: W+0.6
+Win rate: W 85.3%
+Predicted top move was C1 (W+0.0).
+PV: WC1 E1
+Move was #2 according to policy  (23.46%).
+Top policy move was C1 (27.0%).
+];B[hg]SQ[an][hg][gf][hi][pe]MA[es]C[Move 303: B H13
+Score: B+0.1
+Win rate: W 60.8%
+Predicted top move was E1 (W+0.1).
+PV: BE1 C1
+Move was #3 according to policy  (15.04%).
+Top policy move was E1 (28.5%).
+
+AI thought process: Playing policy-weighted random move H13 (15.0%) from 13 moves above lower_bound of 0.1%.];W[gf]SQ[ok][ak][pj]MA[gf]C[Move 304: W G14
+Score: W+0.3
+Win rate: W 76.1%
+Move was predicted best move
+PV: WG14 A6 C1
+Move was #1 according to policy  (88.92%).
+];B[bq]SQ[es][hi][pe][ak][cn][bq]MA[an]C[Move 305: B B3
+Score: W+0.2
+Win rate: W 72.6%
+Predicted top move was A6 (W+0.3).
+PV: BA6 C1
+Move was #9 according to policy  (0.42%).
+Top policy move was A6 (35.4%).
+
+AI thought process: Playing policy-weighted random move B3 (0.4%) from 13 moves above lower_bound of 0.1%.];W[as]SQ[as][ak][ej]MA[cs]C[Move 306: W A1
+Score: W+1.0
+Win rate: W 95.6%
+Predicted top move was C1 (W+0.7).
+PV: WC1 E1
+Move was #1 according to policy  (48.85%).
+];B[pe]SQ[cn][hi][es][pe][ak]MA[an]C[Move 307: B Q15
+Score: W+0.7
+Win rate: W 92.3%
+Predicted top move was A6 (W+0.7).
+PV: BA6 H14
+Move was #5 according to policy  (6.32%).
+Top policy move was A6 (50.1%).
+
+AI thought process: Playing policy-weighted random move Q15 (6.3%) from 14 moves above lower_bound of 0.1%.];W[ak]SQ[hf][cn][bl][ej][cs]MA[ak]C[Move 308: W A9
+Score: W+2.2
+Win rate: W 96.0%
+Move was predicted best move
+PV: WA9 B8 A6
+Move was #1 according to policy  (27.06%).
+];B[bl]SQ[an]MA[bl]C[Move 309: B B8
+Score: W+0.5
+Win rate: W 97.3%
+Move was predicted best move
+PV: BB8 A6 K18 H19
+Move was #1 according to policy  (43.62%).
+
+AI thought process: Playing policy-weighted random move B8 (43.6%) from 11 moves above lower_bound of 0.1%.];W[cs]SQ[hf][ha][nq][cs][cn]MA[an]C[Move 310: W C1
+Score: W+0.8
+Win rate: W 96.0%
+Predicted top move was A6 (W+0.3).
+PV: WA6 K18 H19
+Move was #5 according to policy  (8.32%).
+Top policy move was A6 (30.7%).
+];B[jb]SQ[jb][lf][kf][ch]MA[es]C[Move 311: B K18
+Score: B+0.1
+Win rate: W 70.5%
+Predicted top move was E1 (W+0.4).
+PV: BE1 A6
+Move was #2 according to policy  (22.00%).
+Top policy move was E1 (64.0%).
+
+AI thought process: Playing policy-weighted random move K18 (22.0%) from 10 moves above lower_bound of 0.1%.];W[ha]SQ[ha][fk][dl][dm]MA[ej]C[Move 312: W H19
+Score: W+1.5
+Win rate: W 98.8%
+Predicted top move was E10 (W+1.1).
+PV: WE10 F11
+Move was #1 according to policy  (93.28%).
+];B[nq]SQ[kf][ch][lf]MA[es]C[Move 313: B O3
+Score: W+2.1
+Win rate: W 99.2%
+Estimated point loss: 0.6
+Predicted top move was E1 (W+0.6).
+PV: BE1 A6
+Move was #7 according to policy  (1.94%).
+Top policy move was E1 (71.8%).
+
+AI thought process: Playing policy-weighted random move O3 (1.9%) from 11 moves above lower_bound of 0.1%.];W[es]SQ[hf][dm][ej][dl][ok]MA[es]C[Move 314: W E1
+Score: W+3.1
+Win rate: W 99.9%
+Move was predicted best move
+PV: WE1 F1 D1 A6
+Move was #1 according to policy  (70.65%).
+];B[fs]MA[fs]C[Move 315: B F1
+Score: W+2.3
+Win rate: W 99.4%
+Move was predicted best move
+PV: BF1 D1 A6 H14
+Move was #1 according to policy  (57.69%).
+
+AI thought process: Playing policy-weighted random move F1 (57.7%) from 20 moves above lower_bound of 0.1%.];W[ds]SQ[an][hf][ej][ok]MA[ds]C[Move 316: W D1
+Score: W+2.5
+Win rate: W 99.8%
+Move was predicted best move
+PV: WD1 A6 H14 H11
+Move was #2 according to policy  (27.83%).
+Top policy move was A6 (28.4%).
+];B[an]SQ[cn][hi][ch]MA[an]C[Move 317: B A6
+Score: W+2.2
+Win rate: W 99.8%
+Move was predicted best move
+PV: BA6 H14 H11 A7
+Move was #1 according to policy  (49.98%).
+
+AI thought process: Playing policy-weighted random move A6 (50.0%) from 20 moves above lower_bound of 0.1%.];W[ok]SQ[ok][ej][dl][dm]MA[hf]C[Move 318: W P9
+Score: W+5.5
+Win rate: W 99.3%
+Predicted top move was H14 (W+2.6).
+PV: WH14 H11 A7
+Move was #3 according to policy  (15.91%).
+Top policy move was H14 (28.6%).
+];B[pj]SQ[mk][lf]MA[pj]C[Move 319: B Q10
+Score: W+2.2
+Win rate: W 99.2%
+Move was predicted best move
+PV: BQ10 A7 H11 A6
+Move was #1 according to policy  (62.60%).
+
+AI thought process: Playing policy-weighted random move Q10 (62.6%) from 11 moves above lower_bound of 0.1%.];W[am]SQ[hf][ej]MA[am]C[Move 320: W A7
+Score: W+2.5
+Win rate: W 99.8%
+Move was predicted best move
+PV: WA7 H11 A6 C6
+Move was #1 according to policy  (71.64%).
+];B[ps]SQ[cn][ch]MA[hi]C[Move 321: B Q1
+Score: W+3.5
+Win rate: W 99.7%
+Estimated point loss: 1.0
+Predicted top move was H11 (W+2.2).
+PV: BH11 A6 C6
+Move was #6 according to policy  (1.22%).
+Top policy move was H11 (24.2%).
+
+AI thought process: Playing policy-weighted random move Q1 (1.2%) from 56 moves above lower_bound of 0.1%.];W[cn]SQ[hf][cn][ej][dl]MA[an]C[Move 322: W C6
+Score: W+3.6
+Win rate: W 99.8%
+Predicted top move was A6 (W+3.4).
+PV: WA6 C6
+Move was #3 according to policy  (14.63%).
+Top policy move was A6 (38.8%).
+];B[sh]SQ[hi][ch]MA[an]C[Move 323: B T12
+Score: W+4.7
+Win rate: W 99.7%
+Estimated point loss: 1.0
+Predicted top move was A6 (W+3.3).
+PV: BA6 H14 H11
+Move was #15 according to policy  (0.24%).
+Top policy move was A6 (62.0%).
+
+AI thought process: Playing policy-weighted random move T12 (0.2%) from 30 moves above lower_bound of 0.1%.];W[hf]SQ[hf][ej][kf][dl][dm]MA[an]C[Move 324: W H14
+Score: W+6.1
+Win rate: W 99.9%
+Predicted top move was A6 (W+4.6).
+PV: WA6 H11
+Move was #2 according to policy  (22.40%).
+Top policy move was A6 (31.6%).
+];B[cl]SQ[fk][cl]MA[hi]C[Move 325: B C8
+Score: W+6.3
+Win rate: W 99.1%
+Predicted top move was H11 (W+4.4).
+PV: BH11 A6
+Move was #30 according to policy  (0.24%).
+Top policy move was A6 (31.8%).
+
+AI thought process: Playing policy-weighted random move C8 (0.2%) from 72 moves above lower_bound of 0.1%.];W[hi]SQ[el][ej][dm][dl]MA[hi]C[Move 326: W H11
+Score: W+12.2
+Win rate: W 99.7%
+Move was predicted best move
+PV: WH11 H12 A6 H11
+Move was #1 according to policy  (34.97%).
+];B[an]MA[hh]C[Move 327: B A6
+Score: W+15.3
+Win rate: W 99.7%
+Estimated point loss: 3.1
+Predicted top move was H12 (W+6.0).
+PV: BH12 A6 H11
+Move was #5 according to policy  (1.36%).
+Top policy move was H12 (85.9%).
+
+AI thought process: Playing policy-weighted random move A6 (1.4%) from 12 moves above lower_bound of 0.1%.];W[gj]SQ[dl]MA[gj]C[Move 328: W G10
+Score: W+30.5
+Win rate: W 99.9%
+Move was predicted best move
+PV: WG10 H10 E10
+Move was #1 according to policy  (72.01%).
+];B[hj]SQ[ej][ek][fk]MA[hj]C[Move 329: B H10
+Score: W+20.1
+Win rate: W 99.8%
+Move was predicted best move
+PV: BH10 J10 G10
+Move was #1 according to policy  (50.66%).
+
+AI thought process: Playing policy-weighted random move H10 (50.7%) from 12 moves above lower_bound of 0.1%.];W[ij]SQ[dl]MA[ij]C[Move 330: W J10
+Score: W+27.7
+Win rate: W 99.9%
+Move was predicted best move
+PV: WJ10 F9 G10
+Move was #2 according to policy  (20.41%).
+Top policy move was E10 (56.2%).
+];B[fi]SQ[fi][ek][ej]MA[fk]C[Move 331: B F11
+Score: W+15.8
+Win rate: W 99.9%
+Predicted top move was F9 (W+15.9).
+PV: BF9 G10
+Move was #3 according to policy  (13.54%).
+Top policy move was G10 (31.1%).
+
+AI thought process: Playing policy-weighted random move F11 (13.5%) from 17 moves above lower_bound of 0.1%.];W[gj]SQ[am][dm][dl]MA[gj]C[Move 332: W G10
+Score: W+23.1
+Win rate: W 99.9%
+Move was predicted best move
+PV: WG10 F9 H10 A7
+Move was #1 according to policy  (33.67%).
+];B[fk]MA[fk]C[Move 333: B F9
+Score: W+14.6
+Win rate: W 99.9%
+Move was predicted best move
+PV: BF9 H10 A7 T7
+Move was #1 according to policy  (80.13%).
+
+AI thought process: Playing policy-weighted random move F9 (80.1%) from 5 moves above lower_bound of 0.1%.];W[hj]SQ[am][kf][ch]MA[hj]C[Move 334: W H10
+Score: W+15.2
+Win rate: W 100.0%
+Move was predicted best move
+PV: WH10 A7 T7 D7
+Move was #1 according to policy  (21.15%).
+];B[dl]SQ[dm][dl][ek]MA[am]C[Move 335: B D8
+Score: W+15.0
+Win rate: W 100.0%
+Predicted top move was A7 (W+14.6).
+PV: BA7 T7 D7
+Move was #2 according to policy  (9.95%).
+Top policy move was A7 (19.3%).
+
+AI thought process: Playing policy-weighted random move D8 (9.9%) from 72 moves above lower_bound of 0.1%.];W[am]SQ[kf][sm]MA[am]C[Move 336: W A7
+Score: W+16.4
+Win rate: W 99.9%
+Move was predicted best move
+PV: WA7 L14 M14
+Move was #1 according to policy  (7.30%).
+];B[kf]SQ[ch][lf]MA[kf]C[Move 337: B L14
+Score: W+12.9
+Win rate: W 99.8%
+Move was predicted best move
+PV: BL14 E8 E9 M14
+Move was #1 according to policy  (30.25%).
+
+AI thought process: Playing policy-weighted random move L14 (30.2%) from 75 moves above lower_bound of 0.1%.];W[lf]SQ[lf]MA[el]C[Move 338: W M14
+Score: W+16.8
+Win rate: W 100.0%
+Predicted top move was E8 (W+14.7).
+PV: WE8 E9 M14
+Move was #1 according to policy  (79.75%).
+];B[an]SQ[ch]MA[an]C[Move 339: B A6
+Score: W+15.5
+Win rate: W 100.0%
+Move was predicted best move
+PV: BA6 E8 E9 A7
+Move was #1 according to policy  (64.94%).
+
+AI thought process: Using policy based strategy, base top 5 moves are A6 (64.94%), C12 (8.93%), E9 (1.65%), pass (1.46%), D7 (1.05%). Playing top one because one of them is pass.];W[]SQ[ek][dg][]MA[el]C[Move 340: W pass
+Score: W+16.2
+Win rate: W 100.0%
+Predicted top move was E8 (W+16.7).
+PV: WE8 E9 A7
+Move was #7 according to policy  (2.60%).
+Top policy move was E8 (19.2%).
+];B[qe]SQ[am][qe]MA[ek]C[Move 341: B R15
+Score: W+15.7
+Win rate: W 100.0%
+Predicted top move was E9 (W+16.1).
+PV: BE9 A7 C12
+Move was #14 according to policy  (2.29%).
+Top policy move was A7 (22.4%).
+
+AI thought process: Playing policy-weighted random move R15 (2.3%) from 72 moves above lower_bound of 0.1%.];W[am]SQ[ch][sm][sq]MA[am]C[Move 342: W A7
+Score: W+17.5
+Win rate: W 99.9%
+Move was predicted best move
+PV: WA7 C12 D13 A6
+Move was #1 according to policy  (13.21%).
+];B[ch]MA[ch]C[Move 343: B C12
+Score: W+15.4
+Win rate: W 99.8%
+Move was predicted best move
+PV: BC12 D13 A6 E8
+Move was #1 according to policy  (47.76%).
+
+AI thought process: Playing policy-weighted random move C12 (47.8%) from 72 moves above lower_bound of 0.1%.];W[bh]SQ[bh][el]MA[dg]C[Move 344: W B12
+Score: W+17.2
+Win rate: W 100.0%
+Predicted top move was D13 (W+16.7).
+PV: WD13 A6 E8
+Move was #1 according to policy  (38.63%).
+];B[an]MA[an]C[Move 345: B A6
+Score: W+15.7
+Win rate: W 100.0%
+Move was predicted best move
+PV: BA6 T7 A7 R1
+Move was #1 according to policy  (60.71%).
+
+AI thought process: Playing policy-weighted random move A6 (60.7%) from 71 moves above lower_bound of 0.1%.];W[]SQ[el][qs][or][sq][]MA[sm]C[Move 346: W pass
+Score: W+15.7
+Win rate: W 100.0%
+Predicted top move was T7 (W+15.0).
+PV: WT7 A7 R1
+Move was #18 according to policy  (1.91%).
+Top policy move was E8 (8.2%).
+];B[am]MA[am]C[Move 347: B A7
+Score: W+14.5
+Win rate: W 100.0%
+Move was predicted best move
+PV: BA7 T7 E9 T3
+Move was #1 according to policy  (38.19%).
+
+AI thought process: Playing policy-weighted random move A7 (38.2%) from 71 moves above lower_bound of 0.1%.];W[]SQ[qs][sq][aa][da][eb][]MA[sm]C[Move 348: W pass
+Score: W+14.7
+Win rate: W 100.0%
+Predicted top move was T7 (W+14.5).
+PV: WT7 E9 T3
+Move was #42 according to policy  (0.40%).
+Top policy move was T7 (5.5%).
+];B[rh]SQ[ek][ll][ej][lj][ln][rh]MA[mk]C[Move 349: B S12
+Score: W+14.7
+Win rate: W 100.0%
+Predicted top move was N9 (W+14.6).
+PV: BN9 T3
+Move was #43 according to policy  (0.48%).
+Top policy move was N9 (7.9%).
+
+AI thought process: Playing policy-weighted random move S12 (0.5%) from 70 moves above lower_bound of 0.1%.];W[]SQ[qs][ba][sq][aa][da][]MA[sm]C[Move 350: W pass
+Score: W+14.9
+Win rate: W 100.0%
+Predicted top move was T7 (W+14.6).
+PV: WT7 N9
+Move was #35 according to policy  (0.81%).
+Top policy move was T7 (5.9%).
+];B[]SQ[ek][ej][lj][ln][ll][]MA[mk]C[Move 351: B pass
+Score: W+14.6
+Win rate: W 100.0%
+Predicted top move was N9 (W+14.8).
+PV: BN9 T7
+Move was #20 according to policy  (2.00%).
+Top policy move was N9 (7.9%).
+])

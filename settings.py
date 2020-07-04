@@ -18,16 +18,16 @@ class Logger:
 
 
 bot_strategies = {
-#    "dev": (AI_SCORELOSS, {}, {"max_visits": 500}),
-    "dev": (AI_WEIGHTED, {"weaken_fac": 0.5},{}),
-    "2d": (AI_WEIGHTED, {}, {"weaken_fac": 1.0}),
+    "dev": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
+#    "dev": (AI_WEIGHTED, {"weaken_fac": 0.5},{}),
+    "balanced": (AI_SCORELOSS, {"strength": 1.0}, {"max_visits": 500}),
     #    "dev": (AI_POLICY, {}, {}),
-    "dev-beta": (AI_WEIGHTED, {}, {}),
+    "dev-beta": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
     "strong": (AI_POLICY, {}, {}),
     "influence": (AI_INFLUENCE, {}, {}),
     "territory": (AI_TERRITORY, {}, {}),
-    "balanced": (AI_PICK, {}, {}),
-    "weighted": (AI_WEIGHTED, {}, {}),
+#    "balanced": (AI_PICK, {}, {}),
+    "weighted": (AI_WEIGHTED, {}, {"weaken_fac": 1.0}),
     "local": (AI_LOCAL, {}, {}),
     "tenuki": (AI_TENUKI, {}, {}),
     "18k": (AI_RANK, {"kyu_rank": 18}, {}),
@@ -35,7 +35,7 @@ bot_strategies = {
     "10k": (AI_RANK, {"kyu_rank": 10}, {}),
     "6k": (AI_RANK, {"kyu_rank": 6}, {}),
     "2k": (AI_RANK, {"kyu_rank": 2}, {}),
-#    "2d": (AI_RANK, {"kyu_rank": -1}, {}),
+    "2d": (AI_RANK, {"kyu_rank": -1}, {}),
 }
 
 engine_overrides = {"dev": {"maxVisits": 500}}

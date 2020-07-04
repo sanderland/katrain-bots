@@ -170,6 +170,8 @@ fixed_ais = [pure_policy_ai, default_policy_ai] + [
 
 test_types = [AI_WEIGHTED]  # ,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
 test_types = [AI_SCORELOSS]
+test_types = [AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE]
+
 test_ais = []
 for test_type in test_types:
     if test_type == AI_WEIGHTED:
