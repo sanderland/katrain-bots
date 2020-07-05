@@ -38,7 +38,7 @@ class SPLogger(Logger):
 
 
 SAVE_RESULTS_FILENAME = "calibrated_ai_performance.pickle"
-REFERENCE_DB_FILENAME = "tournament_ai_performance.pickle"
+REFERENCE_DB_FILENAME = "calibrated_ai_performance.jank.pickle"
 
 
 logger = Logger()
