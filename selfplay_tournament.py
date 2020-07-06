@@ -130,7 +130,7 @@ test_types = [AI_RANK, AI_WEIGHTED]  # ,AI_WEIGHTED,AI_LOCAL,AI_TENUKI,AI_TERRIT
 
 for test_type in test_types:
     if test_type == AI_WEIGHTED:
-        for wf in [0.5, 1.0, 1.25, 1.5, 1.75, 2, 2.5, 3.0, 3.5, 4.0]:
+        for wf in [0.5, 1.0, 1.25, 1.5, 1.75, 2, 2.5, 3.0]:
             test_ais.append(AI(AI_WEIGHTED, {"weaken_fac": wf}, {}, rating=int(1000 - (wf - 1.5) * 400)))
     elif test_type in [AI_LOCAL, AI_TENUKI, AI_TERRITORY, AI_INFLUENCE, AI_PICK]:
         for pf in [0.0, 0.05, 0.1, 0.2, 0.3, 0.5, 0.75, 1.0]:

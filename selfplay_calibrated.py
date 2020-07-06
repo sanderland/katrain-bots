@@ -33,10 +33,7 @@ from settings import Logger
 
 
 class SPLogger(Logger):
-    @property
-    def players_info(self):
-        return {bw: Player(player=bw, player_type=PLAYER_AI) for bw in "BW"}
-
+    pass
 
 SAVE_RESULTS_FILENAME = "calibrated_ai_performance.pickle"
 REFERENCE_DB_FILENAME = "calibrated_ai_performance.jank.pickle"
@@ -163,6 +160,29 @@ CALIBRATED_ELO = [
     (17, 96.95581072853861),
     (18, 39.36921298625589),
 ]
+CALIBRATED_ELO = [
+ (-2, 1263.9588011299913),
+ (-1, 1199.6768869623193),
+ (0, 1135.3949727946472),
+ (1, 1071.113058626975),
+ (2, 1006.8311444593029),
+ (3, 942.5492302916308),
+ (4, 878.2673161239586),
+ (5, 813.9854019562865),
+ (6, 749.7034877886144),
+ (7, 685.4215736209424),
+ (8, 621.1396594532702),
+ (9, 556.8577452855981),
+ (10, 492.5758311179259),
+ (11, 428.2939169502538),
+ (12, 364.0120027825817),
+ (13, 299.7300886149095),
+ (14, 235.44817444723742),
+ (15, 171.16626027956522),
+ (16, 106.88434611189314),
+ (17, 42.60243194422105),
+ (18, -21.679482223451032)]
+
 
 fixed_ais = [pure_policy_ai, default_policy_ai] + [
     AI(AI_RANK, {"kyu_rank": kyu}, {}, rating=elo, fixed_rating=True) for kyu, elo in CALIBRATED_ELO
