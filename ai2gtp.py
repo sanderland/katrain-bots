@@ -58,7 +58,7 @@ print("setup: ", ai_strategy, ai_settings, engine.override_settings, file=sys.st
 print(ENGINE_SETTINGS, file=sys.stderr)
 print(ai_strategy, ai_settings, file=sys.stderr)
 
-game = Game(Logger(), engine, game_properties={"SZ": 19, "PW": "OGS", "PB": "OGS"})
+game = Game(Logger(), engine, game_properties={"SZ": 19, "PW": "OGS", "PB": "OGS","AP":"katrain ogs bot"})
 
 
 def rank_to_string(r):
@@ -119,7 +119,7 @@ while True:
             size = f"{size[0]}:{size[1]}"
         else:
             size = int(size[0])
-        game = Game(Logger(), engine, game_properties={"SZ": size, "PW": "OGS", "PB": "OGS"})
+        game = Game(Logger(), engine, game_properties={"SZ": size, "PW": "OGS", "PB": "OGS","AP":"katrain ogs bot"})
         logger.log(f"Init game {game.root.properties}", OUTPUT_ERROR)
     elif line.startswith("komi"):
         _, komi = line.split(" ")
@@ -129,7 +129,7 @@ while True:
     elif line.startswith("place_free_handicap"):
         _, n = line.split(" ")
         n = int(n)
-        game.place_handicap_stones(n)
+        game.root.place_handicap_stones(n)
         handicaps = set(game.root.get_list_property("AB"))
         bx, by = game.board_size
         while len(handicaps) < min(n, bx * by):  # really obscure cases
@@ -210,20 +210,12 @@ while True:
                 if any(gamedata["players"][p]["username"] == "katrain-dev-beta" for p in ["white", "black"]):
                     sgf_dir = "sgf_ogs_beta/"
 
-                if game.board_size == (19, 19):
-                    ranks = rank_game(game, len_segment)
-                    if ranks:
-                        for start, end, rank in ranks:
-                            print(
-                                f"DISCUSSION: Experimental Rank Estimation for moves {start:3d} to {end:3d}: B ~ {format_rank(rank['B'])}, W ~ {format_rank(rank['W'])}",
-                                file=sys.stderr,
-                            )
-
             except Exception as e:
                 _, _, tb = sys.exc_info()
                 logger.log(f"error while processing gamedata: {e}\n{traceback.format_tb(tb)}", OUTPUT_ERROR)
         score = game.current_node.format_score()
         game.game_id += f"_{score}"
+        logger.log(f"PROPERTIES {game.root.properties}",OUTPUT_ERROR)
         sgf = game.write_sgf(
             sgf_dir, trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
         )

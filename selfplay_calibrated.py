@@ -33,6 +33,7 @@ from settings import Logger
 
 
 class SPLogger(Logger):
+    @property
     def players_info(self):
         return {bw: Player(player=bw, player_type=PLAYER_AI) for bw in "BW"}
 
@@ -41,7 +42,7 @@ SAVE_RESULTS_FILENAME = "calibrated_ai_performance.pickle"
 REFERENCE_DB_FILENAME = "calibrated_ai_performance.jank.pickle"
 
 
-logger = Logger()
+logger = SPLogger()
 
 with open("config.json") as f:
     settings = json.load(f)
@@ -169,7 +170,7 @@ fixed_ais = [pure_policy_ai, default_policy_ai] + [
 
 test_types = [AI_WEIGHTED]  # ,AI_LOCAL,AI_TENUKI,AI_TERRITORY,AI_INFLUENCE,AI_PICK]
 test_types = [AI_SCORELOSS]
-test_types = [AI_LOCAL, AI_TENUKI, AI_TERRITORY, AI_INFLUENCE]
+test_types = [AI_LOCAL, AI_TENUKI, AI_TERRITORY, AI_INFLUENCE,AI_PICK]
 
 test_ais = []
 for test_type in test_types:
@@ -183,6 +184,7 @@ for test_type in test_types:
     elif test_type == AI_SCORELOSS:
         for str in [0.0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.75, 1.0, 1.5, 2.0, 3.0]:
             test_ais.append(AI(AI_SCORELOSS, {"strength": str}, {"max_visits": 500, "max_time": 100}))
+
 
 for ai in test_ais:
     find = [ref_ai for ref_ai in init_rating_db if ai == ref_ai]  # load ratings
@@ -198,7 +200,7 @@ N_GAMES_PER_PLAYER = 4
 RATING_NOISE = 200
 SIMUL_GAMES = 32  # 4 * AI.NUM_THREADS
 OUTPUT_SGF = False
-
+OUTPUT_SGF = True
 all_results = []
 
 
@@ -207,7 +209,7 @@ def play_game(black: AI, white: AI):
     engines = {"B": black.get_engine(), "W": white.get_engine()}
     tag = f"{black.name} vs {white.name}"
     try:
-        game = Game(Logger(), engines, game_properties={"SZ": BOARDSIZE, "PW": white.strategy, "PB": black.strategy})
+        game = Game(SPLogger(), engines, game_properties={"SZ": BOARDSIZE, "PW": white.strategy, "PB": black.strategy})
         game.root.add_list_property("PW", [white.name])
         game.root.add_list_property("PB", [black.name])
         start_time = time.time()

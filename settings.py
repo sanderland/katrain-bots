@@ -1,20 +1,19 @@
-from katrain.core.base_katrain import Player
-
-DEFAULT_PORT = 8587
 import sys
 
+from katrain.core.base_katrain import KaTrainBase, Player
 from katrain.core.constants import *
 
+DEFAULT_PORT = 8587
 
-class Logger:
+
+
+class Logger(KaTrainBase):
+    def __init__(self, debug_level=0):
+        super().__init__(force_package_config=True, debug_level=debug_level)
+
     def log(self, msg, level=OUTPUT_INFO):
         if level <= OUTPUT_INFO:
             print(msg, file=sys.stderr)
-
-    CONFIG = {"game/size": 19, "game/komi": 6.5}
-
-    def config(self, key, default=None):
-        return self.CONFIG.get(key, default)
 
 
 bot_strategies = {
