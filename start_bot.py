@@ -17,7 +17,7 @@ BOT_SETTINGS = f" --maxconnectedgames {MAXGAMES} --maxhandicapunranked 25 --maxh
 if "beta" in bot:
     BOT_SETTINGS += " --beta"
 else:
-    BOT_SETTINGS += "--rankedonly "
+    BOT_SETTINGS += "" #--rankedonly "
 
 username = f"katrain-{bot}"
 
@@ -39,8 +39,9 @@ if bot not in greetings or username not in apikeys:
 APIKEY = apikeys[username]
 settings_dump = ", ".join(f"{k}={v}" for k, v in ai_settings.items() if not k.startswith("_"))
 print(settings_dump)
-GREETING = f"Hello, play with these bots at any time by downloading KaTrain at bit.ly/katrain - New version 1.2 with calibrated rank AIs just released! - Current mode is {ai_strategy} ({greetings[bot]})"
-REJECTNEW = "Sorry, the bots are shutting down and not accepting games right now, play with them at any time by downloading KaTrain at bit.ly/katrain - New version 1.2 with calibrated rank AIs just released!"
+newversion = "New version 1.3 with improved UI and all AI at different strengths just released!"
+GREETING = f"Hello, play with these bots at any time by downloading KaTrain at bit.ly/katrain - {newversion} - Current mode is {ai_strategy} ({greetings[bot]})"
+REJECTNEW = "Sorry, the bots are shutting down and not accepting games right now, play with them at any time by downloading KaTrain at bit.ly/katrain - {newversion}"
 
 if settings:
     GREETING += f" Settings: {settings_dump}."
