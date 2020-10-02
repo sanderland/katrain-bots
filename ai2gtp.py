@@ -9,11 +9,11 @@ import traceback
 
 from katrain.core.ai import generate_ai_move
 from katrain.core.base_katrain import KaTrainBase
+from katrain.core.constants import *
 from katrain.core.constants import OUTPUT_ERROR, OUTPUT_INFO
 from katrain.core.engine import EngineDiedException, KataGoEngine
 from katrain.core.game import Game
 from katrain.core.sgf_parser import Move
-
 from rank_utils import rank_game
 from settings import DEFAULT_PORT, Logger, bot_strategies
 
@@ -27,8 +27,13 @@ MAX_WAIT_ANALYSIS = 10
 MAX_PASS = 3  # after opponent passes this many times, we always pass
 len_segment = 80
 
-logger = Logger()
+logger = Logger(output_level=OUTPUT_INFO)
 
+
+with open("config.json") as f:
+    settings = json.load(f)
+    all_ai_settings = settings["ai"]
+ai_strategy, x_ai_settings, x_engine_settings = bot_strategies[bot]
 
 ENGINE_SETTINGS = {
     "katago": "",  # actual engine settings in engine_server.py
@@ -37,18 +42,15 @@ ENGINE_SETTINGS = {
     "threads": "",
     "max_visits": 5,
     "max_time": 5.0,
-    "_enable_ownership": False,
+    "_enable_ownership": ai_strategy in [AI_SIMPLE_OWNERSHIP],
+    "altcommand": f"python engine_connector.py {port}",
 }
 
-engine = KataGoEngine(logger, ENGINE_SETTINGS, override_command=f"python engine_connector.py {port}")
+engine = KataGoEngine(logger, ENGINE_SETTINGS)
 
-with open("config.json") as f:
-    settings = json.load(f)
-    all_ai_settings = settings["ai"]
 
 sgf_dir = "sgf_ogs/"
 
-ai_strategy, x_ai_settings, x_engine_settings = bot_strategies[bot]
 ai_settings = {**all_ai_settings[ai_strategy], **x_ai_settings}
 
 ENGINE_SETTINGS.update(x_engine_settings)
@@ -58,7 +60,7 @@ print("setup: ", ai_strategy, ai_settings, engine.override_settings, file=sys.st
 print(ENGINE_SETTINGS, file=sys.stderr)
 print(ai_strategy, ai_settings, file=sys.stderr)
 
-game = Game(Logger(), engine, game_properties={"SZ": 19, "PW": "OGS", "PB": "OGS","AP":"katrain ogs bot"})
+game = Game(Logger(), engine, game_properties={"SZ": 19, "PW": "OGS", "PB": "OGS", "AP": "katrain ogs bot"})
 
 
 def rank_to_string(r):
@@ -91,6 +93,10 @@ def malkovich_analysis(cn):
             f"dscore {dscore} = {cn.analysis['root']['scoreLead']} {cn.parent.analysis['root']['scoreLead']} at {move}...",
             OUTPUT_ERROR,
         )
+        if cn.ai_thoughts:
+            logger.log(
+                f"AI thoughts: {cn.ai_thoughts} at move {cn.player} {cn.move.gtp()}", OUTPUT_INFO,
+            )
         if abs(dscore) > REPORT_SCORE_THRESHOLD and (
             cn.player == "B" and dscore < 0 or cn.player == "W" and dscore > 0
         ):  # relevant mistakes
@@ -119,7 +125,7 @@ while True:
             size = f"{size[0]}:{size[1]}"
         else:
             size = int(size[0])
-        game = Game(Logger(), engine, game_properties={"SZ": size, "PW": "OGS", "PB": "OGS","AP":"katrain ogs bot"})
+        game = Game(Logger(), engine, game_properties={"SZ": size, "PW": "OGS", "PB": "OGS", "AP": "katrain ogs bot"})
         logger.log(f"Init game {game.root.properties}", OUTPUT_ERROR)
     elif line.startswith("komi"):
         _, komi = line.split(" ")
@@ -215,7 +221,7 @@ while True:
                 logger.log(f"error while processing gamedata: {e}\n{traceback.format_tb(tb)}", OUTPUT_ERROR)
         score = game.current_node.format_score()
         game.game_id += f"_{score}"
-        logger.log(f"PROPERTIES {game.root.properties}",OUTPUT_ERROR)
+        logger.log(f"PROPERTIES {game.root.properties}", OUTPUT_ERROR)
         sgf = game.write_sgf(
             sgf_dir, trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
         )

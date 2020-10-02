@@ -39,9 +39,9 @@ if bot not in greetings or username not in apikeys:
 APIKEY = apikeys[username]
 settings_dump = ", ".join(f"{k}={v}" for k, v in ai_settings.items() if not k.startswith("_"))
 print(settings_dump)
-newversion = "New version 1.4.0 with CPU-only KataGo recently released!"
+newversion = "New version 1.5.0 with improved graphics and analysis options recently released!"
 GREETING = f"Hello, play with these bots at any time by downloading KaTrain at bit.ly/katrain - {newversion} - Current mode is {ai_strategy} ({greetings[bot]})"
-REJECTNEW = "Sorry, the bots are shutting down and not accepting games right now, play with them at any time by downloading KaTrain at bit.ly/katrain - {newversion}"
+REJECTNEW = f"Sorry, the bots are shutting down and not accepting games right now, play with them at any time by downloading KaTrain at bit.ly/katrain - {newversion}"
 
 if settings:
     GREETING += f" Settings: {settings_dump}."

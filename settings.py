@@ -6,25 +6,49 @@ from katrain.core.constants import *
 DEFAULT_PORT = 8587
 
 
-
 class Logger(KaTrainBase):
-    def __init__(self, debug_level=0):
+    def __init__(self, debug_level=0, output_level=OUTPUT_INFO):
         super().__init__(force_package_config=True, debug_level=debug_level)
+        self.output_level = output_level
 
     def log(self, msg, level=OUTPUT_INFO):
-        if level <= OUTPUT_INFO:
+        if level <= self.output_level:
             print(msg, file=sys.stderr)
 
 
 bot_strategies = {
-    "dev": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
+    # "dev": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
+    "dev": (
+        AI_SIMPLE_OWNERSHIP,
+        {"max_points_lost": 2.0, "settled_weight": 1.0, "opponent_fac": 0.5},
+        {"max_visits": 500},
+    ),
+    "dev-beta": (
+        AI_SIMPLE_OWNERSHIP,
+        {"max_points_lost": 1.75, "settled_weight": 1.0, "opponent_fac": 0.5},
+        {"max_visits": 500, "wide_root_noise": 0.02},
+    ),
+    "balanced": (
+        AI_SIMPLE_OWNERSHIP,
+        {"max_points_lost": 1.75, "settled_weight": 1.0, "opponent_fac": -2.0},
+        {"max_visits": 500, "wide_root_noise": 0.04},
+    ),
+    "territory": (
+        AI_SIMPLE_OWNERSHIP,
+        {"max_points_lost": 4.0, "settled_weight": 5.0, "opponent_fac": 0.25, "min_visits": 1},
+        {"max_visits": 500, "wide_root_noise": 0.15},
+    ),
+    "strong": (
+        AI_SIMPLE_OWNERSHIP,
+        {"max_points_lost": 1.1, "settled_weight": 1.0, "opponent_fac": 0.5, "min_visits": 3},
+        {"max_visits": 1000,"wide_root_noise": 0.02},
+    ),
     #    "dev": (AI_WEIGHTED, {"weaken_fac": 0.5},{}),
-    "balanced": (AI_SCORELOSS, {"strength": 1.0}, {"max_visits": 500}),
+    #    "balanced": (AI_SCORELOSS, {"strength": 0.35}, {"max_visits": 500}),  # 1d?
+    # "territory": (AI_TERRITORY, {}, {}),
     #    "dev": (AI_POLICY, {}, {}),
-    "dev-beta": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
-    "strong": (AI_POLICY, {}, {}),
+    #"strong": (AI_POLICY, {}, {}),
     "influence": (AI_INFLUENCE, {}, {}),
-    "territory": (AI_TERRITORY, {}, {}),
     #    "balanced": (AI_PICK, {}, {}),
     "weighted": (AI_WEIGHTED, {}, {"weaken_fac": 1.0}),
     "local": (AI_LOCAL, {}, {}),
@@ -40,12 +64,14 @@ bot_strategies = {
 engine_overrides = {"dev": {"maxVisits": 500}}
 
 greetings = {
-    "dev": "Point loss-weighted random move.",
-    "dev-beta": "Play a policy-weighted move.",
-    "strong": "Play top policy move.",
+    "dev": "Play in a way that simplifies the game.",
+    "dev-beta": "Play in a way that simplifies the game.",
+    #"strong": "Play top policy move.",
+    "strong": "Play simple.",
     "influence": "Play an influential style.",
     "territory": "Play a territorial style.",
-    "balanced": "Play the best move out of a random selection.",
+    #    "balanced": "Play the best move out of a random selection.",
+    "balanced": "Having a mid-life crisis and now plays in a way that complicates the game.",
     "weighted": "Play a policy-weighted move.",
     "local": "Prefer local responses.",
     "tenuki": "Prefer to tenuki.",

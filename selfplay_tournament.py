@@ -164,7 +164,7 @@ def play_game(black: AI, white: AI):
         game.root.add_list_property("PW", [white.name])
         game.root.add_list_property("PB", [black.name])
         start_time = time.time()
-        while not game.ended and game.current_node.depth < 300:
+        while not game.end_result and game.current_node.depth < 300:
             p = game.current_node.next_player
             move, node = generate_ai_move(game, players[p].strategy, players[p].ai_settings)
         while not game.current_node.analysis_ready:

@@ -6,29 +6,28 @@ import sys
 import threading
 import traceback
 
-from katrain.core.constants import OUTPUT_INFO
+from katrain.core.constants import OUTPUT_INFO, OUTPUT_DEBUG
 from katrain.core.engine import KataGoEngine
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8587
 
 ENGINE_SETTINGS = {
-    "katago": "katago/katago-eigen-winograd-native",
+    "katago": "katago/katago-allowner-eigen",
     "model": "katrain/models/g170e-b15c192-s1672170752-d466197061.bin.gz",
-    # "model": "~/Desktop/g170e-b20c256x2-s5303129600-d1228401921.bin.gz",
     "config": "katrain/KataGo/analysis_config.cfg",
     "max_visits": 50,
     "max_time": 1.0,
-    "_enable_ownership": False,
+    "_enable_ownership": True,
     "threads": 32,
 }
 
 
 class Logger:
     def log(self, msg, level):
-        if level <= OUTPUT_INFO:
+        if level <= OUTPUT_DEBUG:
             print(f"[{level} {msg}")
 
-
+print(ENGINE_SETTINGS)
 engine = KataGoEngine(Logger(), ENGINE_SETTINGS)
 
 
