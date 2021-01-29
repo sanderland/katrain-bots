@@ -14,6 +14,7 @@ from katrain.core.constants import OUTPUT_ERROR, OUTPUT_INFO
 from katrain.core.engine import EngineDiedException, KataGoEngine
 from katrain.core.game import Game
 from katrain.core.sgf_parser import Move
+
 from rank_utils import rank_game
 from settings import DEFAULT_PORT, Logger, bot_strategies
 
@@ -80,14 +81,14 @@ def format_rank(rank):
 
 def malkovich_analysis(cn):
     start = time.time()
-    while not cn.analysis_ready:
+    while not cn.analysis_complete:
         time.sleep(0.001)
         if engine.katago_process.poll() is not None:  # TODO: clean up
             raise EngineDiedException(f"Engine for {cn.next_player} ({engine.config}) died")
         if time.time() - start > MAX_WAIT_ANALYSIS:
             logger.log(f"Waiting for analysis timed out!", OUTPUT_ERROR)
             return
-    if cn.analysis_ready and cn.parent and cn.parent.analysis_ready:
+    if cn.analysis_complete and cn.parent and cn.parent.analysis_complete:
         dscore = cn.analysis["root"]["scoreLead"] - cn.parent.analysis["root"]["scoreLead"]
         logger.log(
             f"dscore {dscore} = {cn.analysis['root']['scoreLead']} {cn.parent.analysis['root']['scoreLead']} at {move}...",
@@ -95,7 +96,8 @@ def malkovich_analysis(cn):
         )
         if cn.ai_thoughts:
             logger.log(
-                f"AI thoughts: {cn.ai_thoughts} at move {cn.player} {cn.move.gtp()}", OUTPUT_INFO,
+                f"AI thoughts: {cn.ai_thoughts} at move {cn.player} {cn.move.gtp()}",
+                OUTPUT_INFO,
             )
         if abs(dscore) > REPORT_SCORE_THRESHOLD and (
             cn.player == "B" and dscore < 0 or cn.player == "W" and dscore > 0
@@ -222,8 +224,10 @@ while True:
         score = game.current_node.format_score()
         game.game_id += f"_{score}"
         logger.log(f"PROPERTIES {game.root.properties}", OUTPUT_ERROR)
+        game.external_game = True
+        filename = os.path.join(sgf_dir, game.generate_filename())
         sgf = game.write_sgf(
-            sgf_dir, trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
+            filename, trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
         )
         logger.log(f"Game ended. Score was {score} -> saved sgf to {sgf}", OUTPUT_ERROR)
         sys.stderr.flush()

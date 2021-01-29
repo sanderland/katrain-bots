@@ -10,12 +10,13 @@ from katrain.core.constants import OUTPUT_INFO, OUTPUT_DEBUG
 from katrain.core.engine import KataGoEngine
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8587
+KATA = sys.argv[2] if len(sys.argv) > 2 else "katago/katago-allowner-eigen"
 
 ENGINE_SETTINGS = {
-    "katago": "katago/katago-allowner-eigen",
+    "katago": KATA,
     "model": "katrain/models/g170e-b15c192-s1672170752-d466197061.bin.gz",
     "config": "katrain/KataGo/analysis_config.cfg",
-    "max_visits": 50,
+    "max_visits": 10,
     "max_time": 1.0,
     "_enable_ownership": True,
     "threads": 32,
@@ -46,14 +47,14 @@ def engine_thread(conn, addr):
                 query["id"] = tag + str(query["id"])
 
                 def callback(analysis, *args):
-                    print(f"Returning {analysis['id']} for {addr} -> {len(engine.queries)} outstanding queries")
+                    print(f"Returning {analysis['id']} visits {analysis['rootInfo']['visits']} for {addr} -> {len(engine.queries)} outstanding queries")
                     analysis["id"] = analysis["id"][len(tag) :]
                     sockfile.write(json.dumps(analysis) + "\n")
                     sockfile.flush()
 
                 engine.send_query(query, callback=callback, error_callback=callback)
             except Exception as e:
-                print("Sent error to {addr}")
+                print(f"Sent error to {addr}")
                 traceback.print_exc()
                 sockfile.write(json.dumps({"id": query["id"], "error": str(e)}) + "\n")
                 sockfile.flush()

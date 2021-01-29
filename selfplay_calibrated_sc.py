@@ -210,7 +210,7 @@ def play_game(black: AI, white: AI):
         while not game.end_result and game.current_node.depth < 300:
             p = game.current_node.next_player
             move, node = generate_ai_move(game, players[p].strategy, players[p].ai_settings)
-        while not game.current_node.analysis_ready:
+        while not game.current_node.analysis_complete:
             time.sleep(0.001)
         game.game_id += f"_{game.current_node.format_score()}"
         if OUTPUT_SGF:

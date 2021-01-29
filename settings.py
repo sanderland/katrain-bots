@@ -17,7 +17,6 @@ class Logger(KaTrainBase):
 
 
 bot_strategies = {
-    # "dev": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
     "dev": (
         AI_SIMPLE_OWNERSHIP,
         {"max_points_lost": 2.0, "settled_weight": 1.0, "opponent_fac": 0.5},
@@ -28,26 +27,18 @@ bot_strategies = {
         {"max_points_lost": 1.75, "settled_weight": 1.0, "opponent_fac": 0.5},
         {"max_visits": 500, "wide_root_noise": 0.02},
     ),
-    "balanced": (
-        AI_SIMPLE_OWNERSHIP,
-        {"max_points_lost": 1.75, "settled_weight": 1.0, "opponent_fac": -2.0},
-        {"max_visits": 500, "wide_root_noise": 0.04},
-    ),
-    "territory": (
-        AI_SIMPLE_OWNERSHIP,
-        {"max_points_lost": 4.0, "settled_weight": 5.0, "opponent_fac": 0.25, "min_visits": 1},
-        {"max_visits": 500, "wide_root_noise": 0.15},
-    ),
     "strong": (
         AI_SIMPLE_OWNERSHIP,
         {"max_points_lost": 1.1, "settled_weight": 1.0, "opponent_fac": 0.5, "min_visits": 3},
         {"max_visits": 1000,"wide_root_noise": 0.02},
     ),
+    # "dev": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
     #    "dev": (AI_WEIGHTED, {"weaken_fac": 0.5},{}),
-    #    "balanced": (AI_SCORELOSS, {"strength": 0.35}, {"max_visits": 500}),  # 1d?
-    # "territory": (AI_TERRITORY, {}, {}),
+       "balanced": (AI_SCORELOSS, {"strength": 0.35}, {"max_visits": 500}),  # 1d?
+     "territory": (AI_TERRITORY, {}, {}),
     #    "dev": (AI_POLICY, {}, {}),
     #"strong": (AI_POLICY, {}, {}),
+    "weak": (AI_DEFAULT, {}, {"max_visits": 500,'max_time':15}),
     "influence": (AI_INFLUENCE, {}, {}),
     #    "balanced": (AI_PICK, {}, {}),
     "weighted": (AI_WEIGHTED, {}, {"weaken_fac": 1.0}),
@@ -68,6 +59,7 @@ greetings = {
     "dev-beta": "Play in a way that simplifies the game.",
     #"strong": "Play top policy move.",
     "strong": "Play simple.",
+    "weak": "Utility function inversed.",
     "influence": "Play an influential style.",
     "territory": "Play a territorial style.",
     #    "balanced": "Play the best move out of a random selection.",

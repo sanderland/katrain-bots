@@ -63,7 +63,7 @@ def rank_game(game, len_segment):
     if len(moves) < 1.5 * len_segment:
         return None
 
-    while not all(m.analysis_ready for m in moves):
+    while not all(m.analysis_complete for m in moves):
         time.sleep(0.01)
 
     parent_policy_per_move = [move.parent.policy_ranking for move in moves]
