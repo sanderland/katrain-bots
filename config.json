@@ -8,14 +8,14 @@
         "max_visits": 500,
         "fast_visits": 50,
         "max_time": 8.0,
-        "wide_root_noise": 0.0,
+        "wide_root_noise": 0.05,
         "_enable_ownership": true
     },
     "general": {
         "sgf_load": "~/Downloads",
         "sgf_save": "./sgfout",
         "anim_pv_time": 0.5,
-        "debug_level": 0,
+        "debug_level": 2,
         "lang": "en",
         "version": "1.5.1"
     },
@@ -92,7 +92,9 @@
             "max_points_lost": 1.75,
             "settled_weight": 1.0,
             "opponent_fac": 0.5,
-            "min_visits": 3
+            "min_visits": 3,
+            "attach_penalty": 1,
+            "tenuki_penalty": 0.5
         },
         "ai:p:weighted": {
             "weaken_fac": 1.25,

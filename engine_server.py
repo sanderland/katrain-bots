@@ -5,12 +5,17 @@ import socket
 import sys
 import threading
 import traceback
+# isort: skip_file
+import json
+import sys
+
+sys.path.append('../katrain')
 
 from katrain.core.constants import OUTPUT_INFO, OUTPUT_DEBUG
 from katrain.core.engine import KataGoEngine
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8587
-KATA = sys.argv[2] if len(sys.argv) > 2 else "katago/katago-allowner-eigen"
+KATA = sys.argv[2] if len(sys.argv) > 2 else "/opt/homebrew/bin/katago"
 
 ENGINE_SETTINGS = {
     "katago": KATA,
@@ -24,9 +29,11 @@ ENGINE_SETTINGS = {
 
 
 class Logger:
+
     def log(self, msg, level):
         if level <= OUTPUT_DEBUG:
             print(f"[{level} {msg}")
+
 
 print(ENGINE_SETTINGS)
 engine = KataGoEngine(Logger(), ENGINE_SETTINGS)
@@ -47,8 +54,10 @@ def engine_thread(conn, addr):
                 query["id"] = tag + str(query["id"])
 
                 def callback(analysis, *args):
-                    print(f"Returning {analysis['id']} visits {analysis['rootInfo']['visits']} for {addr} -> {len(engine.queries)} outstanding queries")
-                    analysis["id"] = analysis["id"][len(tag) :]
+                    print(
+                        f"Returning {analysis['id']} visits {analysis['rootInfo']['visits']} for {addr} -> {len(engine.queries)} outstanding queries"
+                    )
+                    analysis["id"] = analysis["id"][len(tag):]
                     sockfile.write(json.dumps(analysis) + "\n")
                     sockfile.flush()
 

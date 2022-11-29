@@ -1,9 +1,13 @@
 # This is a script that turns a KaTrain AI into a sort-of GTP compatible bot
+# isort: skip_file
 import json
-import math
 import os
-import random
 import sys
+
+sys.path.append('../katrain')
+
+import math
+import random
 import time
 import traceback
 
@@ -11,14 +15,18 @@ from katrain.core.ai import generate_ai_move
 from katrain.core.base_katrain import KaTrainBase
 from katrain.core.constants import *
 from katrain.core.constants import OUTPUT_ERROR, OUTPUT_INFO
-from katrain.core.engine import EngineDiedException, KataGoEngine
+from katrain.core.engine import KataGoEngine
 from katrain.core.game import Game
 from katrain.core.sgf_parser import Move
 
 from rank_utils import rank_game
-from settings import DEFAULT_PORT, Logger, bot_strategies
+from settings import DEFAULT_PORT, Logger, bot_strategies, PYTHON
 
 os.environ["KCFG_KIVY_LOG_LEVEL"] = os.environ.get("KCFG_KIVY_LOG_LEVEL", "warning")
+
+
+class EngineDiedException(Exception):
+    pass
 
 
 bot = sys.argv[1].strip()
@@ -29,7 +37,6 @@ MAX_PASS = 3  # after opponent passes this many times, we always pass
 len_segment = 80
 
 logger = Logger(output_level=OUTPUT_INFO)
-
 
 with open("config.json") as f:
     settings = json.load(f)
@@ -44,11 +51,19 @@ ENGINE_SETTINGS = {
     "max_visits": 5,
     "max_time": 5.0,
     "_enable_ownership": ai_strategy in [AI_SIMPLE_OWNERSHIP],
-    "altcommand": f"python engine_connector.py {port}",
+    "altcommand": f"{PYTHON} engine_connector.py {port}",
+}
+ENGINE_SETTINGS = {
+    "katago": "",
+    "model": "katrain/models/g170e-b15c192-s1672170752-d466197061.bin.gz",
+    "config": "katrain/KataGo/analysis_config.cfg",
+    "max_visits": 500,
+    "max_time": 2.0,
+    "_enable_ownership": True,
+    "threads": 4,
 }
 
 engine = KataGoEngine(logger, ENGINE_SETTINGS)
-
 
 sgf_dir = "sgf_ogs/"
 
@@ -99,20 +114,16 @@ def malkovich_analysis(cn):
                 f"AI thoughts: {cn.ai_thoughts} at move {cn.player} {cn.move.gtp()}",
                 OUTPUT_INFO,
             )
-        if abs(dscore) > REPORT_SCORE_THRESHOLD and (
-            cn.player == "B" and dscore < 0 or cn.player == "W" and dscore > 0
-        ):  # relevant mistakes
+        if abs(dscore) > REPORT_SCORE_THRESHOLD and (cn.player == "B" and dscore < 0 or
+                                                     cn.player == "W" and dscore > 0):  # relevant mistakes
             favpl = "B" if dscore > 0 else "W"
             msg = f"MALKOVICH:{cn.player} {cn.move.gtp()} caused a significant score change ({favpl} gained {abs(dscore):.1f} points)"
             if cn.ai_thoughts:
                 msg += f" -> Win Rate {cn.format_winrate()} Score {cn.format_score()} AI Thoughts: {cn.ai_thoughts}"
             else:
-                comment = (
-                    cn.comment(sgf=True, interactive=False)
-                    .replace("\n", " ")
-                    .replace("PV: B", "PV: ")
-                    .replace("PV: W", "PV: ")
-                )
+                comment = (cn.comment(sgf=True,
+                                      interactive=False).replace("\n", " ").replace("PV: B",
+                                                                                    "PV: ").replace("PV: W", "PV: "))
                 msg += f" -> Detailed move analysis: {comment}"
             print(msg, file=sys.stderr)
             sys.stderr.flush()
@@ -142,8 +153,8 @@ while True:
         bx, by = game.board_size
         while len(handicaps) < min(n, bx * by):  # really obscure cases
             handicaps.add(
-                Move((random.randint(0, bx - 1), random.randint(0, by - 1)), player="B").sgf(board_size=game.board_size)
-            )
+                Move((random.randint(0, bx - 1), random.randint(0, by - 1)),
+                     player="B").sgf(board_size=game.board_size))
         game.root.set_property("AB", list(handicaps))
         game._calculate_groups()
         gtp = [Move.from_sgf(m, game.board_size, "B").gtp() for m in handicaps]
@@ -165,9 +176,8 @@ while True:
     elif line.startswith("genmove"):
         _, player = line.strip().split(" ")
         if player[0].upper() != game.current_node.next_player:
-            logger.log(
-                f"ERROR generating move: UNEXPECTED PLAYER {player} != {game.current_node.next_player}.", OUTPUT_ERROR
-            )
+            logger.log(f"ERROR generating move: UNEXPECTED PLAYER {player} != {game.current_node.next_player}.",
+                       OUTPUT_ERROR)
             print(f"= ??\n")
             sys.stdout.flush()
             continue
@@ -175,9 +185,7 @@ while True:
         game.current_node.analyze(engine)
         malkovich_analysis(game.current_node)
         game.root.properties[f"P{game.current_node.next_player}"] = [f"KaTrain {ai_strategy}"]
-        num_passes = sum(
-            [int(n.is_pass or False) for n in game.current_node.nodes_from_root[::-1][0 : 2 * MAX_PASS : 2]]
-        )
+        num_passes = sum([int(n.is_pass or False) for n in game.current_node.nodes_from_root[::-1][0:2 * MAX_PASS:2]])
         bx, by = game.board_size
         if num_passes >= MAX_PASS and game.current_node.depth - 2 * MAX_PASS >= bx + by:
             logger.log(f"Forced pass as opponent is passing {MAX_PASS} times", OUTPUT_ERROR)
@@ -226,9 +234,12 @@ while True:
         logger.log(f"PROPERTIES {game.root.properties}", OUTPUT_ERROR)
         game.external_game = True
         filename = os.path.join(sgf_dir, game.generate_filename())
-        sgf = game.write_sgf(
-            filename, trainer_config={"eval_show_ai": True, "save_feedback": [True], "eval_thresholds": []}
-        )
+        sgf = game.write_sgf(filename,
+                             trainer_config={
+                                 "eval_show_ai": True,
+                                 "save_feedback": [True],
+                                 "eval_thresholds": []
+                             })
         logger.log(f"Game ended. Score was {score} -> saved sgf to {sgf}", OUTPUT_ERROR)
         sys.stderr.flush()
         sys.stdout.flush()
