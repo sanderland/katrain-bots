@@ -4,9 +4,11 @@ from katrain.core.base_katrain import KaTrainBase, Player
 from katrain.core.constants import *
 
 DEFAULT_PORT = 8587
+PYTHON = "python3"
 
 
 class Logger(KaTrainBase):
+
     def __init__(self, debug_level=0, output_level=OUTPUT_INFO):
         super().__init__(force_package_config=True, debug_level=debug_level)
         self.output_level = output_level
@@ -19,37 +21,84 @@ class Logger(KaTrainBase):
 bot_strategies = {
     "dev": (
         AI_SIMPLE_OWNERSHIP,
-        {"max_points_lost": 2.0, "settled_weight": 1.0, "opponent_fac": 0.5},
-        {"max_visits": 500},
+        {
+            "max_points_lost": 2.0,
+            "settled_weight": 1.0,
+            "opponent_fac": 0.5
+        },
+        {
+            "max_visits": 500
+        },
     ),
     "dev-beta": (
         AI_SIMPLE_OWNERSHIP,
-        {"max_points_lost": 1.75, "settled_weight": 1.0, "opponent_fac": 0.5},
-        {"max_visits": 500, "wide_root_noise": 0.02},
+        {
+            "max_points_lost": 1.75,
+            "settled_weight": 1.0,
+            "opponent_fac": 0.5
+        },
+        {
+            "max_visits": 500,
+            "wide_root_noise": 0.02
+        },
     ),
     "strong": (
         AI_SIMPLE_OWNERSHIP,
-        {"max_points_lost": 1.1, "settled_weight": 1.0, "opponent_fac": 0.5, "min_visits": 3},
-        {"max_visits": 1000,"wide_root_noise": 0.02},
+        {
+            "max_points_lost": 1.1,
+            "settled_weight": 1.0,
+            "opponent_fac": 0.5,
+            "min_visits": 3
+        },
+        {
+            "max_visits": 1000,
+            "wide_root_noise": 0.02
+        },
     ),
     # "dev": (AI_SCORELOSS, {"strength": 0.5}, {"max_visits": 500}),
     #    "dev": (AI_WEIGHTED, {"weaken_fac": 0.5},{}),
-       "balanced": (AI_SCORELOSS, {"strength": 0.35}, {"max_visits": 500}),  # 1d?
-     "territory": (AI_TERRITORY, {}, {}),
+    "balanced": (AI_SIMPLE_OWNERSHIP, {
+        "opponent_fac": -2.0,
+        "max_points_lost": 2.0,
+        "min_visits": 5,
+        "settled_weight": 0.5,
+        "attach_penalty": -0.1
+    }, {
+        "max_visits": 1000,
+        "wide_root_noise": 0.05
+    }),  # 1d?
+    "territory": (AI_TERRITORY, {}, {}),
     #    "dev": (AI_POLICY, {}, {}),
     #"strong": (AI_POLICY, {}, {}),
-    "weak": (AI_DEFAULT, {}, {"max_visits": 500,'max_time':15}),
+    "weak": (AI_DEFAULT, {}, {
+        "max_visits": 500,
+        'max_time': 15
+    }),
     "influence": (AI_INFLUENCE, {}, {}),
     #    "balanced": (AI_PICK, {}, {}),
-    "weighted": (AI_WEIGHTED, {}, {"weaken_fac": 1.0}),
+    "weighted": (AI_WEIGHTED, {}, {
+        "weaken_fac": 1.0
+    }),
     "local": (AI_LOCAL, {}, {}),
     "tenuki": (AI_TENUKI, {}, {}),
-    "18k": (AI_RANK, {"kyu_rank": 18}, {}),
-    "14k": (AI_RANK, {"kyu_rank": 14}, {}),
-    "10k": (AI_RANK, {"kyu_rank": 10}, {}),
-    "6k": (AI_RANK, {"kyu_rank": 6}, {}),
-    "2k": (AI_RANK, {"kyu_rank": 2}, {}),
-    "2d": (AI_RANK, {"kyu_rank": -1}, {}),
+    "18k": (AI_RANK, {
+        "kyu_rank": 18
+    }, {}),
+    "14k": (AI_RANK, {
+        "kyu_rank": 14
+    }, {}),
+    "10k": (AI_RANK, {
+        "kyu_rank": 10
+    }, {}),
+    "6k": (AI_RANK, {
+        "kyu_rank": 6
+    }, {}),
+    "2k": (AI_RANK, {
+        "kyu_rank": 2
+    }, {}),
+    "2d": (AI_RANK, {
+        "kyu_rank": -1
+    }, {}),
 }
 
 engine_overrides = {"dev": {"maxVisits": 500}}

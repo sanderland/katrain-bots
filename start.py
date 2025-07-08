@@ -1,10 +1,9 @@
-import re
 import shlex
 import subprocess
 import sys
 import threading
 
-from settings import DEFAULT_PORT
+from settings import DEFAULT_PORT, PYTHON
 
 port = int(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_PORT
 bots = sys.argv[2:]
@@ -63,9 +62,9 @@ with open(LOGFILE, "a") as logf:
         t.start()
         print(f"'{cmd}' started")
 
-    startproc(f"python engine_server.py {port}", "Engine")
+    startproc(f"{PYTHON} engine_server.py {port}", "Engine")
     for botname in bots:
-        startproc(f"python start_bot.py {botname} {port}", botname)
+        startproc(f"{PYTHON} start_bot.py {botname} {port}", botname)
 
     for t in threads:
         t.join()
